@@ -29,7 +29,7 @@ import { RouterLink } from 'vue-router'
           class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
         >
           <li><RouterLink :to="{ name: 'home' }">Homepage</RouterLink></li>
-          <li><RouterLink :to="{}">FAQ's</RouterLink></li>
+          <li><RouterLink :to="{ name: 'FAQView' }">FAQ's</RouterLink></li>
         </ul>
       </div>
     </div>

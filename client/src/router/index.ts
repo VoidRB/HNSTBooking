@@ -48,6 +48,15 @@ const router = createRouter({
       },
     },
     {
+      path: '/FAQ',
+      name: 'FAQView',
+
+      component: () => import('@/views/FAQView.vue'),
+      meta: {
+        title: 'Coordinator',
+      },
+    },
+    {
       path: '/:catchall(.*)',
       name: 'notFound',
       meta: {
