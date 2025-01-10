@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AllAppointments from '@/components/AllAppointments.vue'
 import AllBeneficiaries from '@/components/AllBeneficiaries.vue'
 import AllPeerSupporters from '@/components/AllPeerSupporters.vue'
 import CoordinatorNavBar from '@/components/NavBars/CoordinatorNavBar.vue'
@@ -6,7 +7,10 @@ import CoordinatorNavBar from '@/components/NavBars/CoordinatorNavBar.vue'
 <template>
   <div class="flex h-full w-full flex-col items-center gap-10">
     <CoordinatorNavBar />
-    <AllPeerSupporters />
-    <AllBeneficiaries />
+    <section class="flex flex-col gap-10">
+      <AllPeerSupporters />
+      <AllBeneficiaries />
+      <AllAppointments />
+    </section>
   </div>
 </template>
