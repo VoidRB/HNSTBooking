@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const users = [
+const beneficiaries = [
   {
     id: 1,
     name: 'Alice Johnson',
@@ -36,6 +36,8 @@ const users = [
 </script>
 <template>
   <section>
+    <section class="w-full place-items-start px-10 text-2xl">All Beneficiaries</section>
+
     <div class="overflow-x-auto">
       <table class="table">
         <!-- head -->
@@ -46,18 +48,18 @@ const users = [
             <th>Email</th>
             <th>Status</th>
             <th>Appointments</th>
-            <th>Assigned PS</th>
+            <th>Assigned Peer Supporter</th>
           </tr>
         </thead>
         <tbody>
           <!-- row 1 -->
-          <tr v-for="user in users" :key="user.id">
-            <th>{{ user.id }}</th>
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.status }}</td>
-            <td>{{ user.appointments }}</td>
-            <td>{{ user.assignedPS }}</td>
+          <tr v-for="beneficiary in beneficiaries" :key="beneficiary.id">
+            <th>{{ beneficiary.id }}</th>
+            <td>{{ beneficiary.name }}</td>
+            <td>{{ beneficiary.email }}</td>
+            <td>{{ beneficiary.status }}</td>
+            <td>{{ beneficiary.appointments }}</td>
+            <td>{{ beneficiary.assignedPS }}</td>
           </tr>
         </tbody>
       </table>

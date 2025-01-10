@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import AllBeneficiaries from '@/components/AllBeneficiaries.vue'
+import PeerSupporterNavBar from '@/components/NavBars/PeerSupporterNavBar.vue'
 </script>
 <template>
-  <div class="flex h-full w-full flex-col items-center justify-between py-10">
-    <section class="w-full place-items-start px-10 text-2xl">Beneficiaries Info</section>
+  <div class="flex h-full w-full flex-col items-center gap-10">
+    <PeerSupporterNavBar />
     <AllBeneficiaries />
-    <section></section>
   </div>
 </template>

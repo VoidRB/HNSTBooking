@@ -14,7 +14,7 @@ const router = createRouter({
     },
     {
       path: '/PeerSupporter',
-      name: 'PS',
+      name: 'PeerSupporterView',
       component: () => import('@/views/PeerSupporterView.vue'),
       meta: {
         title: 'PS',
@@ -34,6 +34,15 @@ const router = createRouter({
       name: 'CoordinatorView',
 
       component: () => import('@/views/CoordinatorView.vue'),
+      meta: {
+        title: 'Coordinator',
+      },
+    },
+    {
+      path: '/Assessments',
+      name: 'AssessmentsView',
+
+      component: () => import('@/views/AssessmentsView.vue'),
       meta: {
         title: 'Coordinator',
       },

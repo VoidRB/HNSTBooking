@@ -5,6 +5,7 @@ import { useToast } from 'vue-toastification'
 const toast = useToast()
 const appointment = reactive({
   beneficiaryEmail: '',
+  beneficiaryName: '',
   appointmentDate: '',
   appointmentDuration: 60,
 })
@@ -18,12 +19,14 @@ const bookAppointment = () => {
     toast.success('Successfully booked')
   } catch (error) {
     toast.error('failed')
-    throw error
+    console.log(error)
   }
 }
+
+const todayDate = new Date()
 </script>
 <template>
-  <div class="flex w-full flex-col items-center justify-center gap-5">
+  <form class="flex w-full flex-col items-center justify-center gap-5">
     <div class="flex w-full flex-col items-center">
       <label for="Beneficiary">Beneficiary Email</label>
       <input
@@ -34,8 +37,19 @@ const bookAppointment = () => {
       />
     </div>
     <div class="flex w-full flex-col items-center">
-      <label for="Date">Appointment Date</label>
+      <label for="Beneficiary">Beneficiary Name</label>
       <input
+        type="text"
+        v-model="appointment.beneficiaryName"
+        placeholder="Type here"
+        class="input input-bordered w-full max-w-xs"
+      />
+    </div>
+    <div class="flex w-full flex-col items-center">
+      <label for="Date">Appointment Date</label>
+      <!-- should be reactive with todays date -->
+      <input
+        min="2025-01-10"
         type="date"
         v-model="appointment.appointmentDate"
         class="input input-bordered w-full max-w-xs text-center"
@@ -51,7 +65,6 @@ const bookAppointment = () => {
         class="input input-bordered w-full max-w-xs"
       />
     </div>
-
-    <button class="btn" @click="bookAppointment">Book</button>
-  </div>
+    <button class="btn" @click.prevent="bookAppointment">Book</button>
+  </form>
 </template>
