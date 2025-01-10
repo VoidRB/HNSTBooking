@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import LoginForm from '@/components/LoginForm.vue'
 import RegisterForm from '@/components/RegisterForm.vue'
 </script>
@@ -6,6 +6,7 @@ import RegisterForm from '@/components/RegisterForm.vue'
 <template>
   <div class="flex w-full items-center justify-center gap-10">
     <LoginForm />
+    <section>Or</section>
     <RegisterForm />
   </div>
 </template>

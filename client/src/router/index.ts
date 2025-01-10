@@ -15,7 +15,7 @@ const router = createRouter({
     {
       path: '/PeerSupporter',
       name: 'PS',
-      component: () => import('../views/PeerSupporterView.vue'),
+      component: () => import('@/views/PeerSupporterView.vue'),
       meta: {
         title: 'PS',
       },
@@ -24,7 +24,7 @@ const router = createRouter({
       path: '/Appointments',
       name: 'AppointmentView',
 
-      component: () => import('../views/AppointmentView.vue'),
+      component: () => import('@/views/AppointmentView.vue'),
       meta: {
         title: 'Appointments',
       },
@@ -33,10 +33,18 @@ const router = createRouter({
       path: '/Coordinator',
       name: 'CoordinatorView',
 
-      component: () => import('../views/CoordinatorView.vue'),
+      component: () => import('@/views/CoordinatorView.vue'),
       meta: {
         title: 'Coordinator',
       },
+    },
+    {
+      path: '/:catchall(.*)',
+      name: 'notFound',
+      meta: {
+        title: '404 Not Found',
+      },
+      component: () => import('@/views/NotFoundView.vue'),
     },
   ],
 })
