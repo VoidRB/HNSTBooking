@@ -1,11 +1,12 @@
 <script setup>
 import { reactive } from 'vue'
 import axios from 'axios'
-import router from '@/router'
+import { useToast } from 'vue-toastification'
+const toast = useToast()
 const appointment = reactive({
-  beneficiaryEmail: String,
-  appointmentDate: String,
-  appointmentDuration: String,
+  beneficiaryEmail: '',
+  appointmentDate: '',
+  appointmentDuration: 60,
 })
 const bookAppointment = () => {
   try {
@@ -14,7 +15,9 @@ const bookAppointment = () => {
       appointmentDate: appointment.appointmentDate,
       appointmentDuration: appointment.appointmentDuration,
     })
+    toast.success('Successfully booked')
   } catch (error) {
+    toast.error('failed')
     throw error
   }
 }

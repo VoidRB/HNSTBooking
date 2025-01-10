@@ -1,2 +1,2 @@
 <script setup></script>
-<template></template>
+<template><h1>Coordinator</h1></template>
