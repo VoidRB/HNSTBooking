@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import router from '@/router'
 import axios from 'axios'
 import { reactive } from 'vue'
@@ -15,7 +15,7 @@ const register = async () => {
     })
     router.push({ name: 'AppointmentView' })
   } catch (error) {
-    throw error
+    console.log(error)
   }
 }
 </script>
