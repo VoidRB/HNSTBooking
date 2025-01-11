@@ -39,7 +39,7 @@ const beneficiaries = [
 ]
 
 const beneficiaries2 = ref([])
-const beneficiaryToModal = ref()
+const beneficiaryToModal = ref<beneficiaryObject>()
 onMounted(async () => {
   try {
     const response = await axios.get('/api/all-beneficiaries')
