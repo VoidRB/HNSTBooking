@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type beneficiaryObject from '../../interfaces/beneficiary.ts'
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
-
+import BeneficiariyModal from '@/components/BeneficiaryModal.vue'
 const beneficiaries = [
   {
     id: 1,
@@ -38,7 +39,7 @@ const beneficiaries = [
 ]
 
 const beneficiaries2 = ref([])
-
+const beneficiaryToModal = ref()
 onMounted(async () => {
   try {
     const response = await axios.get('/api/all-beneficiaries')
@@ -48,6 +49,10 @@ onMounted(async () => {
     console.log(error)
   }
 })
+
+const setBeneficiary = (beneficiary: beneficiaryObject) => {
+  beneficiaryToModal.value = beneficiary
+}
 </script>
 <template>
   <section>
@@ -71,7 +76,13 @@ onMounted(async () => {
         <tbody>
           <tr v-for="beneficiary in beneficiaries" :key="beneficiary.id">
             <th>{{ beneficiary.id }}</th>
-            <td>{{ beneficiary.name }}</td>
+            <td
+              onclick="my_modal_1.showModal()"
+              @click="setBeneficiary(beneficiary)"
+              class="cursor-pointer hover:underline"
+            >
+              {{ beneficiary.name }}
+            </td>
             <td>{{ beneficiary.email }}</td>
             <td>{{ beneficiary.status }}</td>
             <td>{{ beneficiary.appointments }}</td>
@@ -79,6 +90,7 @@ onMounted(async () => {
           </tr>
         </tbody>
       </table>
+      <BeneficiariyModal id="my_modal_1" :beneficiary="beneficiaryToModal" />
     </div>
   </section>
 </template>

@@ -4,7 +4,7 @@ import RegisterForm from '@/components/RegisterForm.vue'
 </script>
 
 <template>
-  <div class="flex w-full items-center justify-center gap-10">
+  <div class="flex h-full w-full items-center justify-center gap-10">
     <LoginForm />
     <section>Or</section>
     <RegisterForm />
