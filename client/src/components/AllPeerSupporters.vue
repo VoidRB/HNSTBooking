@@ -36,7 +36,10 @@ const peerSupporters = [
 </script>
 <template>
   <section>
-    <section class="w-full place-items-start px-10 text-2xl">All Peer Supporters</section>
+    <section class="flex w-full place-items-center justify-between px-10 text-2xl">
+      <h1>All Peer Supporters</h1>
+      <button class="btn rounded-full"><i class="pi pi-refresh"></i></button>
+    </section>
     <div class="overflow-x-auto">
       <table class="table">
         <thead>
@@ -53,7 +56,7 @@ const peerSupporters = [
           <tr v-for="peerSupporter in peerSupporters" :key="peerSupporter.id">
             <th>{{ peerSupporter.id }}</th>
             <td>{{ peerSupporter.name }}</td>
-            <td class="text-ellipsis text-wrap">{{ peerSupporter.email }}</td>
+            <td>{{ peerSupporter.email }}</td>
             <td>{{ peerSupporter.status }}</td>
             <td>{{ peerSupporter.appointments }}</td>
             <td>{{ peerSupporter.assignedPS }}</td>

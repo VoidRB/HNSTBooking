@@ -36,8 +36,10 @@ const beneficiaries = [
 </script>
 <template>
   <section>
-    <section class="w-full place-items-start px-10 text-2xl">All Beneficiaries</section>
-
+    <section class="flex w-full place-items-center justify-between px-10 text-2xl">
+      <h1>All Beneficiaries</h1>
+      <button class="btn rounded-full"><i class="pi pi-refresh"></i></button>
+    </section>
     <div class="overflow-x-auto">
       <table class="table">
         <!-- head -->
