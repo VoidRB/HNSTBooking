@@ -1,5 +1,8 @@
 <script setup lang="ts">
-const beneficiaries = [
+import axios from 'axios'
+import { onMounted, ref } from 'vue'
+
+const appointments = [
   {
     id: 1,
     name: 'Alice Johnson',
@@ -25,6 +28,18 @@ const beneficiaries = [
     assignedPS: 'Alex King',
   },
 ]
+
+const appointments2 = ref([])
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('/api/all-appointments')
+    appointments2.value = response.data
+  } catch (error) {
+    //will fix the error handling
+    console.log(error)
+  }
+})
 </script>
 <template>
   <section>
@@ -35,7 +50,6 @@ const beneficiaries = [
 
     <div class="overflow-x-auto">
       <table class="table">
-        <!-- head -->
         <thead>
           <tr>
             <th></th>
@@ -45,12 +59,11 @@ const beneficiaries = [
           </tr>
         </thead>
         <tbody>
-          <!-- row 1 -->
-          <tr v-for="beneficiary in beneficiaries" :key="beneficiary.id">
-            <th>{{ beneficiary.id }}</th>
-            <td>{{ beneficiary.name }}</td>
-            <td>{{ beneficiary.stage }}</td>
-            <td>{{ beneficiary.assignedPS }}</td>
+          <tr v-for="appointment in appointments" :key="appointment.id">
+            <th>{{ appointment.id }}</th>
+            <td>{{ appointment.name }}</td>
+            <td>{{ appointment.stage }}</td>
+            <td>{{ appointment.assignedPS }}</td>
           </tr>
         </tbody>
       </table>

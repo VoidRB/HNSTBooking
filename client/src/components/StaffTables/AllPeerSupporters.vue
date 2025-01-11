@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import axios from 'axios'
+import { onMounted, ref } from 'vue'
+
 const peerSupporters = [
   {
     id: 1,
@@ -33,6 +36,18 @@ const peerSupporters = [
     assignedBeneficiary: 'Nina Ricci',
   },
 ]
+
+const peerSupporters2 = ref([])
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('/api/all-peer-supporters')
+    peerSupporters2.value = response.data
+  } catch (error) {
+    //will fix the error handling
+    console.log(error)
+  }
+})
 </script>
 <template>
   <section>
@@ -40,6 +55,7 @@ const peerSupporters = [
       <h1>All Peer Supporters</h1>
       <button class="btn rounded-full"><i class="pi pi-refresh"></i></button>
     </section>
+
     <div class="overflow-x-auto">
       <table class="table">
         <thead>

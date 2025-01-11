@@ -59,7 +59,7 @@ const chosenBeneficiary = ref('Choose the beneficiary')
         <option>Post-Appointment</option>
       </select>
     </section>
-    <section class="mx-5">
+    <section>
       <article v-if="assessmentType === 'Pre-Appointment'">
         <PreAssessment :beneficiary="chosenBeneficiary" />
       </article>
@@ -69,7 +69,7 @@ const chosenBeneficiary = ref('Choose the beneficiary')
       <article v-else-if="assessmentType === 'Post-Appointment'">
         <PostAssessment :beneficiary="chosenBeneficiary" />
       </article>
-      <article v-else>
+      <article v-else class="ml-2">
         Please pick a <span class="font-bold">Beneficiary</span> and
         <span class="font-bold">Assessment Type</span> to Begin
       </article>

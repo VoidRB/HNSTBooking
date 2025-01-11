@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import axios from 'axios'
+import { onMounted, ref } from 'vue'
+
 const beneficiaries = [
   {
     id: 1,
@@ -33,6 +36,18 @@ const beneficiaries = [
     assignedPS: 'Alex King',
   },
 ]
+
+const beneficiaries2 = ref([])
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('/api/all-beneficiaries')
+    beneficiaries2.value = response.data
+  } catch (error) {
+    //will fix the error handling
+    console.log(error)
+  }
+})
 </script>
 <template>
   <section>
@@ -40,9 +55,9 @@ const beneficiaries = [
       <h1>All Beneficiaries</h1>
       <button class="btn rounded-full"><i class="pi pi-refresh"></i></button>
     </section>
+
     <div class="overflow-x-auto">
       <table class="table">
-        <!-- head -->
         <thead>
           <tr>
             <th></th>
@@ -54,7 +69,6 @@ const beneficiaries = [
           </tr>
         </thead>
         <tbody>
-          <!-- row 1 -->
           <tr v-for="beneficiary in beneficiaries" :key="beneficiary.id">
             <th>{{ beneficiary.id }}</th>
             <td>{{ beneficiary.name }}</td>
