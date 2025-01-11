@@ -2,38 +2,28 @@
 <template>
   <section class="flex w-1/2 flex-col gap-5 px-10 py-10">
     <h1 class="text-5xl">Frequently Asked Questions</h1>
-    <div class="collapse bg-base-200">
-      <input type="checkbox" />
-      <div class="collapse-title text-xl font-medium">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores voluptatem, eaque
-      </div>
+    <div tabindex="0" class="collapse bg-base-200">
+      <div class="collapse-title text-xl font-medium">Question 1</div>
       <div class="collapse-content">
-        <p>Answer</p>
+        <p>Answer 1</p>
       </div>
     </div>
-    <div class="collapse bg-base-200">
-      <input type="checkbox" />
-      <div class="collapse-title text-xl font-medium">
-        consequuntur saepe aperiam voluptas nostrum amet sint! Voluptatum adipisci blanditiis unde
-      </div>
+    <div tabindex="0" class="collapse bg-base-200">
+      <div class="collapse-title text-xl font-medium">Question 2</div>
       <div class="collapse-content">
-        <p>Answer</p>
+        <p>Answer 2</p>
       </div>
     </div>
-    <div class="collapse bg-base-200">
-      <input type="checkbox" />
-      <div class="collapse-title text-xl font-medium">
-        qui esse earum architecto sapiente, asperiores repellendus vero.
-      </div>
+    <div tabindex="0" class="collapse bg-base-200">
+      <div class="collapse-title text-xl font-medium">Question 3</div>
       <div class="collapse-content">
-        <p>Answer</p>
+        <p>Answer 3</p>
       </div>
     </div>
-    <div class="collapse bg-base-200">
-      <input type="checkbox" />
+    <div tabindex="0" class="collapse bg-base-200">
       <div class="collapse-title text-xl font-medium">Question 4</div>
       <div class="collapse-content">
-        <p>Answer</p>
+        <p>Answer 4</p>
       </div>
     </div>
   </section>
