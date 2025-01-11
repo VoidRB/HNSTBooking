@@ -10,7 +10,7 @@ const beneficiaries = [
     email: 'alice.johnson@example.com',
     status: 'Active',
     appointments: '3',
-    assignedPS: 'John Doe',
+    assignedPeerSupporter: 'John Doe',
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const beneficiaries = [
     email: 'bob.smith@example.com',
     status: 'Pending',
     appointments: '1',
-    assignedPS: 'Jane Roe',
+    assignedPeerSupporter: 'Jane Roe',
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const beneficiaries = [
     email: 'charlie.brown@example.com',
     status: 'Inactive',
     appointments: '0',
-    assignedPS: 'Chris Martin',
+    assignedPeerSupporter: 'Chris Martin',
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const beneficiaries = [
     email: 'diana.prince@example.com',
     status: 'Active',
     appointments: '5',
-    assignedPS: 'Alex King',
+    assignedPeerSupporter: 'Alex King',
   },
 ]
 
@@ -86,7 +86,7 @@ const setBeneficiary = (beneficiary: beneficiaryObject) => {
             <td>{{ beneficiary.email }}</td>
             <td>{{ beneficiary.status }}</td>
             <td>{{ beneficiary.appointments }}</td>
-            <td>{{ beneficiary.assignedPS }}</td>
+            <td>{{ beneficiary.assignedPeerSupporter }}</td>
           </tr>
         </tbody>
       </table>

@@ -7,25 +7,25 @@ const appointments = [
     id: 1,
     name: 'Alice Johnson',
     stage: 'Active',
-    assignedPS: 'John Doe',
+    assignedPeerSupporter: 'John Doe',
   },
   {
     id: 2,
     name: 'Bob Smith',
     stage: 'Pending',
-    assignedPS: 'Jane Roe',
+    assignedPeerSupporter: 'Jane Roe',
   },
   {
     id: 3,
     name: 'Charlie Brown',
     stage: 'Inactive',
-    assignedPS: 'Chris Martin',
+    assignedPeerSupporter: 'Chris Martin',
   },
   {
     id: 4,
     name: 'Diana Prince',
     stage: 'Active',
-    assignedPS: 'Alex King',
+    assignedPeerSupporter: 'Alex King',
   },
 ]
 
@@ -60,10 +60,10 @@ onMounted(async () => {
         </thead>
         <tbody>
           <tr v-for="appointment in appointments" :key="appointment.id">
-            <th>{{ appointment.id }}</th>
+            <th class="w-0">{{ appointment.id }}</th>
             <td>{{ appointment.name }}</td>
             <td>{{ appointment.stage }}</td>
-            <td>{{ appointment.assignedPS }}</td>
+            <td>{{ appointment.assignedPeerSupporter }}</td>
           </tr>
         </tbody>
       </table>
