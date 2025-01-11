@@ -1,1 +1,1 @@
-# HNST Beneficiary Booking
+# HNST Beneficiary Booking Client

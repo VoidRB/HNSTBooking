@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import AllAppointments from '@/components/AllAppointments.vue'
-import AllBeneficiaries from '@/components/AllBeneficiaries.vue'
-import AllPeerSupporters from '@/components/AllPeerSupporters.vue'
+import AllAppointments from '@/components/StaffTables/AllAppointments.vue'
+import AllBeneficiaries from '@/components/StaffTables/AllBeneficiaries.vue'
+import AllPeerSupporters from '@/components/StaffTables/AllPeerSupporters.vue'
 import CoordinatorNavBar from '@/components/NavBars/CoordinatorNavBar.vue'
 </script>
 <template>

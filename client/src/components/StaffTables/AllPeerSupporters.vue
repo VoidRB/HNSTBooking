@@ -6,7 +6,7 @@ const peerSupporters = [
     email: 'eve.adams@example.com',
     status: 'Inactive',
     appointments: '2',
-    assignedPS: 'Sam Wilson',
+    assignedBeneficiary: 'Sam Wilson',
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ const peerSupporters = [
     email: 'frank.johnson@example.com',
     status: 'Active',
     appointments: '4',
-    assignedPS: 'Lucy Liu',
+    assignedBeneficiary: 'Lucy Liu',
   },
   {
     id: 3,
@@ -22,7 +22,7 @@ const peerSupporters = [
     email: 'grace.kelly@example.com',
     status: 'Pending',
     appointments: '3',
-    assignedPS: 'David Lee',
+    assignedBeneficiary: 'David Lee',
   },
   {
     id: 4,
@@ -30,7 +30,7 @@ const peerSupporters = [
     email: 'hank.moody@example.com',
     status: 'Inactive',
     appointments: '1',
-    assignedPS: 'Nina Ricci',
+    assignedBeneficiary: 'Nina Ricci',
   },
 ]
 </script>
@@ -59,7 +59,7 @@ const peerSupporters = [
             <td>{{ peerSupporter.email }}</td>
             <td>{{ peerSupporter.status }}</td>
             <td>{{ peerSupporter.appointments }}</td>
-            <td>{{ peerSupporter.assignedPS }}</td>
+            <td>{{ peerSupporter.assignedBeneficiary }}</td>
           </tr>
         </tbody>
       </table>

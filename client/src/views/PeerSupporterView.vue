@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AllBeneficiaries from '@/components/AllBeneficiaries.vue'
+import AllBeneficiaries from '@/components/StaffTables/AllBeneficiaries.vue'
 import PeerSupporterNavBar from '@/components/NavBars/PeerSupporterNavBar.vue'
 </script>
 <template>
