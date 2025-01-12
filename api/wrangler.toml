@@ -1,0 +1,12 @@
+name = "hnst-booking-api"
+main = "src/index.ts"
+compatibility_date = "2025-01-10"
+compatibility_flags = [ "nodejs_compat" ]
+
+[[d1_databases]]
+binding = "D1"
+database_name = "test-d1-database"
+database_id = "c028e33b-2b33-4035-876e-f6e03057c28c"
+
+[vars]
+JWT_SECRET = "mFITPHJ5ONfaYinFB1qdtzAZz-6HNpSZXtk9rqKC3rFDylEUhFRslZYxanpr2t-_B6AA7q3haMB5rgPP6fyIqg"

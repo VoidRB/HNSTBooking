@@ -1,0 +1,32 @@
+{
+  "name": "hnst-booking-api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "db:g": "drizzle-kit generate",
+    "db:e": "npx wrangler d1 execute test-d1-database --remote --file=./drizzle/migrations/%npm_config_file%.sql",
+    "db:e-dev": "npx wrangler d1 execute test-d1-database --local --file=./drizzle/migrations/%npm_config_file%.sql",
+    "db:u": "drizzle-kit up",
+    "deploy": "wrangler deploy --minify"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.38.3",
+    "express-session": "^1.18.1",
+    "hono": "^4.6.16",
+    "libphonenumber-js": "^1.11.17",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
+    "uuid": "^11.0.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241218.0",
+    "@types/express-session": "^1.18.1",
+    "@types/passport": "^1.0.17",
+    "@types/passport-local": "^1.0.38",
+    "drizzle-kit": "^0.30.1",
+    "wrangler": "^3.96.0"
+  }
+}
