@@ -19,6 +19,7 @@ const register = async () => {
       age: user.age,
       password: user.password,
     })
+    console.log(`Registered`)
     router.push({ name: 'AppointmentView' })
   } catch (error) {
     console.log(error)
@@ -26,10 +27,11 @@ const register = async () => {
 }
 </script>
 <template>
-  <form class="flex flex-col items-center gap-2">
+  <form class="flex flex-col items-center gap-2" @submit.prevent="register">
     <label for="LoginForm">Register</label>
 
     <input
+      required
       v-model="user.email"
       type="email"
       placeholder="Email"
@@ -37,6 +39,7 @@ const register = async () => {
       class="input input-bordered w-full max-w-xs"
     />
     <input
+      required
       v-model="user.name"
       type="text"
       placeholder="Name"
@@ -50,6 +53,7 @@ const register = async () => {
       <option>Other</option>
     </select>
     <input
+      required
       v-model="user.age"
       min="0"
       max="100"
@@ -59,12 +63,13 @@ const register = async () => {
       class="input input-bordered w-full max-w-xs"
     />
     <input
+      required
       v-model="user.password"
       type="password"
       placeholder="password"
       autocomplete="current-password"
       class="input input-bordered w-full max-w-xs"
     />
-    <button class="btn" @click.prevent="register">Register</button>
+    <button class="btn">Register</button>
   </form>
 </template>

@@ -13,29 +13,32 @@ const login = async () => {
       email: user.email,
       password: user.password,
     })
-    router.push({ name: 'Appointments' })
+    console.log(`logged in`)
+    router.push({ name: 'AppointmentView' })
   } catch (error) {
     console.log(error)
   }
 }
 </script>
 <template>
-  <form class="flex flex-col items-center gap-2">
+  <form class="flex flex-col items-center gap-2" @submit.prevent="login">
     <label for="LoginForm">Login</label>
     <input
       v-model="user.email"
-      type="text"
+      type="email"
       placeholder="Email"
       autocomplete="email"
+      required
       class="input input-bordered w-full max-w-xs"
     />
     <input
       v-model="user.password"
+      required
       type="password"
       placeholder="password"
       autocomplete="current-password"
       class="input input-bordered w-full max-w-xs"
     />
-    <button class="btn" @click.prevent="login">Login</button>
+    <button class="btn">Login</button>
   </form>
 </template>
