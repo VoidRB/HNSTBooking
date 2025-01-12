@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import type peerSupporterType from '../../interfaces/peerSupporter.ts'
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
+import PeerSupporterModal from '../Modals/PeerSupporterModal.vue'
 
+const peerSupporters2 = ref([])
 const peerSupporters = [
   {
     id: 1,
@@ -68,8 +71,7 @@ const peerSupporters = [
     assignedBeneficiary: 'Nina Ricci',
   },
 ]
-
-const peerSupporters2 = ref([])
+const peerSupporterToModal = ref<peerSupporterType>()
 
 onMounted(async () => {
   try {
@@ -80,6 +82,10 @@ onMounted(async () => {
     console.log(error)
   }
 })
+
+const setPeerSupporter = (peerSupporter: peerSupporterType) => {
+  peerSupporterToModal.value = peerSupporter
+}
 </script>
 <template>
   <section>
@@ -105,6 +111,8 @@ onMounted(async () => {
             v-for="peerSupporter in peerSupporters"
             :key="peerSupporter.id"
             class="hover cursor-pointer"
+            onclick="my_modal_1.showModal()"
+            @click="setPeerSupporter(peerSupporter)"
           >
             <th>{{ peerSupporter.id }}</th>
             <td>{{ peerSupporter.name }}</td>
@@ -115,6 +123,7 @@ onMounted(async () => {
           </tr>
         </tbody>
       </table>
+      <PeerSupporterModal id="my_modal_1" :peerSupporter="peerSupporterToModal" />
     </div>
   </section>
 </template>

@@ -101,7 +101,7 @@ const bookAppointment = () => {
           <select
             placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
-            v-model="appointment.appointmentOption"
+            v-model="appointment.appointmentOptionData"
           >
             <option disabled selected>Choose a platform</option>
             <option>Google Meet</option>

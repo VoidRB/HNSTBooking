@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios'
-import type beneficiaryObject from '../interfaces/beneficiary'
+import type beneficiaryObject from '../../interfaces/beneficiary'
 import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
 const props = defineProps<{ beneficiary: beneficiaryObject | undefined }>()
@@ -15,7 +15,7 @@ const updateBeneficiary = () => {
       assignedPeerSupporter: assignedPeerSupporter.value,
       beneficiaryStatus: beneficiaryStatus.value,
     })
-    toast.success('Successfully the updated beneficiary')
+    toast.success('Successfully updated beneficiary')
   } catch (error) {
     toast.error('There was an error.')
     console.log(error)
@@ -23,7 +23,7 @@ const updateBeneficiary = () => {
 }
 </script>
 <template>
-  <dialog id="my_modal_1" class="modal">
+  <dialog id="my_modal_2" class="modal">
     <div class="modal-box">
       <h3 class="text-lg font-bold">Beneficiary</h3>
       <p class="pt-4">Name : {{ props.beneficiary?.name }}</p>

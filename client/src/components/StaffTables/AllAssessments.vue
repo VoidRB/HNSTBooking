@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type assessmentType from '@/interfaces/assessment'
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
+import AssessmentModal from '../Modals/AssessmentModal.vue'
 
-const appointments = [
+const assessments = [
   {
     id: 1,
     type: 'Counseling',
@@ -47,17 +49,23 @@ const appointments = [
   },
 ]
 
-const appointments2 = ref([])
+const assessment2 = ref([])
+const assessmentToModal = ref<assessmentType>()
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/all-appointments')
-    appointments2.value = response.data
+    const response = await axios.get('/api/all-assessment')
+    assessment2.value = response.data
   } catch (error) {
     //will fix the error handling
     console.log(error)
   }
 })
+
+const setAssessment = (assessment: assessmentType) => {
+  console.log(`Modal opened`)
+  assessmentToModal.value = assessment
+}
 </script>
 <template>
   <section>
@@ -79,18 +87,21 @@ onMounted(async () => {
         </thead>
         <tbody>
           <tr
-            v-for="appointment in appointments"
-            :key="appointment.id"
+            v-for="assessment in assessments"
+            :key="assessment.id"
             class="hover cursor-pointer"
+            onclick="my_modal_4.showModal()"
+            @click="setAssessment(assessment)"
           >
-            <th class="w-0">{{ appointment.id }}</th>
-            <td>{{ appointment.beneficiary }}</td>
-            <td>{{ appointment.type }}</td>
-            <td>{{ appointment.assignedPeerSupporter }}</td>
-            <td>{{ appointment.date }}</td>
+            <th class="w-0">{{ assessment.id }}</th>
+            <td>{{ assessment.beneficiary }}</td>
+            <td>{{ assessment.type }}</td>
+            <td>{{ assessment.assignedPeerSupporter }}</td>
+            <td>{{ assessment.date }}</td>
           </tr>
         </tbody>
       </table>
+      <AssessmentModal id="my_modal_4" :assessment="assessmentToModal" />
     </div>
   </section>
 </template>

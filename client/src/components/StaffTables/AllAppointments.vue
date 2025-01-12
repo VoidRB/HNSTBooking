@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import type appointmentType from '@/interfaces/appointment'
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
+import AppointmentModal from '../Modals/AppointmentModal.vue'
 
 const appointments = [
   {
@@ -52,8 +54,8 @@ const appointments = [
     assignedPeerSupporter: 'Alex King',
   },
 ]
-
 const appointments2 = ref([])
+const appointmentToModal = ref<appointmentType>()
 
 onMounted(async () => {
   try {
@@ -64,6 +66,11 @@ onMounted(async () => {
     console.log(error)
   }
 })
+
+const setAppointment = (appointment: appointmentType) => {
+  console.log(`modal opened`)
+  appointmentToModal.value = appointment
+}
 </script>
 <template>
   <section>
@@ -87,6 +94,8 @@ onMounted(async () => {
             v-for="appointment in appointments"
             :key="appointment.id"
             class="hover cursor-pointer"
+            onclick="my_modal_3.showModal()"
+            @click="setAppointment(appointment)"
           >
             <th class="w-0">{{ appointment.id }}</th>
             <td>{{ appointment.name }}</td>
@@ -95,6 +104,7 @@ onMounted(async () => {
           </tr>
         </tbody>
       </table>
+      <AppointmentModal id="my_modal_3" :appointment="appointmentToModal" />
     </div>
   </section>
 </template>

@@ -1,4 +1,4 @@
-export default interface beneficiaryObject {
+export default interface beneficiaryType {
   id: number
   name: string
   email: string
