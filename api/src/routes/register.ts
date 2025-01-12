@@ -5,7 +5,6 @@ import { HonoContextBindings } from "..";
 import { getUser } from "../db/getUser";
 import { usersSchema } from "../db/schemas/users.schema";
 import { getSHA256Hash } from "../helpers/getSHA256Hash";
-import { v4 as uuidv4 } from 'uuid';
 const registerRoute = new Hono<HonoContextBindings>();
 
 const registerInfoZodSchema_PhoneNumberIncluded = z.object({
@@ -105,7 +104,6 @@ registerRoute.post('/register', async (ctx) => {
   const hashInputPassword = await getSHA256Hash(validatedData.password);
 
   await db.insert(usersSchema).values({
-    id: uuidv4(),
     email: validatedData.email,
     username: validatedData.username,
     gender: validatedData.gender,
