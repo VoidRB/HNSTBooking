@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { reactive } from 'vue'
 import axios from 'axios'
 import { useToast } from 'vue-toastification'
 
@@ -14,14 +14,7 @@ const appointment = reactive({
 })
 const bookAppointment = () => {
   try {
-    // const response = axios.post('/api/bookAppointment', {
-    //   beneficiaryEmail: appointment.beneficiaryEmail,
-    //   appointmentDate: appointment.appointmentDate,
-    //   appointmentDuration: appointment.appointmentDuration,
-    //   appointmentOption: appointment.appointmentOption,
-    //   appointmentOptionData: appointment.appointmentOptionData,
-    // })
-    console.log({
+    const response = axios.post('/api/bookAppointment', {
       beneficiaryEmail: appointment.beneficiaryEmail,
       appointmentDate: appointment.appointmentDate,
       appointmentDuration: appointment.appointmentDuration,
@@ -34,11 +27,12 @@ const bookAppointment = () => {
     console.log(error)
   }
 }
-
-const todayDate = new Date()
 </script>
 <template>
-  <form class="flex w-full flex-col items-center justify-center gap-5">
+  <form
+    class="flex w-full flex-col items-center justify-center gap-5"
+    @submit.prevent="bookAppointment"
+  >
     <div class="flex gap-5">
       <section class="flex flex-col gap-5">
         <div class="flex w-full flex-col items-center">
@@ -67,6 +61,7 @@ const todayDate = new Date()
           <input
             required
             min="2025-01-10"
+            max="2025-12-31"
             type="date"
             v-model="appointment.appointmentDate"
             class="input input-bordered w-full max-w-xs text-center"
@@ -116,7 +111,7 @@ const todayDate = new Date()
         </div>
         <div v-else>
           <label for="Date">&nbsp;</label>
-          <select class="btn w-full max-w-xs" disabled></select>
+          <select class="btn w-full max-w-xs appearance-none bg-base-100" disabled></select>
         </div>
         <div class="flex w-full flex-col items-center">
           <label for="Beneficiary">Duration (In Mins)</label>
@@ -131,6 +126,6 @@ const todayDate = new Date()
         </div>
       </section>
     </div>
-    <button class="btn" @submit.prevent="bookAppointment">Book</button>
+    <button class="btn">Book</button>
   </form>
 </template>

@@ -5,51 +5,45 @@ import { onMounted, ref } from 'vue'
 const appointments = [
   {
     id: 1,
-    name: 'Alice Johnson',
-    stage: 'Active',
-    assignedPeerSupporter: 'John Doe',
+    type: 'Counseling',
+    assignedPeerSupporter: 'Sarah Al-Rawi',
+    beneficiary: 'Ahmed Bin Suleiman',
+    date: '2025-01-15',
   },
   {
     id: 2,
-    name: 'Bob Smith',
-    stage: 'Pending',
-    assignedPeerSupporter: 'Jane Roe',
+    type: 'Tutoring',
+    assignedPeerSupporter: 'Yasmin Al-Nahdi',
+    beneficiary: 'Faisal Al-Qahtani',
+    date: '2025-01-16',
   },
   {
     id: 3,
-    name: 'Charlie Brown',
-    stage: 'Inactive',
-    assignedPeerSupporter: 'Chris Martin',
+    type: 'Mentoring',
+    assignedPeerSupporter: 'Khalid Al-Farsi',
+    beneficiary: 'Hassan Al-Ahmad',
+    date: '2025-01-17',
   },
   {
     id: 4,
-    name: 'Diana Prince',
-    stage: 'Active',
-    assignedPeerSupporter: 'Alex King',
+    type: 'Coaching',
+    assignedPeerSupporter: 'Mariam Al-Hajri',
+    beneficiary: 'Amina Al-Khattab',
+    date: '2025-01-18',
   },
   {
-    id: 1,
-    name: 'Alice Johnson',
-    stage: 'Active',
-    assignedPeerSupporter: 'John Doe',
+    id: 5,
+    type: 'Consultation',
+    assignedPeerSupporter: 'Omar Al-Shehri',
+    beneficiary: 'Noura Al-Mutairi',
+    date: '2025-01-19',
   },
   {
-    id: 2,
-    name: 'Bob Smith',
-    stage: 'Pending',
-    assignedPeerSupporter: 'Jane Roe',
-  },
-  {
-    id: 3,
-    name: 'Charlie Brown',
-    stage: 'Inactive',
-    assignedPeerSupporter: 'Chris Martin',
-  },
-  {
-    id: 4,
-    name: 'Diana Prince',
-    stage: 'Active',
-    assignedPeerSupporter: 'Alex King',
+    id: 6,
+    type: 'Workshop',
+    assignedPeerSupporter: 'Fatimah Al-Dosari',
+    beneficiary: 'Sultan Al-Balawi',
+    date: '2025-01-20',
   },
 ]
 
@@ -68,7 +62,7 @@ onMounted(async () => {
 <template>
   <section>
     <section class="flex w-full place-items-center justify-between px-10 text-2xl">
-      <h1>All Appointments</h1>
+      <h1>All Assessments</h1>
       <button class="btn rounded-full"><i class="pi pi-refresh"></i></button>
     </section>
 
@@ -77,9 +71,10 @@ onMounted(async () => {
         <thead>
           <tr>
             <th></th>
-            <th>Name</th>
-            <th>Stage</th>
+            <th>Beneficiary Name</th>
+            <th>Type</th>
             <th>Assigned Peer Supporter</th>
+            <th>Date</th>
           </tr>
         </thead>
         <tbody>
@@ -89,9 +84,10 @@ onMounted(async () => {
             class="hover cursor-pointer"
           >
             <th class="w-0">{{ appointment.id }}</th>
-            <td>{{ appointment.name }}</td>
-            <td>{{ appointment.stage }}</td>
+            <td>{{ appointment.beneficiary }}</td>
+            <td>{{ appointment.type }}</td>
             <td>{{ appointment.assignedPeerSupporter }}</td>
+            <td>{{ appointment.date }}</td>
           </tr>
         </tbody>
       </table>

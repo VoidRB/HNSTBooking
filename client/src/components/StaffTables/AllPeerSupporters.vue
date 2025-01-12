@@ -35,6 +35,38 @@ const peerSupporters = [
     appointments: '1',
     assignedBeneficiary: 'Nina Ricci',
   },
+  {
+    id: 3,
+    name: 'Grace Kelly',
+    email: 'grace.kelly@example.com',
+    status: 'Pending',
+    appointments: '3',
+    assignedBeneficiary: 'David Lee',
+  },
+  {
+    id: 4,
+    name: 'Hank Moody',
+    email: 'hank.moody@example.com',
+    status: 'Inactive',
+    appointments: '1',
+    assignedBeneficiary: 'Nina Ricci',
+  },
+  {
+    id: 3,
+    name: 'Grace Kelly',
+    email: 'grace.kelly@example.com',
+    status: 'Pending',
+    appointments: '3',
+    assignedBeneficiary: 'David Lee',
+  },
+  {
+    id: 4,
+    name: 'Hank Moody',
+    email: 'hank.moody@example.com',
+    status: 'Inactive',
+    appointments: '1',
+    assignedBeneficiary: 'Nina Ricci',
+  },
 ]
 
 const peerSupporters2 = ref([])
@@ -56,8 +88,8 @@ onMounted(async () => {
       <button class="btn rounded-full"><i class="pi pi-refresh"></i></button>
     </section>
 
-    <div class="overflow-x-auto">
-      <table class="table">
+    <div class="h-60 overflow-x-auto overflow-y-scroll scroll-smooth">
+      <table class="table table-pin-rows">
         <thead>
           <tr>
             <th></th>
@@ -69,7 +101,11 @@ onMounted(async () => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="peerSupporter in peerSupporters" :key="peerSupporter.id">
+          <tr
+            v-for="peerSupporter in peerSupporters"
+            :key="peerSupporter.id"
+            class="hover cursor-pointer"
+          >
             <th>{{ peerSupporter.id }}</th>
             <td>{{ peerSupporter.name }}</td>
             <td>{{ peerSupporter.email }}</td>

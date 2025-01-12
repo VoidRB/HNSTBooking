@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router'
       <a class="btn btn-ghost text-xl">B'Saraha </a>
     </div>
     <div class="navbar-end">
-      <div class="dropdown dropdown-end">
+      <div class="dropdown dropdown-end fixed z-10">
         <div tabindex="0" role="button" class="btn btn-circle btn-ghost">
           <i class="pi pi-align-right"></i>
         </div>
