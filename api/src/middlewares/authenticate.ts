@@ -1,5 +1,5 @@
 import { MiddlewareHandler } from "hono";
-import { getCookie } from "hono/cookie";
+import { getCookie, setCookie } from "hono/cookie";
 import { Jwt } from "hono/utils/jwt";
 import { HonoContextBindings } from "..";
 
@@ -26,6 +26,11 @@ export const authenticateMiddleware: MiddlewareHandler<HonoContextBindings> = as
       // Check: https://hono.dev/docs/helpers/jwt#payload-validation
       return ctx.json({ error: 'Invalid Token' }, 401);
     }
+
+    // Extending the login session
+    setCookie(ctx, 'token', token, {
+      maxAge: 60 * 10
+    });
 
     // Moving on to the next middleware
     await next();

@@ -48,15 +48,14 @@ loginRoute.post('/login', async (ctx) => {
   }
 
   // Sign a JWT and generate token
-  const payload = {
-    id: getUserResult.id,
-    exp: Math.floor(Date.now() / 1000) + 60 * 5,
-  }
+  const payload = { id: getUserResult.id }
 
   const token = await Jwt.sign(payload, ctx.env.JWT_SECRET);
 
   // Setting the token in the cookie
-  setCookie(ctx, 'token', token);
+  setCookie(ctx, 'token', token, {
+    maxAge: 60 * 10 // Login session is valid for 10 mins
+  });
 
   return ctx.json({ message: 'Login Successful' }, 200);
 });
