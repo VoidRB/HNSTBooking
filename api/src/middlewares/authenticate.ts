@@ -9,7 +9,7 @@ export const authenticateMiddleware: MiddlewareHandler<HonoContextBindings> = as
 
   // Returning if the token is undefined
   if (token === undefined) {
-    return ctx.json({ error: 'Invalid Token'}, 401);
+    return ctx.json({ error: 'Invalid Token' }, 401);
   }
 
   // Verifying if the JWT is valid
@@ -24,13 +24,13 @@ export const authenticateMiddleware: MiddlewareHandler<HonoContextBindings> = as
       // Returning if the any of variables
       // in the JWT payload is undefined
       // Check: https://hono.dev/docs/helpers/jwt#payload-validation
-      return ctx.json({ error: 'Invalid Token'}, 401);
+      return ctx.json({ error: 'Invalid Token' }, 401);
     }
 
     // Moving on to the next middleware
     await next();
   } catch (err) {
     // Returning if the token failed to verify
-    return ctx.json({ error: 'Invalid Token'}, 401);
+    return ctx.json({ error: 'Invalid Token' }, 401);
   }
 }

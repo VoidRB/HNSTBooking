@@ -28,7 +28,7 @@ loginRoute.post('/login', async (ctx) => {
 
   // Returning if the input is not valid
   if (validationResult.success === false) {
-    return ctx.json({ error: 'Invalid Input'}, 401);
+    return ctx.json({ error: 'Invalid Input' }, 401);
   }
 
   // Checking if there is a user with that account
@@ -36,7 +36,7 @@ loginRoute.post('/login', async (ctx) => {
   
   // Returning if there is no userFound
   if (getUserResult === null || getUserResult === undefined) {
-    return ctx.json({ error: 'Invalid Data'}, 401); 
+    return ctx.json({ error: 'Invalid Data' }, 401); 
   }
 
   // Checking if the two hashed passwords match
@@ -44,7 +44,7 @@ loginRoute.post('/login', async (ctx) => {
 
   // Returning if the hashed passwords don't match
   if (hashInputPassword !== getUserResult.password) {
-    return ctx.json({ error: 'Invalid Data'}, 401);
+    return ctx.json({ error: 'Invalid Data' }, 401);
   }
 
   // Sign a JWT and generate token
@@ -58,7 +58,7 @@ loginRoute.post('/login', async (ctx) => {
   // Setting the token in the cookie
   setCookie(ctx, 'token', token);
 
-  return ctx.json({ message: 'Login Successful'}, 200);
+  return ctx.json({ message: 'Login Successful' }, 200);
 });
 
 export default loginRoute
