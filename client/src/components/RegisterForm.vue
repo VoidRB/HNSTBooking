@@ -20,7 +20,7 @@ const register = async () => {
       password: user.password,
     })
     console.log(`Registered`)
-    router.push({ name: 'AppointmentView' })
+    router.push({ name: response.data.route })
   } catch (error) {
     console.log(error)
   }

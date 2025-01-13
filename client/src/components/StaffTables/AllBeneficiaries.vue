@@ -9,7 +9,7 @@ const beneficiaries = [
     id: 1,
     name: 'Alice Johnson',
     email: 'alice.johnson@example.com',
-    status: 'Active',
+    status: 'Approved',
     gender: 'Female',
     appointments: '3',
     assignedPeerSupporter: 'John Doe',
@@ -19,7 +19,7 @@ const beneficiaries = [
     id: 2,
     name: 'Bob Smith',
     email: 'bob.smith@example.com',
-    status: 'Pending',
+    status: 'Flagged',
     gender: 'Male',
     appointments: '1',
     assignedPeerSupporter: 'Jane Roe',
@@ -29,7 +29,7 @@ const beneficiaries = [
     id: 3,
     name: 'Charlie Brown',
     email: 'charlie.brown@example.com',
-    status: 'Inactive',
+    status: 'Finished',
     gender: 'Other',
     appointments: '0',
     assignedPeerSupporter: 'Chris Martin',
@@ -39,10 +39,10 @@ const beneficiaries = [
     id: 4,
     name: 'Diana Prince',
     email: 'diana.prince@example.com',
-    status: 'Active',
+    status: 'Denied',
     gender: 'Female',
     appointments: '5',
-    assignedPeerSupporter: 'Alex King',
+    assignedPeerSupporter: 'None',
     communicationOption: 'Zoom',
   },
 ]
@@ -61,6 +61,22 @@ onMounted(async () => {
 
 const setBeneficiary = (beneficiary: beneficiaryType) => {
   beneficiaryToModal.value = beneficiary
+}
+
+const beneficiaryStatusBackground = (status: string) => {
+  switch (status) {
+    case 'Approved':
+      return 'badge bg-green-500'
+    case 'Flagged':
+      return 'badge bg-yellow-500'
+    case 'Finished':
+      return 'badge bg-slate-500'
+    case 'Denied':
+      return 'badge bg-red-500'
+
+    default:
+      break
+  }
 }
 </script>
 <template>
@@ -94,7 +110,11 @@ const setBeneficiary = (beneficiary: beneficiaryType) => {
             <th>{{ beneficiary.id }}</th>
             <td>{{ beneficiary.name }}</td>
             <td>{{ beneficiary.email }}</td>
-            <td>{{ beneficiary.status }}</td>
+            <td>
+              <p :class="[beneficiaryStatusBackground(beneficiary.status), '']">
+                {{ beneficiary.status }}
+              </p>
+            </td>
             <td>{{ beneficiary.appointments }}</td>
             <td>{{ beneficiary.assignedPeerSupporter }}</td>
           </tr>

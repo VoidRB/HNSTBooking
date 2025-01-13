@@ -8,49 +8,49 @@ const appointments = [
   {
     id: 1,
     name: 'Alice Johnson',
-    stage: 'Active',
+    stage: 'Finished',
     assignedPeerSupporter: 'John Doe',
   },
   {
     id: 2,
     name: 'Bob Smith',
-    stage: 'Pending',
+    stage: 'In Process',
     assignedPeerSupporter: 'Jane Roe',
   },
   {
     id: 3,
     name: 'Charlie Brown',
-    stage: 'Inactive',
+    stage: 'Not Started',
     assignedPeerSupporter: 'Chris Martin',
   },
   {
     id: 4,
     name: 'Diana Prince',
-    stage: 'Active',
+    stage: 'Finished',
     assignedPeerSupporter: 'Alex King',
   },
   {
     id: 1,
     name: 'Alice Johnson',
-    stage: 'Active',
+    stage: 'Finished',
     assignedPeerSupporter: 'John Doe',
   },
   {
     id: 2,
     name: 'Bob Smith',
-    stage: 'Pending',
+    stage: 'In Process',
     assignedPeerSupporter: 'Jane Roe',
   },
   {
     id: 3,
     name: 'Charlie Brown',
-    stage: 'Inactive',
+    stage: 'Not Started',
     assignedPeerSupporter: 'Chris Martin',
   },
   {
     id: 4,
     name: 'Diana Prince',
-    stage: 'Active',
+    stage: 'Finished',
     assignedPeerSupporter: 'Alex King',
   },
 ]
@@ -70,6 +70,20 @@ onMounted(async () => {
 const setAppointment = (appointment: appointmentType) => {
   console.log(`modal opened`)
   appointmentToModal.value = appointment
+}
+
+const appointmentStatusBackground = (stage: string) => {
+  switch (stage) {
+    case 'Finished':
+      return 'badge bg-green-500'
+    case 'Not Started':
+      return 'badge bg-red-500'
+    case 'In Process':
+      return 'badge bg-yellow-500'
+
+    default:
+      return 'badge'
+  }
 }
 </script>
 <template>
@@ -99,7 +113,9 @@ const setAppointment = (appointment: appointmentType) => {
           >
             <th class="w-0">{{ appointment.id }}</th>
             <td>{{ appointment.name }}</td>
-            <td>{{ appointment.stage }}</td>
+            <td>
+              <p :class="appointmentStatusBackground(appointment.stage)">{{ appointment.stage }}</p>
+            </td>
             <td>{{ appointment.assignedPeerSupporter }}</td>
           </tr>
         </tbody>
