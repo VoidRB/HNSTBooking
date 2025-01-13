@@ -85,12 +85,25 @@ const appointmentStatusBackground = (stage: string) => {
       return 'badge'
   }
 }
+
+const refreshTable = async () => {
+  console.log(`Refreshing Table`)
+  appointments2.value = []
+  try {
+    const response = await axios.get('/api/all-beneficiaries')
+    appointments2.value = response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
 </script>
 <template>
   <section>
     <section class="flex w-full place-items-center justify-between px-10 text-2xl">
       <h1>All Appointments</h1>
-      <button class="btn rounded-full"><i class="pi pi-refresh"></i></button>
+      <button class="btn rounded-full" @click="refreshTable()">
+        <i class="pi pi-refresh"></i>
+      </button>
     </section>
 
     <div class="h-60 overflow-y-scroll scroll-smooth">

@@ -35,6 +35,7 @@ const updateBeneficiary = () => {
           <option disabled selected>Status</option>
           <option>Approved</option>
           <option>Flagged</option>
+          <option>Finished</option>
           <option>Denied</option>
         </select>
       </p>

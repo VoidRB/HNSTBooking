@@ -4,6 +4,9 @@ import AllBeneficiaries from '@/components/StaffTables/AllBeneficiaries.vue'
 import AllPeerSupporters from '@/components/StaffTables/AllPeerSupporters.vue'
 import CoordinatorNavBar from '@/components/NavBars/CoordinatorNavBar.vue'
 import AllAssessments from '@/components/StaffTables/AllAssessments.vue'
+import { onMounted } from 'vue'
+
+onMounted(async () => {})
 </script>
 <template>
   <div class="flex h-full w-full flex-col items-center">
