@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "65435295-a394-4d61-9628-308b77ad389c",
+  "id": "06c429df-1217-4961-99d8-794911ac58e2",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "users": {
@@ -16,35 +16,35 @@
         },
         "username": {
           "name": "username",
-          "type": "text(50)",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "gender": {
           "name": "gender",
-          "type": "text(5)",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "email": {
           "name": "email",
-          "type": "text(256)",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
         },
         "phoneNumber": {
           "name": "phoneNumber",
-          "type": "text(20)",
+          "type": "text",
           "primaryKey": false,
           "notNull": false,
           "autoincrement": false
         },
         "password": {
           "name": "password",
-          "type": "text(256)",
+          "type": "text",
           "primaryKey": false,
           "notNull": true,
           "autoincrement": false
@@ -56,12 +56,21 @@
           "notNull": false,
           "autoincrement": false
         },
-        "role": {
-          "name": "role",
-          "type": "text(256)",
+        "timezone": {
+          "name": "timezone",
+          "type": "text",
           "primaryKey": false,
           "notNull": false,
-          "autoincrement": false
+          "autoincrement": false,
+          "default": "'{\"label\":\"Europe/London (GMT+00:00)\",\"tzCode\":\"Europe/London\",\"name\":\"(GMT+00:00) London, Birmingham, Liverpool, Sheffield, Bristol\",\"utc\":\"+00:00\"}'"
+        },
+        "roleId": {
+          "name": "roleId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": 0
         }
       },
       "indexes": {},
