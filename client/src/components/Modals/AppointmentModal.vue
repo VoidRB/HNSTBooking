@@ -10,7 +10,7 @@ const toast = useToast()
 const updateAppointment = () => {
   try {
     const response = axios.put('/api/updateAppointment', {})
-    toast.success('Successfully updated appointment')
+    toast.success('Successfully the updated appointment')
   } catch (error) {
     toast.error('There was an error.')
     console.log(error)

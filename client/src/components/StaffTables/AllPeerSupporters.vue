@@ -26,7 +26,7 @@ const peerSupporters = [
     id: 3,
     name: 'Grace Kelly',
     email: 'grace.kelly@example.com',
-    status: 'Pending',
+    status: 'Active',
     appointments: '3',
     assignedBeneficiary: 'David Lee',
   },
@@ -42,7 +42,7 @@ const peerSupporters = [
     id: 3,
     name: 'Grace Kelly',
     email: 'grace.kelly@example.com',
-    status: 'Pending',
+    status: 'Active',
     appointments: '3',
     assignedBeneficiary: 'David Lee',
   },
@@ -58,7 +58,7 @@ const peerSupporters = [
     id: 3,
     name: 'Grace Kelly',
     email: 'grace.kelly@example.com',
-    status: 'Pending',
+    status: 'Active',
     appointments: '3',
     assignedBeneficiary: 'David Lee',
   },
@@ -85,6 +85,18 @@ onMounted(async () => {
 
 const setPeerSupporter = (peerSupporter: peerSupporterType) => {
   peerSupporterToModal.value = peerSupporter
+}
+
+const peerSupporterStatusBackground = (status: string) => {
+  switch (status) {
+    case 'Active':
+      return 'badge bg-green-500'
+    case 'Inactive':
+      return 'badge bg-yellow-500'
+
+    default:
+      return 'badge'
+  }
 }
 </script>
 <template>
@@ -117,7 +129,11 @@ const setPeerSupporter = (peerSupporter: peerSupporterType) => {
             <th>{{ peerSupporter.id }}</th>
             <td>{{ peerSupporter.name }}</td>
             <td>{{ peerSupporter.email }}</td>
-            <td>{{ peerSupporter.status }}</td>
+            <td>
+              <p :class="peerSupporterStatusBackground(peerSupporter.status)">
+                {{ peerSupporter.status }}
+              </p>
+            </td>
             <td>{{ peerSupporter.appointments }}</td>
             <td>{{ peerSupporter.assignedBeneficiary }}</td>
           </tr>
