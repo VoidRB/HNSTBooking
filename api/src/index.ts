@@ -5,6 +5,7 @@ import * as schema from "../drizzle/schemas";
 import { dbMiddleware } from './middlewares/db';
 import loginRoute from './routes/login';
 import registerRoute from './routes/register';
+import userRoute from './routes/user';
 
 export type HonoContextBindings = {
   Bindings: {
@@ -15,6 +16,7 @@ export type HonoContextBindings = {
     DB: DrizzleD1Database<typeof schema> & {
       $client: D1Database;
     };
+    CurrentUserID: string;
   }
 }
 
@@ -32,6 +34,9 @@ app.route('', loginRoute);
 
 // Register Route
 app.route('', registerRoute);
+
+// Users Route
+app.route('/user', userRoute);
 
 // Main Route
 app.get('/', async(ctx) => {
