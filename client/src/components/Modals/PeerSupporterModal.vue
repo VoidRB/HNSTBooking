@@ -1,16 +1,21 @@
 <script setup lang="ts">
 import axios from 'axios'
+import type peerSupporterType from '@/interfaces/peerSupporter'
 import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
-import type peerSupporterType from '@/interfaces/peerSupporter'
 const props = defineProps<{ peerSupporter: peerSupporterType | undefined }>()
-
+const assignedBeneficiary = ref()
+const peerSupporterStatus = ref()
 const toast = useToast()
 
 const updatePeerSupporter = () => {
   try {
-    const response = axios.put('/api/updatePeerSupporter', {})
-    toast.success('Successfully updated Peer Supporter')
+    const response = axios.put('/api/updatePeerSupporter', {
+      peerSupporterId: props.peerSupporter?.id,
+      assignedPeerSupporter: assignedBeneficiary.value,
+      peerSupporterStatus: peerSupporterStatus.value,
+    })
+    toast.success('Successfully updated the peer supporter')
   } catch (error) {
     toast.error('There was an error.')
     console.log(error)
@@ -21,7 +26,27 @@ const updatePeerSupporter = () => {
   <dialog id="my_modal_2" class="modal">
     <div class="modal-box">
       <h3 class="text-lg font-bold">Peer Supporter</h3>
-      <p class="pt-4">{{ props.peerSupporter?.id }}</p>
+      <p class="pt-4">Name : {{ props.peerSupporter?.name }}</p>
+      <p class="pt-4">Email : {{ props.peerSupporter?.email }}</p>
+      <p class="pt-4">
+        Status :&nbsp;
+        <select class="select select-bordered select-sm max-w-xs" v-model="peerSupporterStatus">
+          <option disabled selected>Status</option>
+          <option>Active</option>
+          <option>Inactive</option>
+        </select>
+      </p>
+      <p class="pt-4">Appointments : {{ props.peerSupporter?.appointments }}</p>
+      <p class="pt-4">
+        Assigned Beneficiary :&nbsp;
+        <select class="select select-bordered select-sm max-w-xs" v-model="assignedBeneficiary">
+          <option disabled selected>Beneficiary</option>
+          <!-- need the list of the Beneficiary -->
+          <option>B 1</option>
+          <option>B 2</option>
+          <option>B 3</option>
+        </select>
+      </p>
       <div class="modal-action">
         <form method="dialog">
           <button class="btn" @click="updatePeerSupporter()">Submit & Close</button>

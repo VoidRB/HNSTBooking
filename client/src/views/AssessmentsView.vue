@@ -39,35 +39,51 @@ const beneficiaries = [
     assignedPS: 'Alex King',
   },
 ]
+const [todaysDate] = new Date().toISOString().split('T')
 
-const assessmentType = ref('Assessment Type')
-const chosenBeneficiary = ref('Choose the beneficiary')
+const chosenAssessmentType = ref('')
+const chosenBeneficiary = ref()
 </script>
 <template>
   <div class="flex h-full w-full flex-col gap-10">
     <StaticNavBar />
-    <section class="flex gap-10 px-10">
-      <select v-model="chosenBeneficiary" class="select select-bordered w-full max-w-xs">
-        <option disabled selected>Choose the beneficiary</option>
-        <option v-for="beneficiary in beneficiaries" :key="beneficiary.id">
-          {{ beneficiary.name }}
-        </option></select
-      ><select v-model="assessmentType" class="select select-bordered w-full max-w-xs">
-        <option disabled selected>Assessment Type</option>
-        <option>Pre-Appointment</option>
-        <option>During-Appointment</option>
-        <option>Post-Appointment</option>
-      </select>
+    <section class="flex w-full gap-10 px-10">
+      <div class="flex w-1/3 flex-col">
+        <label class="label-text">Choose a Beneficiary</label>
+        <select v-model="chosenBeneficiary" class="select select-bordered w-full max-w-xs">
+          <option disabled selected>Choose the beneficiary</option>
+          <option v-for="beneficiary in beneficiaries" :key="beneficiary.id">
+            {{ beneficiary.name }}
+          </option>
+        </select>
+      </div>
+
+      <div class="flex w-1/3 flex-col">
+        <label class="label-text">Assessment Type</label>
+        <select v-model="chosenAssessmentType" class="select select-bordered w-full max-w-xs">
+          <option disabled selected>Assessment Type</option>
+          <option>Pre-Appointment</option>
+          <option>During-Appointment</option>
+          <option>Post-Appointment</option>
+        </select>
+      </div>
+
+      <div class="flex w-1/3 flex-col">
+        <label class="label-text">Date</label>
+        <button disabled class="input input-bordered w-full max-w-xs text-center">
+          {{ todaysDate }}
+        </button>
+      </div>
     </section>
     <section>
-      <article v-if="assessmentType === 'Pre-Appointment'">
-        <PreAssessment :beneficiary="chosenBeneficiary" />
+      <article v-if="chosenAssessmentType === 'Pre-Appointment'">
+        <PreAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
-      <article v-else-if="assessmentType === 'During-Appointment'">
-        <DuringAssessment :beneficiary="chosenBeneficiary" />
+      <article v-else-if="chosenAssessmentType === 'During-Appointment'">
+        <DuringAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
-      <article v-else-if="assessmentType === 'Post-Appointment'">
-        <PostAssessment :beneficiary="chosenBeneficiary" />
+      <article v-else-if="chosenAssessmentType === 'Post-Appointment'">
+        <PostAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
       <article v-else class="ml-2">
         Please pick a <span class="font-bold">Beneficiary</span> and

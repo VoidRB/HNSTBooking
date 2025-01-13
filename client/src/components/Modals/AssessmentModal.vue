@@ -10,7 +10,7 @@ const toast = useToast()
 const updateAssessment = () => {
   try {
     const response = axios.put('/api/updateBeneficiary', {})
-    toast.success('Successfully updated beneficiary')
+    toast.success('Successfully updated the assessment')
   } catch (error) {
     toast.error('There was an error.')
     console.log(error)
