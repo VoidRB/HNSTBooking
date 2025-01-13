@@ -1,9 +1,9 @@
 import { Hono } from "hono";
 import { setCookie } from "hono/cookie";
-import { Jwt } from "hono/utils/jwt";
 import { z } from "zod";
 import { HonoContextBindings } from "..";
 import { getUser } from "../db/getUser";
+import { signJWT } from "../helpers/signJWT";
 import { getSHA256Hash } from "../helpers/getSHA256Hash";
 
 const loginRoute = new Hono<HonoContextBindings>();
@@ -47,10 +47,12 @@ loginRoute.post('/login', async (ctx) => {
     return ctx.json({ error: 'Invalid Data' }, 401);
   }
 
-  // Sign a JWT and generate token
-  const payload = { id: getUserResult.id }
+  // Generate a JWT
+  const token = await signJWT({ userID: getUserResult.id }, ctx.env.JWT_SECRET);
 
-  const token = await Jwt.sign(payload, ctx.env.JWT_SECRET);
+  if (token === false) {
+    return ctx.json({ error: 'Unexpected Error' }, 400); 
+  }
 
   // Setting the token in the cookie
   setCookie(ctx, 'token', token, {
