@@ -25,28 +25,33 @@ const updatePeerSupporter = () => {
 <template>
   <dialog id="my_modal_2" class="modal">
     <div class="modal-box">
-      <h3 class="text-lg font-bold">Peer Supporter</h3>
-      <p class="pt-4">Name : {{ props.peerSupporter?.name }}</p>
-      <p class="pt-4">Email : {{ props.peerSupporter?.email }}</p>
-      <p class="pt-4">
-        Status :&nbsp;
-        <select class="select select-bordered select-sm max-w-xs" v-model="peerSupporterStatus">
-          <option disabled selected>Status</option>
-          <option>Active</option>
-          <option>Inactive</option>
-        </select>
-      </p>
-      <p class="pt-4">Appointments : {{ props.peerSupporter?.appointments }}</p>
-      <p class="pt-4">
-        Assigned Beneficiary :&nbsp;
-        <select class="select select-bordered select-sm max-w-xs" v-model="assignedBeneficiary">
-          <option disabled selected>Beneficiary</option>
-          <!-- need the list of the Beneficiary -->
-          <option>B 1</option>
-          <option>B 2</option>
-          <option>B 3</option>
-        </select>
-      </p>
+      <h3 class="text-xl font-bold underline">Peer Supporter</h3>
+      <div class="mt-4 grid grid-cols-2 grid-rows-5 gap-2">
+        <p class="col-start-1 row-start-1 font-bold">Name :</p>
+        <p class="col-start-1 row-start-2 font-bold">Email :</p>
+        <p class="col-start-2 row-start-1">{{ props.peerSupporter?.name }}</p>
+        <p class="col-start-2 row-start-2">{{ props.peerSupporter?.email }}</p>
+        <p class="col-start-1 row-start-3 font-bold">Status :</p>
+        <p class="col-start-2 row-start-3">
+          <select class="select select-bordered select-sm max-w-xs" v-model="peerSupporterStatus">
+            <option disabled selected>Status</option>
+            <option>Active</option>
+            <option>Inactive</option>
+          </select>
+        </p>
+        <p class="col-start-1 row-start-4 font-bold">Appointments :</p>
+        <p class="col-start-2 row-start-4">{{ props.peerSupporter?.appointments }}</p>
+        <p class="col-start-1 row-start-5 font-bold">Assigned Beneficiary :</p>
+        <p class="col-start-2 row-start-5">
+          <select class="select select-bordered select-sm max-w-xs" v-model="assignedBeneficiary">
+            <option disabled selected>Beneficiary</option>
+            <!-- need the list of the Beneficiary -->
+            <option>B 1</option>
+            <option>B 2</option>
+            <option>B 3</option>
+          </select>
+        </p>
+      </div>
       <div class="modal-action">
         <form method="dialog">
           <button class="btn" @click="updatePeerSupporter()">Submit & Close</button>

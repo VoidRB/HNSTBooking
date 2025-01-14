@@ -2,12 +2,12 @@
 import { RouterLink } from 'vue-router'
 </script>
 <template>
-  <div class="navbar bg-base-100">
+  <div class="navbar fixed z-10 bg-base-100">
     <div class="navbar-start">
       <a class="btn btn-ghost text-xl">B'Saraha </a>
     </div>
     <div class="navbar-end">
-      <div class="dropdown dropdown-end fixed z-10">
+      <div class="dropdown dropdown-end">
         <div tabindex="0" role="button" class="btn btn-circle btn-ghost">
           <i class="pi pi-align-right"></i>
         </div>

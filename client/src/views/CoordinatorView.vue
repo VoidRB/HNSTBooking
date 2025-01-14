@@ -11,7 +11,7 @@ onMounted(async () => {})
 <template>
   <div class="flex h-full w-full flex-col items-center">
     <CoordinatorNavBar />
-    <section class="mx-1 grid grid-cols-2 grid-rows-1 gap-10">
+    <section class="mx-1 mt-16 flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:grid-rows-1">
       <AllPeerSupporters class="col-start-1" />
       <AllBeneficiaries class="col-start-2" />
       <AllAppointments class="col-start-1 row-start-2" />
