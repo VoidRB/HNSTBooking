@@ -12,7 +12,7 @@ const user = reactive({
 })
 const register = async () => {
   try {
-    const response = await axios.post('/api/register', {
+    const response = await axios.postForm('/api/register', {
       email: user.email,
       name: user.name,
       gender: user.gender,
@@ -43,6 +43,7 @@ const register = async () => {
       v-model="user.name"
       type="text"
       placeholder="Name"
+      minlength="3"
       autocomplete="name"
       class="input input-bordered w-full max-w-xs"
     />
@@ -67,6 +68,7 @@ const register = async () => {
       v-model="user.password"
       type="password"
       placeholder="password"
+      minlength="6"
       autocomplete="current-password"
       class="input input-bordered w-full max-w-xs"
     />

@@ -9,7 +9,7 @@ const user = reactive({
 })
 const login = async () => {
   try {
-    const response = await axios.post('/api/login', {
+    const response = await axios.postForm('/api/login', {
       email: user.email,
       password: user.password,
     })

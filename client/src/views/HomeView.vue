@@ -14,7 +14,7 @@ const changeForms = () => {
   <div class="flex h-full w-full items-center justify-center gap-10">
     <section class="none hidden h-full w-2/3 items-start justify-start bg-base-200 p-10 md:flex">
       <h1 class="select-none text-9xl font-bold text-neutral shadow-black drop-shadow-xl">
-        Welcome to B'Saraha Booking!
+        Welcome to B'Saraha _______(?)!
       </h1>
     </section>
     <section class="flex w-1/3 flex-col items-center justify-center">

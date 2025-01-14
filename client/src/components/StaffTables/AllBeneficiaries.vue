@@ -70,7 +70,7 @@ const beneficiaryStatusBackground = (status: string) => {
     case 'Flagged':
       return 'badge bg-yellow-500'
     case 'Finished':
-      return 'badge bg-slate-500'
+      return 'badge bg-slate-100'
     case 'Denied':
       return 'badge bg-red-500'
 
