@@ -1,16 +1,23 @@
 <script setup lang="ts">
 import router from '@/router'
 import axios from 'axios'
-import { reactive } from 'vue'
-
+import { reactive, ref } from 'vue'
+import { useToast } from 'vue-toastification'
+const toast = useToast()
 const user = reactive({
   email: '',
   name: '',
-  gender: 'Gender',
+  gender: '',
   age: '',
   password: '',
+  passwordRepeated: '',
 })
+const passwordBorderColor = ref('')
 const register = async () => {
+  if (user.password != user.passwordRepeated) {
+    passwordBorderColor.value = 'ring-red-500 ring-1'
+    toast.warning('Passwords Dont Match')
+  }
   try {
     const response = await axios.postForm('/api/register', {
       email: user.email,
@@ -18,6 +25,7 @@ const register = async () => {
       gender: user.gender,
       age: user.age,
       password: user.password,
+      passwordRepeated: user.passwordRepeated,
     })
     console.log(`Registered`)
     router.push({ name: response.data.route })
@@ -47,12 +55,14 @@ const register = async () => {
       autocomplete="name"
       class="input input-bordered w-full max-w-xs"
     />
-    <select v-model="user.gender" class="select select-bordered w-full max-w-xs">
-      <option disabled selected>Gender</option>
-      <option>Male</option>
-      <option>Female</option>
-      <option>Other</option>
-    </select>
+    <div class="w-full hover:tooltip hover:tooltip-left hover:tooltip-open" data-tip="Gender">
+      <select v-model="user.gender" class="select select-bordered w-full max-w-xs">
+        <option disabled selected>Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+    </div>
     <input
       required
       v-model="user.age"
@@ -70,7 +80,16 @@ const register = async () => {
       placeholder="password"
       minlength="6"
       autocomplete="current-password"
-      class="input input-bordered w-full max-w-xs"
+      :class="[passwordBorderColor, 'input', 'input-bordered', 'w-full', 'max-w-xs']"
+    />
+    <input
+      required
+      v-model="user.passwordRepeated"
+      type="password"
+      placeholder="repeat password"
+      minlength="6"
+      autocomplete="current-password"
+      :class="[passwordBorderColor, 'input', 'input-bordered', 'w-full', 'max-w-xs']"
     />
     <button class="btn">Register</button>
   </form>
