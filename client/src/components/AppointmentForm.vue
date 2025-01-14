@@ -2,6 +2,7 @@
 import { reactive } from 'vue'
 import axios from 'axios'
 import { useToast } from 'vue-toastification'
+import { countries } from '../../../shared/countryCodes.ts'
 
 const toast = useToast()
 const appointment = reactive({
@@ -86,12 +87,19 @@ const bookAppointment = () => {
           v-if="appointment.appointmentOption === 'Telephone'"
         >
           <label for="Date">Telephone Number</label>
-          <input
-            required
-            type="number"
-            v-model="appointment.appointmentOptionData"
-            class="input input-bordered w-full max-w-xs text-center"
-          />
+          <div class="join">
+            <select class="join-item select select-bordered">
+              <option v-for="country in countries" :key="country.phone_code">
+                <span>{{ country.country_code }}</span> {{ country.phone_code }}
+              </option>
+            </select>
+            <input
+              required
+              type="number"
+              v-model="appointment.appointmentOptionData"
+              class="input join-item input-bordered w-full text-center"
+            />
+          </div>
         </div>
         <div
           class="flex w-full flex-col items-center"

@@ -6,7 +6,7 @@ import { useToast } from 'vue-toastification'
 const toast = useToast()
 const user = reactive({
   email: '',
-  name: '',
+  username: '',
   gender: '',
   age: '',
   password: '',
@@ -18,10 +18,11 @@ const register = async () => {
     passwordBorderColor.value = 'ring-red-500 ring-1'
     toast.warning('Passwords Dont Match')
   }
+
   try {
     const response = await axios.postForm('/api/register', {
       email: user.email,
-      name: user.name,
+      username: user.username,
       gender: user.gender,
       age: user.age,
       password: user.password,
@@ -48,7 +49,7 @@ const register = async () => {
     />
     <input
       required
-      v-model="user.name"
+      v-model="user.username"
       type="text"
       placeholder="Name"
       minlength="3"
@@ -76,6 +77,7 @@ const register = async () => {
     <input
       required
       v-model="user.password"
+      @keypress="passwordBorderColor = 'ring-0'"
       type="password"
       placeholder="password"
       minlength="6"
@@ -85,12 +87,13 @@ const register = async () => {
     <input
       required
       v-model="user.passwordRepeated"
+      @keypress="passwordBorderColor = 'ring-0'"
       type="password"
       placeholder="repeat password"
       minlength="6"
       autocomplete="current-password"
       :class="[passwordBorderColor, 'input', 'input-bordered', 'w-full', 'max-w-xs']"
     />
-    <button class="btn">Register</button>
+    <button class="btn" @click="passwordBorderColor = 'ring-0'">Register</button>
   </form>
 </template>
