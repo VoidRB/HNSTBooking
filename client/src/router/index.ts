@@ -21,12 +21,12 @@ const router = createRouter({
       },
     },
     {
-      path: '/Appointments',
-      name: 'AppointmentView',
+      path: '/Session',
+      name: 'SessionView',
 
-      component: () => import('@/views/AppointmentView.vue'),
+      component: () => import('@/views/SessionView.vue'),
       meta: {
-        title: 'Appointments',
+        title: 'Book Session',
       },
     },
     {

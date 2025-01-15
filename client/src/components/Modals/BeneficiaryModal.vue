@@ -26,7 +26,7 @@ const updateBeneficiary = () => {
   <dialog id="my_modal_2" class="modal">
     <div class="modal-box">
       <h3 class="text-xl font-bold underline">Beneficiary</h3>
-      <div class="mt-4 grid grid-cols-2 grid-rows-6 gap-2">
+      <div class="mt-4 grid grid-cols-2 grid-rows-7 gap-2">
         <p class="col-start-1 row-start-1 font-bold">Name :</p>
         <p class="col-start-1 row-start-2 font-bold">Email :</p>
         <p class="col-start-1 row-start-3 font-bold">Gender :</p>
@@ -61,6 +61,8 @@ const updateBeneficiary = () => {
         </p>
         <p class="col-start-1 row-start-6 font-bold">Communication option :</p>
         <p class="col-start-2 row-start-6">{{ props.beneficiary?.communicationOption }}</p>
+        <p class="col-start-1 row-start-7 font-bold">Staff Notes :</p>
+        <textarea class="textarea textarea-bordered col-start-2 row-start-7 resize-none"></textarea>
       </div>
 
       <div class="modal-action">

@@ -11,7 +11,7 @@ const beneficiaries = [
     email: 'alice.johnson@example.com',
     status: 'Approved',
     gender: 'Female',
-    appointments: '3',
+    Sessions: '3',
     assignedPeerSupporter: 'John Doe',
     communicationOption: 'Google Meet',
   },
@@ -21,7 +21,7 @@ const beneficiaries = [
     email: 'bob.smith@example.com',
     status: 'Flagged',
     gender: 'Male',
-    appointments: '1',
+    Sessions: '1',
     assignedPeerSupporter: 'Jane Roe',
     communicationOption: 'Skype',
   },
@@ -31,7 +31,7 @@ const beneficiaries = [
     email: 'charlie.brown@example.com',
     status: 'Finished',
     gender: 'Other',
-    appointments: '0',
+    Sessions: '0',
     assignedPeerSupporter: 'Chris Martin',
     communicationOption: '+249 91 230 0026',
   },
@@ -41,7 +41,7 @@ const beneficiaries = [
     email: 'diana.prince@example.com',
     status: 'Denied',
     gender: 'Female',
-    appointments: '5',
+    Sessions: '5',
     assignedPeerSupporter: 'None',
     communicationOption: 'Zoom',
   },
@@ -128,7 +128,7 @@ const refreshTable = async () => {
                 {{ beneficiary.status }}
               </p>
             </td>
-            <td>{{ beneficiary.appointments }}</td>
+            <td>{{ beneficiary.Sessions }}</td>
             <td>{{ beneficiary.assignedPeerSupporter }}</td>
           </tr>
         </tbody>

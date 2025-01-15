@@ -10,7 +10,7 @@ const beneficiaries = [
     name: 'Alice Johnson',
     email: 'alice.johnson@example.com',
     status: 'Active',
-    appointments: '3',
+    Sessions: '3',
     assignedPS: 'John Doe',
   },
   {
@@ -18,7 +18,7 @@ const beneficiaries = [
     name: 'Bob Smith',
     email: 'bob.smith@example.com',
     status: 'Pending',
-    appointments: '1',
+    Sessions: '1',
     assignedPS: 'Jane Roe',
   },
   {
@@ -26,7 +26,7 @@ const beneficiaries = [
     name: 'Charlie Brown',
     email: 'charlie.brown@example.com',
     status: 'Inactive',
-    appointments: '0',
+    Sessions: '0',
     assignedPS: 'Chris Martin',
   },
   {
@@ -34,7 +34,7 @@ const beneficiaries = [
     name: 'Diana Prince',
     email: 'diana.prince@example.com',
     status: 'Active',
-    appointments: '5',
+    Sessions: '5',
     assignedPS: 'Alex King',
   },
 ]
@@ -60,9 +60,9 @@ const chosenBeneficiary = ref()
         <label class="label-text">Assessment Type</label>
         <select v-model="chosenAssessmentType" class="select select-bordered w-full max-w-xs">
           <option disabled selected>Assessment Type</option>
-          <option>Pre-Appointment</option>
-          <option>During-Appointment</option>
-          <option>Post-Appointment</option>
+          <option>Pre-Session</option>
+          <option>During-Session</option>
+          <option>Post-Session</option>
         </select>
       </div>
 
@@ -74,13 +74,13 @@ const chosenBeneficiary = ref()
       </div>
     </section>
     <section>
-      <article v-if="chosenAssessmentType === 'Pre-Appointment'">
+      <article v-if="chosenAssessmentType === 'Pre-Session'">
         <PreAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
-      <article v-else-if="chosenAssessmentType === 'During-Appointment'">
+      <article v-else-if="chosenAssessmentType === 'During-Session'">
         <DuringAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
-      <article v-else-if="chosenAssessmentType === 'Post-Appointment'">
+      <article v-else-if="chosenAssessmentType === 'Post-Session'">
         <PostAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
       <article v-else class="ml-2">

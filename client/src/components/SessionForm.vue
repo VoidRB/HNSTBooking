@@ -5,22 +5,22 @@ import { useToast } from 'vue-toastification'
 import { countries } from '../../../shared/countryCodes.ts'
 
 const toast = useToast()
-const appointment = reactive({
+const Session = reactive({
   beneficiaryEmail: '',
   beneficiaryName: '',
-  appointmentDate: '',
-  appointmentOption: '',
-  appointmentOptionData: '',
-  appointmentDuration: 60,
+  SessionDate: '',
+  SessionOption: '',
+  SessionOptionData: '',
+  SessionDuration: 60,
 })
-const bookAppointment = () => {
+const bookSession = () => {
   try {
-    const response = axios.post('/api/bookAppointment', {
-      beneficiaryEmail: appointment.beneficiaryEmail,
-      appointmentDate: appointment.appointmentDate,
-      appointmentDuration: appointment.appointmentDuration,
-      appointmentOption: appointment.appointmentOption,
-      appointmentOptionData: appointment.appointmentOptionData,
+    const response = axios.post('/api/bookSession', {
+      beneficiaryEmail: Session.beneficiaryEmail,
+      SessionDate: Session.SessionDate,
+      SessionDuration: Session.SessionDuration,
+      SessionOption: Session.SessionOption,
+      SessionOptionData: Session.SessionOptionData,
     })
     toast.success('Successfully booked')
   } catch (error) {
@@ -31,8 +31,8 @@ const bookAppointment = () => {
 </script>
 <template>
   <form
-    class="flex w-full flex-col items-center justify-center gap-5"
-    @submit.prevent="bookAppointment"
+    class="mt-32 flex w-full flex-col items-center justify-center gap-5"
+    @submit.prevent="bookSession"
   >
     <div class="flex gap-5">
       <section class="flex flex-col gap-5">
@@ -41,7 +41,7 @@ const bookAppointment = () => {
           <input
             required
             type="email"
-            v-model="appointment.beneficiaryEmail"
+            v-model="Session.beneficiaryEmail"
             placeholder="Email"
             class="input input-bordered w-full max-w-xs"
           />
@@ -51,20 +51,20 @@ const bookAppointment = () => {
           <input
             required
             type="text"
-            v-model="appointment.beneficiaryName"
+            v-model="Session.beneficiaryName"
             placeholder="Name"
             class="input input-bordered w-full max-w-xs"
           />
         </div>
         <div class="flex w-full flex-col items-center">
-          <label for="Date">Appointment Date</label>
+          <label for="Date">Session Date</label>
           <!-- should be reactive with todays date -->
           <input
             required
             min="2025-01-10"
             max="2025-12-31"
             type="date"
-            v-model="appointment.appointmentDate"
+            v-model="Session.SessionDate"
             class="input input-bordered w-full max-w-xs text-center"
           />
         </div>
@@ -75,17 +75,14 @@ const bookAppointment = () => {
           <select
             placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
-            v-model="appointment.appointmentOption"
+            v-model="Session.SessionOption"
           >
             <option disabled selected>Pick One</option>
             <option>Telephone</option>
             <option>Web Conferencing</option>
           </select>
         </div>
-        <div
-          class="flex w-full flex-col items-center"
-          v-if="appointment.appointmentOption === 'Telephone'"
-        >
+        <div class="flex w-full flex-col items-center" v-if="Session.SessionOption === 'Telephone'">
           <label for="Date">Telephone Number</label>
           <div class="join">
             <select class="join-item select select-bordered">
@@ -97,20 +94,20 @@ const bookAppointment = () => {
             <input
               required
               type="number"
-              v-model="appointment.appointmentOptionData"
+              v-model="Session.SessionOptionData"
               class="input join-item input-bordered w-full text-center"
             />
           </div>
         </div>
         <div
           class="flex w-full flex-col items-center"
-          v-else-if="appointment.appointmentOption === 'Web Conferencing'"
+          v-else-if="Session.SessionOption === 'Web Conferencing'"
         >
           <label for="Date">Perferred Platform</label>
           <select
             placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
-            v-model="appointment.appointmentOptionData"
+            v-model="Session.SessionOptionData"
           >
             <option disabled selected>Choose a platform</option>
             <option>Google Meet</option>
@@ -129,7 +126,7 @@ const bookAppointment = () => {
             type="text"
             placeholder="60"
             disabled
-            v-model="appointment.appointmentDuration"
+            v-model="Session.SessionDuration"
             class="input input-bordered w-full max-w-xs text-center"
           />
         </div>

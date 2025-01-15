@@ -11,7 +11,7 @@ const peerSupporters = [
     name: 'Eve Adams',
     email: 'eve.adams@example.com',
     status: 'Inactive',
-    appointments: '2',
+    Sessions: '2',
     assignedBeneficiary: 'Sam Wilson',
   },
   {
@@ -19,7 +19,7 @@ const peerSupporters = [
     name: 'Frank Johnson',
     email: 'frank.johnson@example.com',
     status: 'Active',
-    appointments: '4',
+    Sessions: '4',
     assignedBeneficiary: 'Lucy Liu',
   },
   {
@@ -27,7 +27,7 @@ const peerSupporters = [
     name: 'Grace Kelly',
     email: 'grace.kelly@example.com',
     status: 'Active',
-    appointments: '3',
+    Sessions: '3',
     assignedBeneficiary: 'David Lee',
   },
   {
@@ -35,7 +35,7 @@ const peerSupporters = [
     name: 'Hank Moody',
     email: 'hank.moody@example.com',
     status: 'Inactive',
-    appointments: '1',
+    Sessions: '1',
     assignedBeneficiary: 'Nina Ricci',
   },
   {
@@ -43,7 +43,7 @@ const peerSupporters = [
     name: 'Grace Kelly',
     email: 'grace.kelly@example.com',
     status: 'Active',
-    appointments: '3',
+    Sessions: '3',
     assignedBeneficiary: 'David Lee',
   },
   {
@@ -51,7 +51,7 @@ const peerSupporters = [
     name: 'Hank Moody',
     email: 'hank.moody@example.com',
     status: 'Inactive',
-    appointments: '1',
+    Sessions: '1',
     assignedBeneficiary: 'Nina Ricci',
   },
   {
@@ -59,7 +59,7 @@ const peerSupporters = [
     name: 'Grace Kelly',
     email: 'grace.kelly@example.com',
     status: 'Active',
-    appointments: '3',
+    Sessions: '3',
     assignedBeneficiary: 'David Lee',
   },
   {
@@ -67,7 +67,7 @@ const peerSupporters = [
     name: 'Hank Moody',
     email: 'hank.moody@example.com',
     status: 'Inactive',
-    appointments: '1',
+    Sessions: '1',
     assignedBeneficiary: 'Nina Ricci',
   },
 ]
@@ -127,7 +127,7 @@ const refreshTable = async () => {
             <th>Name</th>
             <th>Email</th>
             <th>Status</th>
-            <th>Appointments</th>
+            <th>Sessions</th>
             <th>Assigned beneficiaries</th>
           </tr>
         </thead>
@@ -147,7 +147,7 @@ const refreshTable = async () => {
                 {{ peerSupporter.status }}
               </p>
             </td>
-            <td>{{ peerSupporter.appointments }}</td>
+            <td>{{ peerSupporter.Sessions }}</td>
             <td>{{ peerSupporter.assignedBeneficiary }}</td>
           </tr>
         </tbody>

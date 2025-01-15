@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-const userRole = ref('beneficiary')
+const userRole = ref('coordinator')
 const menuData = [
   {
     id: 1,
     role: 'beneficiary',
     routes: [
       { name: 'Homepage', routeName: 'home' },
-      { name: 'Appointments', routeName: 'AppointmentView' },
+      { name: 'Session', routeName: 'SessionView' },
       { name: "FAQ's", routeName: 'FAQView' },
     ],
   },

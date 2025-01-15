@@ -3,6 +3,6 @@ export default interface peerSupporterType {
   name: string
   email: string
   status: string
-  appointments: string
+  Sessions: string
   assignedBeneficiary: string
 }

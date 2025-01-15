@@ -39,8 +39,8 @@ const updatePeerSupporter = () => {
             <option>Inactive</option>
           </select>
         </p>
-        <p class="col-start-1 row-start-4 font-bold">Appointments :</p>
-        <p class="col-start-2 row-start-4">{{ props.peerSupporter?.appointments }}</p>
+        <p class="col-start-1 row-start-4 font-bold">Sessions :</p>
+        <p class="col-start-2 row-start-4">{{ props.peerSupporter?.Sessions }}</p>
         <p class="col-start-1 row-start-5 font-bold">Assigned Beneficiary :</p>
         <p class="col-start-2 row-start-5">
           <select class="select select-bordered select-sm max-w-xs" v-model="assignedBeneficiary">

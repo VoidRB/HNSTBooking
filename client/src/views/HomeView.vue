@@ -23,7 +23,7 @@ const changeForms = () => {
         <i class="pi pi-arrow-down self-center"></i>
         <input
           type="checkbox"
-          class="toggle mt-5 self-center"
+          class="toggle my-6 self-center"
           :checked="formState"
           @click="changeForms()"
         />

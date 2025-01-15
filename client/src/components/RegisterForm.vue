@@ -15,7 +15,7 @@ const user = reactive({
 const passwordBorderColor = ref('')
 const register = async () => {
   if (user.password != user.passwordRepeated) {
-    passwordBorderColor.value = 'ring-red-500 ring-1'
+    passwordBorderColor.value = 'input-error'
     toast.warning('Passwords Dont Match')
   }
 
@@ -29,6 +29,7 @@ const register = async () => {
       passwordRepeated: user.passwordRepeated,
     })
     console.log(`Registered`)
+    toast.success('Successfully registered, Welcome!')
     router.push({ name: response.data.route })
   } catch (error) {
     console.log(error)
