@@ -5,6 +5,7 @@ const toast = useToast()
 const props = defineProps({
   beneficiary: String,
   chosenAssessmentDate: String,
+  sessionNumber: Number,
 })
 
 const submitAssessment = async () => {

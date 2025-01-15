@@ -42,6 +42,7 @@ const [todaysDate] = new Date().toISOString().split('T')
 
 const chosenAssessmentType = ref('')
 const chosenBeneficiary = ref()
+const chosenSessionNumber = ref()
 </script>
 <template>
   <div class="mt-16 flex h-full w-full flex-col gap-10">
@@ -56,14 +57,31 @@ const chosenBeneficiary = ref()
         </select>
       </div>
 
-      <div class="flex w-1/3 flex-col">
-        <label class="label-text">Assessment Type</label>
-        <select v-model="chosenAssessmentType" class="select select-bordered w-full max-w-xs">
-          <option disabled selected>Assessment Type</option>
-          <option>Pre-Session</option>
-          <option>During-Session</option>
-          <option>Post-Session</option>
-        </select>
+      <div class="join flex w-1/3 flex-col">
+        <label class="join-item label-text">Assessment Type</label>
+        <div class="join">
+          <select
+            v-model="chosenAssessmentType"
+            class="join-item select select-bordered w-full max-w-xs"
+          >
+            <option disabled selected>Assessment Type</option>
+            <option>Pre-Session</option>
+            <option>During-Session</option>
+            <option>Post-Session</option>
+          </select>
+          <select
+            v-if="chosenAssessmentType === 'During-Session'"
+            v-model="chosenAssessmentType"
+            class="join-item select select-bordered max-w-xs"
+          >
+            <option disabled selected>Session #</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
       </div>
 
       <div class="flex w-1/3 flex-col">
@@ -75,13 +93,25 @@ const chosenBeneficiary = ref()
     </section>
     <section>
       <article v-if="chosenAssessmentType === 'Pre-Session'">
-        <PreAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
+        <PreAssessment
+          :beneficiary="chosenBeneficiary"
+          :chosenAssessmentDate="todaysDate"
+          :sessionNumber="chosenSessionNumber"
+        />
       </article>
       <article v-else-if="chosenAssessmentType === 'During-Session'">
-        <DuringAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
+        <DuringAssessment
+          :beneficiary="chosenBeneficiary"
+          :chosenAssessmentDate="todaysDate"
+          :sessionNumber="chosenSessionNumber"
+        />
       </article>
       <article v-else-if="chosenAssessmentType === 'Post-Session'">
-        <PostAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
+        <PostAssessment
+          :beneficiary="chosenBeneficiary"
+          :chosenAssessmentDate="todaysDate"
+          :sessionNumber="chosenSessionNumber"
+        />
       </article>
       <article v-else class="ml-2">
         Please pick a <span class="font-bold">Beneficiary</span> and

@@ -5,6 +5,7 @@ const toast = useToast()
 const props = defineProps({
   beneficiary: String,
   chosenAssessmentDate: String,
+  sessionNumber: Number,
 })
 
 const submitAssessment = async () => {
@@ -16,7 +17,7 @@ const submitAssessment = async () => {
 </script>
 <template>
   <h1 class="ml-2">Beneficiary : {{ props.beneficiary }}</h1>
-  <div class="flex h-full w-full flex-col py-10">
+  <div class="flex h-full w-full flex-col py-5">
     <!-- Questions -->
     <section class="ml-5 h-96 overflow-y-scroll">
       <article class="mb-5">

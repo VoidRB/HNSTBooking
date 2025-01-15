@@ -44,7 +44,7 @@ const menuData = [
 <template>
   <div class="navbar fixed z-10 bg-base-100">
     <div class="navbar-start">
-      <a class="btn btn-ghost text-xl">B'Saraha</a>
+      <RouterLink :to="{ name: 'home' }" class="btn btn-ghost text-xl">B'Saraha</RouterLink>
     </div>
     <div class="navbar-end">
       <div class="dropdown dropdown-end">
