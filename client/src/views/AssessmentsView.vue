@@ -2,7 +2,6 @@
 import DuringAssessment from '@/components/Assessments/DuringAssessment.vue'
 import PostAssessment from '@/components/Assessments/PostAssessment.vue'
 import PreAssessment from '@/components/Assessments/PreAssessment.vue'
-import StaticNavBar from '@/components/NavBars/StaticNavBar.vue'
 import { ref } from 'vue'
 
 const beneficiaries = [
@@ -45,8 +44,7 @@ const chosenAssessmentType = ref('')
 const chosenBeneficiary = ref()
 </script>
 <template>
-  <div class="flex h-full w-full flex-col gap-10">
-    <StaticNavBar />
+  <div class="mt-16 flex h-full w-full flex-col gap-10">
     <section class="flex w-full gap-10 px-10">
       <div class="flex w-1/3 flex-col">
         <label class="label-text">Choose a Beneficiary</label>

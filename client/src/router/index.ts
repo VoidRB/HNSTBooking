@@ -39,12 +39,21 @@ const router = createRouter({
       },
     },
     {
+      path: '/Audit',
+      name: 'AuditorView',
+
+      component: () => import('@/views/AuditorView.vue'),
+      meta: {
+        title: 'Audit',
+      },
+    },
+    {
       path: '/Assessments',
       name: 'AssessmentsView',
 
       component: () => import('@/views/AssessmentsView.vue'),
       meta: {
-        title: 'Coordinator',
+        title: 'Assessments',
       },
     },
     {
@@ -53,7 +62,7 @@ const router = createRouter({
 
       component: () => import('@/views/FAQView.vue'),
       meta: {
-        title: 'Coordinator',
+        title: 'FAQ',
       },
     },
     {

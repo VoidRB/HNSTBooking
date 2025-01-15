@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import FAQsComp from '@/components/FAQsComp.vue'
 import ResourcesComp from '@/components/ResourcesComp.vue'
-import BeneficiariyNavBar from '@/components/NavBars/BeneficiariyNavBar.vue'
 </script>
 <template>
-  <div class="flex h-full w-full flex-col">
-    <BeneficiariyNavBar />
+  <div class="mt-16 flex h-full w-full flex-col">
     <section class="flex h-full w-full flex-col lg:flex-row">
       <FAQsComp />
       <hr class="divider px-5 lg:divider-horizontal lg:py-5" />

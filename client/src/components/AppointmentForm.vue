@@ -90,6 +90,7 @@ const bookAppointment = () => {
           <div class="join">
             <select class="join-item select select-bordered">
               <option v-for="country in countries" :key="country.phone_code">
+                <!-- PROBLEM -->
                 <span>{{ country.country_code }}</span> {{ country.phone_code }}
               </option>
             </select>
