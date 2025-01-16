@@ -73,7 +73,7 @@ const register = async () => {
       type="number"
       placeholder="Age"
       autocomplete="age"
-      class="input input-bordered w-full max-w-xs"
+      class="input input-bordered w-full max-w-xs [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
     />
     <input
       required

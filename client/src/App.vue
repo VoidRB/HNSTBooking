@@ -6,7 +6,7 @@ console.log(route.name)
 </script>
 
 <template>
-  <div class="flex h-screen w-full flex-1 flex-col">
+  <div class="flex h-screen w-full flex-1 flex-col lg:overflow-hidden">
     <NavBar v-if="route.name !== 'home'" />
     <RouterView v-slot="{ Component }">
       <Transition name="page">

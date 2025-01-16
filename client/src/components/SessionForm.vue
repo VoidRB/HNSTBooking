@@ -73,6 +73,7 @@ const bookSession = () => {
         <div class="flex w-full flex-col items-center">
           <label for="Date">Perferred Communication</label>
           <select
+            required
             placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
             v-model="Session.SessionOption"
@@ -88,14 +89,14 @@ const bookSession = () => {
             <select class="join-item select select-bordered">
               <option v-for="country in countries" :key="country.phone_code">
                 <!-- PROBLEM -->
-                <span>{{ country.country_code }}</span> {{ country.phone_code }}
+                <!-- <span>{{ country.country_code }}</span> {{ country.phone_code }} -->
               </option>
             </select>
             <input
               required
               type="number"
               v-model="Session.SessionOptionData"
-              class="input join-item input-bordered w-full text-center"
+              class="input join-item input-bordered w-full text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
             />
           </div>
         </div>
@@ -105,14 +106,15 @@ const bookSession = () => {
         >
           <label for="Date">Perferred Platform</label>
           <select
+            required
             placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
             v-model="Session.SessionOptionData"
           >
             <option disabled selected>Choose a platform</option>
             <option>Google Meet</option>
-            <option>Skype</option>
-            <option>Zoom</option>
+            <option>WhatsApp</option>
+            <option>Telegram</option>
           </select>
         </div>
         <div v-else>

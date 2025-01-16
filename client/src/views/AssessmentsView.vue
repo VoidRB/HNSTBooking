@@ -71,7 +71,7 @@ const chosenSessionNumber = ref()
           </select>
           <select
             v-if="chosenAssessmentType === 'During-Session'"
-            v-model="chosenAssessmentType"
+            v-model="chosenSessionNumber"
             class="join-item select select-bordered max-w-xs"
           >
             <option disabled selected>Session #</option>
