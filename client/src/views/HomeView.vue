@@ -18,16 +18,12 @@ const changeForms = () => {
       </h1>
     </section>
     <section class="flex w-1/3 flex-col items-center justify-center">
-      <div class="flex flex-col">
-        <h1 class="text-center">Click here to change forms</h1>
-        <i class="pi pi-arrow-down self-center"></i>
-        <input
-          type="checkbox"
-          class="toggle my-6 self-center"
-          :checked="formState"
-          @click="changeForms()"
-        />
-      </div>
+      <label class="swap swap-flip mb-5">
+        <input type="checkbox" @click="changeForms" />
+
+        <h1 class="swap-off text-3xl font-bold">&nbsp;&nbsp;login</h1>
+        <h1 class="swap-on text-3xl font-bold">Register</h1>
+      </label>
 
       <LoginForm v-if="formState" />
       <RegisterForm v-else />

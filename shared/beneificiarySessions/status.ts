@@ -1,29 +1,40 @@
 const pending = {
-	statusId: 0,
+	statusID: 0,
 	statusName: "Pending",
 } as const;
 
 const scheduled = {
-	statusId: 1,
+	statusID: 1,
 	statusName: "Scheduled",
 } as const;
 
 const cancelled = {
-	statusId: 2,
+	statusID: 2,
 	statusName: "Cancelled",
 } as const;
 
 const onGoing = {
-	statusId: 3,
+	statusID: 3,
 	statusName: "OnGoing",
 } as const;
 
 const halted = {
-	statusId: 4,
+	statusID: 4,
 	statusName: "Halted",
 } as const;
 
 const completed = {
-	statusId: 5,
+	statusID: 5,
 	statusName: "Completed",
 } as const;
+
+export const statusType = {
+	pending: pending,
+	scheduled: scheduled,
+	cancelled: cancelled,
+	onGoing: onGoing,
+	halted: halted,
+	completed: completed,
+} as const;
+
+export type StatusType = typeof statusType;

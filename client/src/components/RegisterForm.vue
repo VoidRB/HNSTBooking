@@ -38,8 +38,6 @@ const register = async () => {
 </script>
 <template>
   <form class="flex flex-col items-center gap-2" @submit.prevent="register">
-    <label for="LoginForm" class="text-3xl font-bold">Register</label>
-
     <input
       required
       v-model="user.email"

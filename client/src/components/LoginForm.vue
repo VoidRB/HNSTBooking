@@ -22,7 +22,6 @@ const login = async () => {
 </script>
 <template>
   <form class="flex flex-col items-center gap-2" @submit.prevent="login">
-    <label for="LoginForm" class="text-3xl font-bold">Login</label>
     <div class="input"></div>
     <div class="input"></div>
     <input

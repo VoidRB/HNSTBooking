@@ -8,7 +8,7 @@ const userRoute = new Hono<HonoContextBindings>();
 // Authenticating the token in the cookie
 userRoute.use(authenticateMiddleware);
 
-userRoute.get("/users", async (ctx) => {
+userRoute.post("/users", async (ctx) => {
 	const allUsersByRole = await getUsers({
 		ctx: ctx,
 		roleId: ctx.get("UserRole"),
