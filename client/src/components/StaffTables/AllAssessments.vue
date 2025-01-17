@@ -11,6 +11,7 @@ const assessments = [
     assignedPeerSupporter: 'Sarah Al-Rawi',
     beneficiary: 'Ahmed Bin Suleiman',
     date: '2025-01-15',
+    likertScore: 5.4,
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const assessments = [
     assignedPeerSupporter: 'Yasmin Al-Nahdi',
     beneficiary: 'Faisal Al-Qahtani',
     date: '2025-01-16',
+    likertScore: 3.2,
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const assessments = [
     assignedPeerSupporter: 'Khalid Al-Farsi',
     beneficiary: 'Hassan Al-Ahmad',
     date: '2025-01-17',
+    likertScore: 7.1,
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const assessments = [
     assignedPeerSupporter: 'Mariam Al-Hajri',
     beneficiary: 'Amina Al-Khattab',
     date: '2025-01-18',
+    likertScore: 9,
   },
   {
     id: 5,
@@ -39,6 +43,7 @@ const assessments = [
     assignedPeerSupporter: 'Omar Al-Shehri',
     beneficiary: 'Noura Al-Mutairi',
     date: '2025-01-19',
+    likertScore: 10,
   },
   {
     id: 6,
@@ -46,6 +51,7 @@ const assessments = [
     assignedPeerSupporter: 'Fatimah Al-Dosari',
     beneficiary: 'Sultan Al-Balawi',
     date: '2025-01-20',
+    likertScore: 2.8,
   },
 ]
 
@@ -96,6 +102,7 @@ const refreshTable = async () => {
             <th>Type</th>
             <th>Assigned Peer Supporter</th>
             <th>Date</th>
+            <th>Likert Score</th>
           </tr>
         </thead>
         <tbody>
@@ -111,6 +118,7 @@ const refreshTable = async () => {
             <td>{{ assessment.type }}</td>
             <td>{{ assessment.assignedPeerSupporter }}</td>
             <td>{{ assessment.date }}</td>
+            <td>{{ assessment.likertScore }}</td>
           </tr>
         </tbody>
       </table>

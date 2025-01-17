@@ -12,7 +12,9 @@ const user = reactive({
   password: '',
   passwordRepeated: '',
 })
+
 const passwordBorderColor = ref('')
+
 const register = async () => {
   if (user.password != user.passwordRepeated) {
     passwordBorderColor.value = 'input-error'
@@ -32,6 +34,7 @@ const register = async () => {
     toast.success('Successfully registered, Welcome!')
     router.push({ name: response.data.route })
   } catch (error) {
+    toast.error('Oops, There was an error')
     console.log(error)
   }
 }

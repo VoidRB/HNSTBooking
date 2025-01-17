@@ -10,6 +10,7 @@ const router = createRouter({
       component: HomeView,
       meta: {
         title: 'Home',
+        requireAuth: false,
       },
     },
     {
@@ -18,6 +19,7 @@ const router = createRouter({
       component: () => import('@/views/PeerSupporterView.vue'),
       meta: {
         title: 'PS',
+        requireAuth: true,
       },
     },
     {
@@ -27,6 +29,7 @@ const router = createRouter({
       component: () => import('@/views/SessionView.vue'),
       meta: {
         title: 'Book Session',
+        requireAuth: true,
       },
     },
     {
@@ -36,6 +39,7 @@ const router = createRouter({
       component: () => import('@/views/CoordinatorView.vue'),
       meta: {
         title: 'Coordinator',
+        requireAuth: true,
       },
     },
     {
@@ -45,6 +49,7 @@ const router = createRouter({
       component: () => import('@/views/AuditorView.vue'),
       meta: {
         title: 'Audit',
+        requireAuth: true,
       },
     },
     {
@@ -54,6 +59,7 @@ const router = createRouter({
       component: () => import('@/views/AssessmentsView.vue'),
       meta: {
         title: 'Assessments',
+        requireAuth: true,
       },
     },
     {
@@ -63,6 +69,7 @@ const router = createRouter({
       component: () => import('@/views/FAQView.vue'),
       meta: {
         title: 'FAQ',
+        requireAuth: true,
       },
     },
     {
@@ -70,6 +77,7 @@ const router = createRouter({
       name: 'notFound',
       meta: {
         title: '404 Not Found',
+        requireAuth: true,
       },
       component: () => import('@/views/NotFoundView.vue'),
     },
@@ -79,6 +87,15 @@ const router = createRouter({
 router.beforeEach((to, _from, next) => {
   document.title = `${to.meta.title} | B'Saraha`
   next()
+})
+
+router.beforeEach(async (to, from, next) => {
+  // TODO add route auth to make sure they cant jump to routes by themselves
+  if (to.meta.requireAuth === true) {
+    //auth by role here
+    return next()
+  }
+  return next()
 })
 
 export default router

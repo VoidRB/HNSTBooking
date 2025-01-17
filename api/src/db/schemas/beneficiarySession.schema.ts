@@ -14,21 +14,19 @@ export const beneficiarySessionSchema = sqliteTable("beneficiarySession", {
 	dateSubmitted: text().$default(
 		() => `${Math.round(new Date().getTime() / 1000)}`
 	),
-	beneficiaryId: text().unique().notNull(),
-	dateScheduled: text().$default(
-		() => `${Math.round(new Date().getTime() / 1000)}`
-	),
+	beneficiary_id: text().unique().notNull(),
+	date_scheduled: text(),
 	plaform: text().$type<PlatformTypes[keyof PlatformTypes]["plaformID"]>(),
-	meetingLink: text(),
+	meeting_link: text(),
 	language: text().$type<LanguageTypes[keyof LanguageTypes]["languageID"]>(),
-	coordinatorId: text().notNull(),
-	peerSupporterId: text().notNull(),
-	preferredPeerSupporterId: text().notNull(),
-	peerSupporterShowedup: text(), //boolean
-	peerSupporterShowedupTime: int({ mode: "timestamp_ms" }),
-	peerSupporterNotShowedupReason: text(),
-	beneficiaryShowedUp: text(), //boolean
-	beneficiaryShowUpTime: int({ mode: "timestamp_ms" }),
-	beneficiaryNotShowedupReason: text(),
-	postAssessment: text(),
+	coordinator_id: text().notNull(),
+	peerSupporter_id: text().notNull(),
+	preferred_peer_supporter_id: text().notNull(),
+	peer_supporter_showed_up: text(), //boolean
+	peer_supporter_showed_up_time: int({ mode: "timestamp_ms" }),
+	peer_supporter_not_showed_up_reason: text(),
+	beneficiary_showed_up: text(), //boolean
+	beneficiary_show_up_time: int({ mode: "timestamp_ms" }),
+	beneficiary_not_showed_up_reason: text(),
+	post_assessment: text(),
 });

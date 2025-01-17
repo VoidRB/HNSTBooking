@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { HonoContextBindings } from "..";
 import { authenticateMiddleware } from "../middlewares/authenticate";
-import { getUsers } from "../db/getUsers";
+import { getUsersbyRole } from "../db/getUsersByRole";
 
 const userRoute = new Hono<HonoContextBindings>();
 
@@ -9,7 +9,7 @@ const userRoute = new Hono<HonoContextBindings>();
 userRoute.use(authenticateMiddleware);
 
 userRoute.post("/users", async (ctx) => {
-	const allUsersByRole = await getUsers({
+	const allUsersByRole = await getUsersbyRole({
 		ctx: ctx,
 		roleId: ctx.get("UserRole"),
 	});

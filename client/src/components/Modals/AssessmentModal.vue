@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios'
 import type assessmentType from '../../interfaces/assessment'
-import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
 const props = defineProps<{ assessment: assessmentType | undefined }>()
 

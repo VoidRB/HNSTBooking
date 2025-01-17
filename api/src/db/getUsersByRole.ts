@@ -5,7 +5,7 @@ type params = {
 	ctx: HonoContext;
 } & { roleId: (typeof usersSchema)["roleId"]["_"]["data"] };
 
-export async function getUsers({ ctx, ...args }: params) {
+export async function getUsersbyRole({ ctx, ...args }: params) {
 	const db = ctx.get("DB");
 
 	let users;

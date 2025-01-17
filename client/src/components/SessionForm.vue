@@ -3,6 +3,7 @@ import { reactive } from 'vue'
 import axios from 'axios'
 import { useToast } from 'vue-toastification'
 import { countries } from '../../../shared/countryCodes.ts'
+const [todaysDate] = new Date().toISOString().split('T')
 
 const toast = useToast()
 const Session = reactive({
@@ -28,6 +29,8 @@ const bookSession = () => {
     console.log(error)
   }
 }
+
+console.log(todaysDate)
 </script>
 <template>
   <form
@@ -61,7 +64,7 @@ const bookSession = () => {
           <!-- should be reactive with todays date -->
           <input
             required
-            min="2025-01-10"
+            :min="todaysDate"
             max="2025-12-31"
             type="date"
             v-model="Session.SessionDate"
@@ -88,8 +91,7 @@ const bookSession = () => {
           <div class="join">
             <select class="join-item select select-bordered">
               <option v-for="country in countries" :key="country.phone_code">
-                <!-- PROBLEM -->
-                <!-- <span>{{ country.country_code }}</span> {{ country.phone_code }} -->
+                {{ country.country_code }} {{ country.phone_code }}
               </option>
             </select>
             <input

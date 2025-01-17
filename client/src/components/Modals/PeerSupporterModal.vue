@@ -27,11 +27,11 @@ const updatePeerSupporter = () => {
     <div class="modal-box">
       <h3 class="text-xl font-bold underline">Peer Supporter</h3>
       <div class="mt-4 grid grid-cols-2 grid-rows-5 gap-2">
-        <p class="col-start-1 row-start-1 font-bold">Name :</p>
-        <p class="col-start-1 row-start-2 font-bold">Email :</p>
+        <p class="col-start-1 row-start-1 select-none font-bold">Name :</p>
+        <p class="col-start-1 row-start-2 select-none font-bold">Email :</p>
         <p class="col-start-2 row-start-1">{{ props.peerSupporter?.name }}</p>
         <p class="col-start-2 row-start-2">{{ props.peerSupporter?.email }}</p>
-        <p class="col-start-1 row-start-3 font-bold">Status :</p>
+        <p class="col-start-1 row-start-3 select-none font-bold">Status :</p>
         <p class="col-start-2 row-start-3">
           <select class="select select-bordered select-sm max-w-xs" v-model="peerSupporterStatus">
             <option disabled selected>Status</option>
@@ -39,9 +39,9 @@ const updatePeerSupporter = () => {
             <option>Inactive</option>
           </select>
         </p>
-        <p class="col-start-1 row-start-4 font-bold">Sessions :</p>
+        <p class="col-start-1 row-start-4 select-none font-bold">Sessions :</p>
         <p class="col-start-2 row-start-4">{{ props.peerSupporter?.Sessions }}</p>
-        <p class="col-start-1 row-start-5 font-bold">Assigned Beneficiary :</p>
+        <p class="col-start-1 row-start-5 select-none font-bold">Assigned Beneficiary :</p>
         <p class="col-start-2 row-start-5">
           <select class="select select-bordered select-sm max-w-xs" v-model="assignedBeneficiary">
             <option disabled selected>Beneficiary</option>
