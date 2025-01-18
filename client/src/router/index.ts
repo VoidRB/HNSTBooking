@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { decode } from 'hono/jwt'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -89,11 +90,14 @@ router.beforeEach((to, _from, next) => {
   next()
 })
 
-router.beforeEach(async (to, from, next) => {
-  // TODO add route auth to make sure they cant jump to routes by themselves
+router.beforeEach(async (to, _from, next) => {
   if (to.meta.requireAuth === true) {
-    //auth by role here
-    return next()
+    const { payload } = decode(document.cookie)
+    if (payload.roleId > 1) {
+      return next()
+    }
+    router.push({ name: 'notFound' })
+    return next(false)
   }
   return next()
 })
