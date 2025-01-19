@@ -90,16 +90,15 @@ router.beforeEach((to, _from, next) => {
   next()
 })
 
-router.beforeEach(async (to, _from, next) => {
-  if (to.meta.requireAuth === true) {
-    const { payload } = decode(document.cookie)
-    if (payload.roleId > 1) {
-      return next()
-    }
-    router.push({ name: 'notFound' })
-    return next(false)
-  }
-  return next()
-})
+// router.beforeEach(async (to, _from, next) => {
+//   if (to.meta.requireAuth === true) {
+//     const { payload } = decode(document.cookie)
+//     if (payload.roleId > 1) {
+//       return next()
+//     }
+//     return next(false)
+//   }
+//   return next()
+// })
 
 export default router

@@ -4,10 +4,6 @@ import RegisterForm from '@/components/RegisterForm.vue'
 import { ref } from 'vue'
 
 const formState = ref(true)
-
-const changeForms = () => {
-  formState.value = !formState.value
-}
 </script>
 
 <template>
@@ -19,7 +15,7 @@ const changeForms = () => {
     </section>
     <section class="flex w-1/3 flex-col items-center justify-center">
       <label class="swap swap-flip mb-5">
-        <input type="checkbox" @click="changeForms" />
+        <input type="checkbox" @click="formState = !formState" />
 
         <h1 class="swap-off text-3xl font-bold">&nbsp;&nbsp;login</h1>
         <h1 class="swap-on text-3xl font-bold">Register</h1>

@@ -4,6 +4,5 @@ import SessionForm from '@/components/SessionForm.vue'
 <template>
   <div class="flex h-full w-full flex-col justify-between">
     <SessionForm />
-    <section></section>
   </div>
 </template>

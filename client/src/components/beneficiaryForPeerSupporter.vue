@@ -2,6 +2,7 @@
 import axios from 'axios'
 import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
+import FlagModal from './Modals/FlagModal.vue'
 const toast = useToast()
 const beneficiary = ref({
   id: 1,
@@ -53,7 +54,6 @@ const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
           <th>Status</th>
 
           <th>Session</th>
-          <th>Assigned P.S</th>
           <th></th>
           <th></th>
         </tr>
@@ -70,10 +70,11 @@ const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
           <td>{{ beneficiary.Sessions }}</td>
           <td>
             <button class="btn mr-5" @click="notifyBeneficiary(beneficiary.id)">Notify</button>
-            <button class="btn btn-error">Flag</button>
+            <button class="btn btn-error" onclick="my_modal_3.showModal()">Flag</button>
           </td>
         </tr>
       </tbody>
     </table>
+    <FlagModal :beneficiary="beneficiary" />
   </div>
 </template>

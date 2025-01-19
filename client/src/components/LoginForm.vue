@@ -13,7 +13,6 @@ const login = async () => {
       email: user.email,
       password: user.password,
     })
-    console.log(`logged in`)
     router.push({ name: response.data.route })
   } catch (error) {
     console.log(error)
