@@ -4,7 +4,7 @@ import axios from 'axios'
 import { onMounted, ref } from 'vue'
 import SessionModal from '../Modals/SessionModal.vue'
 
-const sessions = [
+const sessions = ref([
   {
     id: 1,
     name: 'Alice Johnson',
@@ -53,14 +53,13 @@ const sessions = [
     stage: 'Finished',
     assignedPeerSupporter: 'Alex King',
   },
-]
-const sessions2 = ref([])
+])
 const sessionToModal = ref<sessionType>()
 
 onMounted(async () => {
   try {
     const response = await axios.get('/api/all-sessions')
-    sessions2.value = response.data
+    sessions.value = response.data
   } catch (error) {
     //will fix the error handling
     console.log(error)
@@ -88,10 +87,10 @@ const sessionStatusBackground = (stage: string) => {
 
 const refreshTable = async () => {
   console.log(`Refreshing Table`)
-  sessions2.value = []
+  sessions.value = []
   try {
     const response = await axios.get('/api/all-beneficiaries')
-    sessions2.value = response.data
+    sessions.value = response.data
   } catch (error) {
     console.log(error)
   }

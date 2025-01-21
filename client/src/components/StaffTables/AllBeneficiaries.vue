@@ -4,7 +4,7 @@ import axios from 'axios'
 import { onMounted, ref } from 'vue'
 import BeneficiariyModal from '@/components/Modals/BeneficiaryModal.vue'
 
-const beneficiaries = [
+const beneficiaries = ref([
   {
     id: 1,
     name: 'Alice Johnson',
@@ -45,14 +45,13 @@ const beneficiaries = [
     assignedPeerSupporter: 'None',
     communicationOption: 'Zoom',
   },
-]
-const beneficiaries2 = ref([])
+])
 const beneficiaryToModal = ref<beneficiaryType>()
 
 onMounted(async () => {
   try {
     const response = await axios.get('/api/all-beneficiaries')
-    beneficiaries2.value = response.data
+    beneficiaries.value = response.data
   } catch (error) {
     //will fix the error handling hehe
     console.log(error)
@@ -81,10 +80,10 @@ const beneficiaryStatusBackground = (status: string) => {
 
 const refreshTable = async () => {
   console.log(`Refreshing Table`)
-  beneficiaries2.value = []
+  beneficiaries.value = []
   try {
     const response = await axios.get('/api/all-beneficiaries')
-    beneficiaries2.value = response.data
+    beneficiaries.value = response.data
   } catch (error) {
     console.log(error)
   }

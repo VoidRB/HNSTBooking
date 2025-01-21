@@ -18,7 +18,7 @@ userRoute.get("/single", async (ctx) => {
 	return ctx.json(currentUser, 200);
 });
 
-userRoute.post("/all", async (ctx) => {
+userRoute.get("/all", async (ctx) => {
 	const allUsersByRole = await getUsersbyRole({
 		ctx: ctx,
 		roleId: ctx.get("UserRole"),

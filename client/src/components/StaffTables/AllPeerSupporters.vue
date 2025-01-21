@@ -4,8 +4,7 @@ import axios from 'axios'
 import { onMounted, ref } from 'vue'
 import PeerSupporterModal from '../Modals/PeerSupporterModal.vue'
 
-const peerSupporters2 = ref([])
-const peerSupporters = [
+const peerSupporters = ref([
   {
     id: 1,
     name: 'Eve Adams',
@@ -70,13 +69,14 @@ const peerSupporters = [
     Sessions: '1',
     assignedBeneficiary: 'Nina Ricci',
   },
-]
+])
+
 const peerSupporterToModal = ref<peerSupporterType>()
 
 onMounted(async () => {
   try {
     const response = await axios.get('/api/all-peer-supporters')
-    peerSupporters2.value = response.data
+    peerSupporters.value = response.data
   } catch (error) {
     //will fix the error handling hehe
     console.log(error)
@@ -101,10 +101,10 @@ const peerSupporterStatusBackground = (status: string) => {
 
 const refreshTable = async () => {
   console.log(`Refreshing Table`)
-  peerSupporters2.value = []
+  peerSupporters.value = []
   try {
     const response = await axios.get('/api/all-beneficiaries')
-    peerSupporters2.value = response.data
+    peerSupporters.value = response.data
   } catch (error) {
     console.log(error)
   }

@@ -3,8 +3,8 @@ import type assessmentType from '@/interfaces/assessment'
 import axios from 'axios'
 import { onMounted, ref } from 'vue'
 import AssessmentModal from '../Modals/AssessmentModal.vue'
-
-const assessments = [
+//placeholder data
+const assessments = ref([
   {
     id: 1,
     type: 'Counseling',
@@ -53,15 +53,13 @@ const assessments = [
     date: '2025-01-20',
     likertScore: 2.8,
   },
-]
-
-const assessments2 = ref([])
+])
 const assessmentToModal = ref<assessmentType>()
 
 onMounted(async () => {
   try {
     const response = await axios.get('/api/all-assessment')
-    assessments2.value = response.data
+    assessments.value = response.data
   } catch (error) {
     //will fix the error handling
     console.log(error)
@@ -75,10 +73,10 @@ const setAssessment = (assessment: assessmentType) => {
 
 const refreshTable = async () => {
   console.log(`Refreshing Table`)
-  assessments2.value = []
+  assessments.value = []
   try {
     const response = await axios.get('/api/all-beneficiaries')
-    assessments2.value = response.data
+    assessments.value = response.data
   } catch (error) {
     console.log(error)
   }
