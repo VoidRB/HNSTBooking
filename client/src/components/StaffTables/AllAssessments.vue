@@ -58,7 +58,7 @@ const assessmentToModal = ref<assessmentType>()
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/all-assessment')
+    const response = await axios.get('/api/assessments/all')
     assessments.value = response.data
   } catch (error) {
     //will fix the error handling

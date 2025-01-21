@@ -51,7 +51,7 @@ const chosenSessionNumber = ref()
         <label class="label-text">Choose a Beneficiary</label>
         <select v-model="chosenBeneficiary" class="select select-bordered w-full max-w-xs">
           <option disabled selected>Choose the beneficiary</option>
-          <option v-for="beneficiary in beneficiaries" :key="beneficiary.id">
+          <option :value="beneficiary" v-for="beneficiary in beneficiaries" :key="beneficiary.id">
             {{ beneficiary.name }}
           </option>
         </select>
@@ -93,11 +93,7 @@ const chosenSessionNumber = ref()
     </section>
     <section>
       <article v-if="chosenAssessmentType === 'Pre-Session'">
-        <PreAssessment
-          :beneficiary="chosenBeneficiary"
-          :chosenAssessmentDate="todaysDate"
-          :sessionNumber="chosenSessionNumber"
-        />
+        <PreAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
       <article v-else-if="chosenAssessmentType === 'During-Session'">
         <DuringAssessment
@@ -107,11 +103,7 @@ const chosenSessionNumber = ref()
         />
       </article>
       <article v-else-if="chosenAssessmentType === 'Post-Session'">
-        <PostAssessment
-          :beneficiary="chosenBeneficiary"
-          :chosenAssessmentDate="todaysDate"
-          :sessionNumber="chosenSessionNumber"
-        />
+        <PostAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
       <article v-else class="ml-2">
         Please pick a <span class="font-bold">Beneficiary</span> and

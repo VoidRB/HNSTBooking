@@ -58,7 +58,7 @@ const sessionToModal = ref<sessionType>()
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/all-sessions')
+    const response = await axios.get('/api/sessions/all')
     sessions.value = response.data
   } catch (error) {
     //will fix the error handling

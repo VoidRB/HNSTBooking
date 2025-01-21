@@ -6,13 +6,13 @@ import { decode } from 'hono/jwt'
 
 const props = defineProps<{ beneficiary: beneficiaryType }>()
 const reasonForFlagging = ref('')
-const { payload } = decode(document.cookie)
+// const { payload } = decode(document.cookie)
 
 const updatePeerSupporter = () => {
   try {
     const response = axios.post('/api/flagBeneficiary', {
       reasonForFlagging: reasonForFlagging.value,
-      peerSupporterResponsible: payload.userId,
+      // peerSupporterResponsible: payload.userId,
     })
   } catch (error) {
     console.log(error)

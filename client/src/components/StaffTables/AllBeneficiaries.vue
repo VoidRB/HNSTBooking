@@ -50,7 +50,7 @@ const beneficiaryToModal = ref<beneficiaryType>()
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/all-beneficiaries')
+    const response = await axios.get('/api/user/all/role/1')
     beneficiaries.value = response.data
   } catch (error) {
     //will fix the error handling hehe

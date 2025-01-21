@@ -70,12 +70,11 @@ const peerSupporters = ref([
     assignedBeneficiary: 'Nina Ricci',
   },
 ])
-
 const peerSupporterToModal = ref<peerSupporterType>()
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/all-peer-supporters')
+    const response = await axios.get('/api/user/all/role/2')
     peerSupporters.value = response.data
   } catch (error) {
     //will fix the error handling hehe
