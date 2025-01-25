@@ -6,7 +6,7 @@ import ResourcesComp from '@/components/ResourcesComp.vue'
   <div class="mt-16 flex h-full w-full flex-col">
     <section class="flex h-full w-full flex-col lg:flex-row">
       <FAQsComp />
-      <hr class="divider px-5 lg:divider-horizontal lg:py-5" />
+      <hr class="divider border-0 px-5 lg:divider-horizontal lg:py-5" />
       <ResourcesComp />
     </section>
   </div>

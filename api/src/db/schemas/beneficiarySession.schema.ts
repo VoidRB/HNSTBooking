@@ -1,4 +1,4 @@
-import { int, sqliteTable, text, SQLiteBoolean } from "drizzle-orm/sqlite-core";
+import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { v4 as uuidv4 } from "uuid";
 import { LanguageTypes } from "../../../../shared/beneificiarySessions/language";
 import { PlatformTypes } from "../../../../shared/beneificiarySessions/platform";

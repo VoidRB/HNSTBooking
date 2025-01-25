@@ -7,7 +7,7 @@ import AssessmentModal from '../Modals/AssessmentModal.vue'
 const assessments = ref([
   {
     id: 1,
-    type: 'Counseling',
+    type: 'Pre-Session',
     assignedPeerSupporter: 'Sarah Al-Rawi',
     beneficiary: 'Ahmed Bin Suleiman',
     date: '2025-01-15',
@@ -15,7 +15,7 @@ const assessments = ref([
   },
   {
     id: 2,
-    type: 'Tutoring',
+    type: 'During-Session-1',
     assignedPeerSupporter: 'Yasmin Al-Nahdi',
     beneficiary: 'Faisal Al-Qahtani',
     date: '2025-01-16',
@@ -23,7 +23,7 @@ const assessments = ref([
   },
   {
     id: 3,
-    type: 'Mentoring',
+    type: 'During-Session-5',
     assignedPeerSupporter: 'Khalid Al-Farsi',
     beneficiary: 'Hassan Al-Ahmad',
     date: '2025-01-17',
@@ -31,7 +31,7 @@ const assessments = ref([
   },
   {
     id: 4,
-    type: 'Coaching',
+    type: 'During-Session-3',
     assignedPeerSupporter: 'Mariam Al-Hajri',
     beneficiary: 'Amina Al-Khattab',
     date: '2025-01-18',
@@ -39,7 +39,7 @@ const assessments = ref([
   },
   {
     id: 5,
-    type: 'Consultation',
+    type: 'Pre-Session',
     assignedPeerSupporter: 'Omar Al-Shehri',
     beneficiary: 'Noura Al-Mutairi',
     date: '2025-01-19',
@@ -47,7 +47,7 @@ const assessments = ref([
   },
   {
     id: 6,
-    type: 'Workshop',
+    type: 'Post-Session',
     assignedPeerSupporter: 'Fatimah Al-Dosari',
     beneficiary: 'Sultan Al-Balawi',
     date: '2025-01-20',

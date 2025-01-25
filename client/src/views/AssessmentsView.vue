@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import DuringAssessment from '@/components/Assessments/DuringAssessment.vue'
 import PostAssessment from '@/components/Assessments/PostAssessment.vue'
-import PreAssessment from '@/components/Assessments/PreAssessment.vue'
+import ScreeningAssessment from '@/components/Assessments/ScreeningAssessment.vue'
 import { ref } from 'vue'
 
 const beneficiaries = [
@@ -65,7 +65,7 @@ const chosenSessionNumber = ref()
             class="join-item select select-bordered w-full max-w-xs"
           >
             <option disabled selected>Assessment Type</option>
-            <option>Pre-Session</option>
+            <option>Screening</option>
             <option>During-Session</option>
             <option>Post-Session</option>
           </select>
@@ -92,10 +92,7 @@ const chosenSessionNumber = ref()
       </div>
     </section>
     <section>
-      <article v-if="chosenAssessmentType === 'Pre-Session'">
-        <PreAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
-      </article>
-      <article v-else-if="chosenAssessmentType === 'During-Session'">
+      <article v-if="chosenAssessmentType === 'During-Session'">
         <DuringAssessment
           :beneficiary="chosenBeneficiary"
           :chosenAssessmentDate="todaysDate"
@@ -104,6 +101,9 @@ const chosenSessionNumber = ref()
       </article>
       <article v-else-if="chosenAssessmentType === 'Post-Session'">
         <PostAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
+      </article>
+      <article v-else-if="chosenAssessmentType === 'Screening'">
+        <ScreeningAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
       <article v-else class="ml-2">
         Please pick a <span class="font-bold">Beneficiary</span> and
