@@ -7,8 +7,9 @@ const toast = useToast()
 const user = reactive({
   email: '',
   username: '',
-  gender: '',
+  gender: 'Gender',
   age: '',
+  languagePreference: 'Language',
   password: '',
   passwordRepeated: '',
 })
@@ -58,7 +59,7 @@ const register = async () => {
       autocomplete="name"
       class="input input-bordered w-full max-w-xs"
     />
-    <div class="w-full hover:tooltip hover:tooltip-left hover:tooltip-open" data-tip="Gender">
+    <div class="w-full">
       <select v-model="user.gender" class="select select-bordered w-full max-w-xs">
         <option disabled selected>Gender</option>
         <option>Male</option>
@@ -71,11 +72,20 @@ const register = async () => {
       v-model="user.age"
       min="0"
       max="100"
+      maxlength="3"
       type="number"
       placeholder="Age"
       autocomplete="age"
       class="input input-bordered w-full max-w-xs [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
     />
+    <div class="w-full">
+      <select v-model="user.languagePreference" class="select select-bordered w-full max-w-xs">
+        <option disabled selected>Language</option>
+        <option>Arabic</option>
+        <option>English</option>
+        <option>Other</option>
+      </select>
+    </div>
     <input
       required
       v-model="user.password"

@@ -41,6 +41,7 @@ const login = async () => {
     />
     <div class="input"></div>
     <div class="input"></div>
+    <div class="input"></div>
     <button class="btn">Login</button>
   </form>
 </template>
