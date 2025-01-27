@@ -12,9 +12,12 @@ const props = defineProps({
 })
 
 const submitAssessment = async () => {
-  const psychlopsAnswers = postTherapyPsychlopsQuestions.forEach((question) => {
-    return question.answer
+  const psychlopsAnswers: Array<string> = []
+
+  postTherapyPsychlopsQuestions.forEach((question) => {
+    psychlopsAnswers.push(question.answer)
   })
+
   try {
     const response = axios.post('/api/PostAssessment', {
       beneficiaryId: props.beneficiary?.id,

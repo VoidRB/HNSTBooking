@@ -62,7 +62,7 @@ const chosenSessionNumber = ref()
         <div class="join">
           <select
             v-model="chosenAssessmentType"
-            class="join-item select select-bordered w-full max-w-xs"
+            class="join-item select select-bordered join-horizontal w-full max-w-xs"
           >
             <option disabled selected>Assessment Type</option>
             <option>Screening</option>

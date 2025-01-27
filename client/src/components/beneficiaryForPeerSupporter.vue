@@ -44,7 +44,7 @@ const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
 }
 </script>
 <template>
-  <div>
+  <div class="flex flex-col">
     <h1 class="text-2xl">Assigned Beneficiary</h1>
     <table class="table flex h-full w-full place-items-center items-center justify-center">
       <thead>

@@ -4,7 +4,7 @@ import AllPeerSupporters from '@/components/StaffTables/AllPeerSupporters.vue'
 import AllSessions from '@/components/StaffTables/AllSessions.vue'
 </script>
 <template>
-  <div class="flex h-full w-full flex-col items-center">
+  <div class="flex h-full w-full flex-col">
     <section class="mt-16 flex flex-col gap-10 lg:grid lg:grid-cols-2 lg:grid-rows-1">
       <AllBeneficiaries class="col-start-1" />
       <AllPeerSupporters class="col-start-2" />

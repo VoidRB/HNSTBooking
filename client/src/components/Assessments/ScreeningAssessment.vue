@@ -23,15 +23,19 @@ const props = defineProps({
 })
 
 const submitAssessment = async () => {
-  const MHCAnswers = mentalHealthContinuumQuestions.forEach((question) => {
-    return question.answer
+  const MHCAnswers: Array<string> = []
+  const psychlopsAnswers: Array<string> = []
+  const GRiSTAnswers: Array<string> = []
+  mentalHealthContinuumQuestions.forEach((question) => {
+    MHCAnswers.push(question.answer)
   })
-  const psychlopsAnswers = preTherapyPsychlopsQuestions.forEach((question) => {
-    return question.answer
+  preTherapyPsychlopsQuestions.forEach((question) => {
+    psychlopsAnswers.push(question.answer)
   })
-  const GRiSTAnswers = GRiSTQuestions.forEach((question) => {
-    return question.answer
+  GRiSTQuestions.forEach((question) => {
+    GRiSTAnswers.push(question.answer)
   })
+
   try {
     const response = axios.post('/api/ScreeningAssessment', {
       beneficiaryId: props.beneficiary?.id,
@@ -47,7 +51,7 @@ const submitAssessment = async () => {
 <template>
   <h1 class="ml-2">Beneficiary : {{ props.beneficiary?.name }}</h1>
   <div class="flex h-full w-full flex-col py-5">
-    <div class="ml-5 h-96 overflow-y-scroll pr-5">
+    <div class="ml-5 h-96 overflow-y-scroll scroll-smooth pr-5">
       <h1 class="mb-10 text-3xl font-bold underline">MHC-SF Questions</h1>
 
       <!-- MHC-SF Questions -->

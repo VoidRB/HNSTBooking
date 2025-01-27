@@ -13,14 +13,18 @@ const props = defineProps({
 })
 
 const submitAssessment = async () => {
-  const psychlopsAnswers = duringTherapyPsychlopsQuestions.forEach((question) => {
-    return question.answer
+  const psychlopsAnswers: Array<string> = []
+
+  duringTherapyPsychlopsQuestions.forEach((question) => {
+    psychlopsAnswers.push(question.answer)
   })
+
   try {
     const response = axios.post(`/api/DuringAssessment/${props.sessionNumber}`, {
       beneficiaryId: props.beneficiary?.id,
       peerSupporterId: payload.id,
       psychlopsAnswers: psychlopsAnswers,
+      sessionNumber: props.sessionNumber,
     })
     toast.success('Successfully submitted the Assessment')
   } catch (error) {}

@@ -16,10 +16,14 @@ const Session = reactive({
   location: '',
   SessionDuration: 60,
 })
+
 const bookSession = () => {
   try {
-    const response = axios.post('/api/bookSession', {
+    const response = axios.postForm('/api/bookSession', {
       beneficiaryEmail: Session.beneficiaryEmail,
+      beneficiaryName: Session.beneficiaryName,
+      beneficiaryLocation: Session.location,
+      beneficiaryEmploymentStatus: Session.employnmentStatus,
       SessionDate: Session.SessionDate,
       SessionDuration: Session.SessionDuration,
       SessionCommOption: Session.SessionCommOption,
@@ -38,7 +42,7 @@ const bookSession = () => {
     @submit.prevent="bookSession"
   >
     <div class="flex gap-5">
-      <section class="flex flex-col gap-5">
+      <section class="flex w-1/2 flex-col gap-5">
         <!-- Beneficiary Email -->
         <div class="flex w-full flex-col items-center">
           <label for="Beneficiary">Beneficiary Email</label>
