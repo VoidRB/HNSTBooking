@@ -42,6 +42,7 @@ const register = async () => {
 </script>
 <template>
   <form class="flex flex-col items-center gap-2" @submit.prevent="register">
+    <!-- Email -->
     <input
       required
       v-model="user.email"
@@ -50,6 +51,7 @@ const register = async () => {
       autocomplete="email"
       class="input input-bordered w-full max-w-xs"
     />
+    <!-- Name -->
     <input
       required
       v-model="user.username"
@@ -59,6 +61,7 @@ const register = async () => {
       autocomplete="name"
       class="input input-bordered w-full max-w-xs"
     />
+    <!-- Gender -->
     <div class="w-full">
       <select v-model="user.gender" class="select select-bordered w-full max-w-xs">
         <option disabled selected>Gender</option>
@@ -67,6 +70,7 @@ const register = async () => {
         <option>Other</option>
       </select>
     </div>
+    <!-- Age -->
     <input
       required
       v-model="user.age"
@@ -78,6 +82,7 @@ const register = async () => {
       autocomplete="age"
       class="input input-bordered w-full max-w-xs [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
     />
+    <!-- Language -->
     <div class="w-full">
       <select v-model="user.languagePreference" class="select select-bordered w-full max-w-xs">
         <option disabled selected>Language</option>
@@ -86,6 +91,7 @@ const register = async () => {
         <option>Other</option>
       </select>
     </div>
+    <!-- Password -->
     <input
       required
       v-model="user.password"
@@ -96,6 +102,7 @@ const register = async () => {
       autocomplete="current-password"
       :class="[passwordBorderColor, 'input', 'input-bordered', 'w-full', 'max-w-xs']"
     />
+    <!-- Repeated Password -->
     <input
       required
       v-model="user.passwordRepeated"

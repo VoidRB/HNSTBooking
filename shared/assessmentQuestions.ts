@@ -1,4 +1,11 @@
-const mentalHealthContinuumQuestions = [
+interface QuestionType {
+	id: string;
+	type: string;
+	question: string;
+	answer: string;
+}
+
+const mentalHealthContinuumQuestions: Array<QuestionType> = [
 	{ id: "0", type: "scale", question: "Happy", answer: "" },
 	{ id: "1", type: "scale", question: "Interested in life", answer: "" },
 	{ id: "2", type: "scale", question: "Satisfied with life", answer: "" },
@@ -72,7 +79,7 @@ const mentalHealthContinuumQuestions = [
 	},
 ];
 
-const preTherapyPsychlopsQuestions = [
+const preTherapyPsychlopsQuestions: Array<QuestionType> = [
 	{
 		id: "0",
 		type: "text",
@@ -129,7 +136,7 @@ const preTherapyPsychlopsQuestions = [
 		answer: "",
 	},
 ];
-const duringTherapyPsychlopsQuestions = [
+const duringTherapyPsychlopsQuestions: Array<QuestionType> = [
 	{
 		id: "0",
 		type: "text",
@@ -189,7 +196,7 @@ const duringTherapyPsychlopsQuestions = [
 		answer: "",
 	},
 ];
-const postTherapyPsychlopsQuestions = [
+const postTherapyPsychlopsQuestions: Array<QuestionType> = [
 	{
 		id: "0",
 		type: "text",
@@ -249,7 +256,7 @@ const postTherapyPsychlopsQuestions = [
 	},
 ];
 
-const GRiSTQuestions = [
+const GRiSTQuestions: Array<QuestionType> = [
 	{
 		id: "0",
 		type: "YOrN",

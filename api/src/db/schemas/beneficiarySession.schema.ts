@@ -1,8 +1,8 @@
 import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { v4 as uuidv4 } from "uuid";
-import { LanguageTypes } from "../../../../shared/beneificiarySessions/language";
-import { PlatformTypes } from "../../../../shared/beneificiarySessions/platform";
-import { StatusType } from "../../../../shared/beneificiarySessions/status";
+import { LanguageTypes } from "../../../../shared/beneficiarySessions/language";
+import { PlatformTypes } from "../../../../shared/beneficiarySessions/platform";
+import { StatusType } from "../../../../shared/beneficiarySessions/status";
 
 export const beneficiarySessionSchema = sqliteTable("beneficiarySession", {
 	id: text()

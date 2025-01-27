@@ -11,12 +11,15 @@ import {
   GRiSTAnswerScaleOptions,
   GRiSTAnswerYorNOptions,
 } from '../../../../shared/assessmentAnswers'
+
 import axios from 'axios'
-import { decode } from 'hono/jwt'
+// import { decode } from 'hono/jwt'
 import { useToast } from 'vue-toastification'
+import { ref } from 'vue'
 
 const toast = useToast()
-const { payload } = decode(document.cookie)
+// const { payload } = decode(document.cookie)
+const mcqAnswers = ref<Array<string>>([])
 const props = defineProps({
   beneficiary: Object,
   chosenAssessmentDate: String,
@@ -26,6 +29,7 @@ const submitAssessment = async () => {
   const MHCAnswers: Array<string> = []
   const psychlopsAnswers: Array<string> = []
   const GRiSTAnswers: Array<string> = []
+  GRiSTQuestions[12].answer = mcqAnswers.value.toString()
   mentalHealthContinuumQuestions.forEach((question) => {
     MHCAnswers.push(question.answer)
   })
@@ -35,11 +39,12 @@ const submitAssessment = async () => {
   GRiSTQuestions.forEach((question) => {
     GRiSTAnswers.push(question.answer)
   })
+  console.log(GRiSTAnswers)
 
   try {
     const response = axios.post('/api/ScreeningAssessment', {
       beneficiaryId: props.beneficiary?.id,
-      peerSupporterId: payload.id,
+      // peerSupporterId: payload.id,
       MHCAnswers: MHCAnswers,
       psychlopsAnswers: psychlopsAnswers,
       GRiSTAnswers: GRiSTAnswers,
@@ -50,7 +55,7 @@ const submitAssessment = async () => {
 </script>
 <template>
   <h1 class="ml-2">Beneficiary : {{ props.beneficiary?.name }}</h1>
-  <div class="flex h-full w-full flex-col py-5">
+  <div class="flex h-full w-full flex-col py-10">
     <div class="ml-5 h-96 overflow-y-scroll scroll-smooth pr-5">
       <h1 class="mb-10 text-3xl font-bold underline">MHC-SF Questions</h1>
 
@@ -136,8 +141,8 @@ const submitAssessment = async () => {
               :key="option.id"
               class="flex items-center justify-start gap-5 py-2"
             >
-              <input type="checkbox" class="checkbox" />
-              <label class="">{{ option.option }}</label>
+              <input type="checkbox" class="checkbox" v-model="mcqAnswers" :value="option.option" />
+              <label>{{ option.option }}</label>
             </div>
           </article>
           <article v-else-if="question.type === 'scale'">

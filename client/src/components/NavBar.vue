@@ -56,10 +56,10 @@ const menuData = [
 </script>
 <template>
   <div class="navbar fixed z-10 bg-base-100">
-    <div class="navbar-start">
+    <section class="navbar-start">
       <RouterLink :to="{ name: 'home' }" class="btn btn-ghost text-xl">B'Saraha</RouterLink>
-    </div>
-    <div class="navbar-end">
+    </section>
+    <section class="navbar-end">
       <div class="dropdown dropdown-end">
         <div tabindex="0" role="button" class="btn btn-circle btn-ghost">
           <i class="pi pi-align-right"></i>
@@ -76,6 +76,6 @@ const menuData = [
           </ul>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>

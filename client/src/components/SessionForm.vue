@@ -6,10 +6,11 @@ import { countries } from '../../../shared/countryCodes.ts'
 const [todaysDate] = new Date().toISOString().split('T')
 
 const toast = useToast()
-const Session = reactive({
+const session = reactive({
   beneficiaryEmail: '',
   beneficiaryName: '',
-  employnmentStatus: 'Pick One',
+  beneficiaryPhoneCode: '',
+  employnmentStatus: '',
   SessionDate: '',
   SessionCommOption: '',
   SessionCommOptionData: '',
@@ -20,14 +21,15 @@ const Session = reactive({
 const bookSession = () => {
   try {
     const response = axios.postForm('/api/bookSession', {
-      beneficiaryEmail: Session.beneficiaryEmail,
-      beneficiaryName: Session.beneficiaryName,
-      beneficiaryLocation: Session.location,
-      beneficiaryEmploymentStatus: Session.employnmentStatus,
-      SessionDate: Session.SessionDate,
-      SessionDuration: Session.SessionDuration,
-      SessionCommOption: Session.SessionCommOption,
-      SessionCommOptionData: Session.SessionCommOptionData,
+      beneficiaryEmail: session.beneficiaryEmail,
+      beneficiaryName: session.beneficiaryName,
+      beneficiaryLocation: session.location,
+      beneficiaryEmploymentStatus: session.employnmentStatus,
+      beneficiaryPhoneCode: session.beneficiaryPhoneCode,
+      SessionDate: session.SessionDate,
+      SessionDuration: session.SessionDuration,
+      SessionCommOption: session.SessionCommOption,
+      SessionCommOptionData: session.SessionCommOptionData,
     })
     toast.success('Successfully booked')
   } catch (error) {
@@ -49,7 +51,7 @@ const bookSession = () => {
           <input
             required
             type="email"
-            v-model="Session.beneficiaryEmail"
+            v-model="session.beneficiaryEmail"
             placeholder="Email"
             class="input input-bordered w-full max-w-xs"
           />
@@ -60,7 +62,7 @@ const bookSession = () => {
           <input
             required
             type="text"
-            v-model="Session.beneficiaryName"
+            v-model="session.beneficiaryName"
             placeholder="Name"
             class="input input-bordered w-full max-w-xs"
           />
@@ -72,7 +74,7 @@ const bookSession = () => {
             required
             placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
-            v-model="Session.employnmentStatus"
+            v-model="session.employnmentStatus"
           >
             <option disabled selected>Pick One</option>
             <option>Employed</option>
@@ -90,7 +92,7 @@ const bookSession = () => {
             :min="todaysDate"
             max="2025-12-31"
             type="date"
-            v-model="Session.SessionDate"
+            v-model="session.SessionDate"
             class="input input-bordered w-full max-w-xs text-center"
           />
         </div>
@@ -98,12 +100,12 @@ const bookSession = () => {
       <section class="flex w-1/2 flex-col gap-5">
         <!-- Perferred Communication -->
         <div class="flex w-full flex-col items-center">
-          <label for="Date">Perferred Communication</label>
+          <label for="Date">Perferred Platform</label>
           <select
             required
             placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
-            v-model="Session.SessionCommOption"
+            v-model="session.SessionCommOption"
           >
             <option disabled selected>Pick One</option>
             <option>Telephone</option>
@@ -113,19 +115,31 @@ const bookSession = () => {
         <!-- Telephone Option -->
         <div
           class="flex w-full flex-col items-center"
-          v-if="Session.SessionCommOption === 'Telephone'"
+          v-if="session.SessionCommOption === 'Telephone'"
         >
-          <label for="Date">Telephone Number</label>
+          <div>
+            <label class="mr-9">Country</label>
+            <label for="Date">Telephone Number</label>
+          </div>
           <div class="join">
-            <select class="join-item select select-bordered">
-              <option v-for="country in countries" :key="country.phone_code">
-                {{ country.country_code }} +{{ country.phone_code }}
+            <select
+              v-model="session.beneficiaryPhoneCode"
+              class="join-item select select-bordered select-multiple w-20 overflow-hidden text-ellipsis pr-0"
+            >
+              <option
+                v-for="country in countries"
+                :value="country.phone_code"
+                :key="country.phone_code"
+              >
+                {{ country.country_en }}
               </option>
             </select>
             <input
               required
               type="number"
-              v-model="Session.SessionCommOptionData"
+              maxlength="10"
+              minlength="10"
+              v-model="session.SessionCommOptionData"
               class="input join-item input-bordered w-full text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
             />
           </div>
@@ -133,14 +147,14 @@ const bookSession = () => {
         <!-- Web Conferencing -->
         <div
           class="flex w-full flex-col items-center"
-          v-else-if="Session.SessionCommOption === 'Web Conferencing'"
+          v-else-if="session.SessionCommOption === 'Web Conferencing'"
         >
           <label for="Date">Perferred Platform</label>
           <select
             required
             placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
-            v-model="Session.SessionCommOptionData"
+            v-model="session.SessionCommOptionData"
           >
             <option disabled selected>Choose a platform</option>
             <option>Google Meet</option>
@@ -159,7 +173,7 @@ const bookSession = () => {
           <input
             required
             type="text"
-            v-model="Session.location"
+            v-model="session.location"
             placeholder="Location"
             class="input input-bordered w-full max-w-xs"
           />
@@ -172,7 +186,7 @@ const bookSession = () => {
             type="text"
             placeholder="60"
             disabled
-            v-model="Session.SessionDuration"
+            v-model="session.SessionDuration"
             class="input input-bordered w-full max-w-xs text-center"
           />
         </div>

@@ -5,7 +5,7 @@ export default {
     extend: {},
   },
   daisyui: {
-    themes: ['dark'],
+    themes: ['light'],
   },
 
   // eslint-disable-next-line @typescript-eslint/no-require-imports
