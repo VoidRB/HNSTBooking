@@ -55,7 +55,7 @@ const menuData = [
 ]
 </script>
 <template>
-  <div class="navbar fixed z-10 bg-base-100">
+  <div class="navbar fixed z-10">
     <section class="navbar-start">
       <RouterLink :to="{ name: 'home' }" class="btn btn-ghost text-xl">B'Saraha</RouterLink>
     </section>

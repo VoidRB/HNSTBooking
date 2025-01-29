@@ -54,33 +54,26 @@ const submitAssessment = async () => {
 }
 </script>
 <template>
-  <h1 class="ml-2">Beneficiary : {{ props.beneficiary?.name }}</h1>
-  <div class="flex h-full w-full flex-col py-10">
+  <h1 class="ml-2 font-bold underline">Beneficiary : {{ props.beneficiary?.name }}</h1>
+  <form class="flex h-full w-full flex-col py-10" @submit.prevent="submitAssessment()">
     <div class="ml-5 h-96 overflow-y-scroll scroll-smooth pr-5">
       <h1 class="mb-10 text-3xl font-bold underline">MHC-SF Questions</h1>
 
       <!-- MHC-SF Questions -->
       <section>
         <div v-for="question in mentalHealthContinuumQuestions" :key="question.id">
-          <article v-if="question.type === 'text'">
-            <h1 class="font-bold">{{ question.question }}</h1>
-            <textarea
-              placeholder="Answer"
-              v-model="question.answer"
-              class="textarea textarea-bordered w-full resize-none"
-            ></textarea>
-          </article>
-          <article v-else>
+          <article>
             <h1 class="font-bold">{{ question.question }}</h1>
 
             <section class="flex gap-5">
               <div
                 v-for="option in mentalHealthContinuumAnswerOptions"
                 :key="option.id"
-                class="flex flex-col items-center"
+                class="flex flex-col items-center justify-between text-center"
               >
                 <label for="">{{ option.option }}</label
                 ><input
+                  required
                   v-model="question.answer"
                   type="radio"
                   :name="question.id"
@@ -102,6 +95,7 @@ const submitAssessment = async () => {
           <article v-if="question.type === 'text'">
             <h1 class="font-bold">{{ question.question }}</h1>
             <textarea
+              required
               placeholder="Answer"
               v-model="question.answer"
               class="textarea textarea-bordered w-full resize-none"
@@ -117,6 +111,7 @@ const submitAssessment = async () => {
               >
                 <label for="">{{ option.option }}</label
                 ><input
+                  required
                   v-model="question.answer"
                   type="radio"
                   :name="question.id"
@@ -141,7 +136,13 @@ const submitAssessment = async () => {
               :key="option.id"
               class="flex items-center justify-start gap-5 py-2"
             >
-              <input type="checkbox" class="checkbox" v-model="mcqAnswers" :value="option.option" />
+              <input
+                type="checkbox"
+                required
+                class="checkbox"
+                v-model="mcqAnswers"
+                :value="option.option"
+              />
               <label>{{ option.option }}</label>
             </div>
           </article>
@@ -155,6 +156,7 @@ const submitAssessment = async () => {
               >
                 <label for="">{{ option.option }}</label
                 ><input
+                  required
                   v-model="question.answer"
                   type="radio"
                   :name="question.id"
@@ -189,7 +191,7 @@ const submitAssessment = async () => {
     </div>
     <!-- Button -->
     <section class="mr-5 place-self-end">
-      <button class="btn" @click="submitAssessment()">Submit</button>
+      <button class="btn">Submit</button>
     </section>
-  </div>
+  </form>
 </template>

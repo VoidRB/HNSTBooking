@@ -2,6 +2,7 @@
 import AllBeneficiaries from '@/components/StaffTables/AllBeneficiaries.vue'
 import AllPeerSupporters from '@/components/StaffTables/AllPeerSupporters.vue'
 import AllSessions from '@/components/StaffTables/AllSessions.vue'
+import CoordinatorStats from './CoordinatorStats.vue'
 </script>
 <template>
   <div class="flex h-full w-full flex-col">
@@ -9,6 +10,7 @@ import AllSessions from '@/components/StaffTables/AllSessions.vue'
       <AllBeneficiaries class="col-start-1" />
       <AllPeerSupporters class="col-start-2" />
       <AllSessions class="col-start-1 row-start-2" />
+      <CoordinatorStats class="col-start-2 row-start-2" />
     </section>
   </div>
 </template>

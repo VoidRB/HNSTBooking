@@ -28,6 +28,7 @@ const register = async () => {
       username: user.username,
       gender: user.gender,
       age: user.age,
+      languagePreference: user.languagePreference,
       password: user.password,
       passwordRepeated: user.passwordRepeated,
     })

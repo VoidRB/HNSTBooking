@@ -21,8 +21,8 @@ const login = async () => {
 </script>
 <template>
   <form class="flex flex-col items-center gap-2" @submit.prevent="login">
-    <div class="input"></div>
-    <div class="input"></div>
+    <div class="input bg-transparent"></div>
+    <div class="input bg-transparent"></div>
     <input
       v-model="user.email"
       type="email"
@@ -39,9 +39,9 @@ const login = async () => {
       autocomplete="current-password"
       class="input input-bordered w-full max-w-xs"
     />
-    <div class="input"></div>
-    <div class="input"></div>
-    <div class="input"></div>
+    <div class="input bg-transparent"></div>
+    <div class="input bg-transparent"></div>
+    <div class="input bg-transparent"></div>
     <button class="btn">Login</button>
   </form>
 </template>

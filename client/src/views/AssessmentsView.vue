@@ -42,7 +42,7 @@ const [todaysDate] = new Date().toISOString().split('T')
 
 const chosenAssessmentType = ref('')
 const chosenBeneficiary = ref()
-const chosenSessionNumber = ref()
+const chosenSessionNumber = ref('1')
 </script>
 <template>
   <div class="mt-16 flex h-full w-full flex-col gap-10">
@@ -62,7 +62,7 @@ const chosenSessionNumber = ref()
         <div class="join">
           <select
             v-model="chosenAssessmentType"
-            class="join-item select select-bordered join-horizontal w-full max-w-xs"
+            class="join-item select select-bordered join-horizontal w-full max-w-xs text-ellipsis text-nowrap"
           >
             <option disabled selected>Assessment Type</option>
             <option>Screening</option>
@@ -72,7 +72,7 @@ const chosenSessionNumber = ref()
           <select
             v-if="chosenAssessmentType === 'During-Session'"
             v-model="chosenSessionNumber"
-            class="join-item select select-bordered max-w-xs"
+            class="join-item select select-bordered w-16"
           >
             <option disabled selected>Session #</option>
             <option>1</option>

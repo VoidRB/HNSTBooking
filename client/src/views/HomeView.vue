@@ -9,10 +9,9 @@ const formState = ref(true)
 <template>
   <div class="flex h-full w-full items-center justify-center">
     <section class="hidden h-full w-2/3 items-start justify-start bg-base-200 p-10 md:flex">
-      <h1 class="select-none text-9xl font-bold text-neutral shadow-black drop-shadow-xl">
-        Welcome to B'Sarahas <span class="text-primary">peer</span>-to-<span class="text-accent"
-          >peer</span
-        >
+      <h1 class="mx-4 select-none text-9xl font-bold text-neutral shadow-black drop-shadow-xl">
+        Welcome to B'Sarahas <span class="text-secondary">peer</span
+        ><span class="text-primary">-to-</span><span class="text-accent">peer</span>
         project!
       </h1>
     </section>

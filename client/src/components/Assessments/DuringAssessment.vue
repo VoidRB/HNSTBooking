@@ -2,10 +2,10 @@
 import { duringTherapyPsychlopsQuestions } from '../../../../shared/assessmentQuestions'
 import { psychlopsAnswerOptions } from '../../../../shared/assessmentAnswers'
 import axios from 'axios'
-import { decode } from 'hono/jwt'
+// import { decode } from 'hono/jwt'
 import { useToast } from 'vue-toastification'
 const toast = useToast()
-const { payload } = decode(document.cookie)
+// const { payload } = decode(document.cookie)
 const props = defineProps({
   beneficiary: Object,
   chosenAssessmentDate: String,
@@ -22,7 +22,7 @@ const submitAssessment = async () => {
   try {
     const response = axios.post(`/api/DuringAssessment/${props.sessionNumber}`, {
       beneficiaryId: props.beneficiary?.id,
-      peerSupporterId: payload.id,
+      // peerSupporterId: payload.id,
       psychlopsAnswers: psychlopsAnswers,
       sessionNumber: props.sessionNumber,
     })
@@ -31,8 +31,8 @@ const submitAssessment = async () => {
 }
 </script>
 <template>
-  <h1 class="ml-2">Beneficiary : {{ props.beneficiary?.name }}</h1>
-  <div class="flex h-full w-full flex-col py-5">
+  <h1 class="ml-2 font-bold underline">Beneficiary : {{ props.beneficiary?.name }}</h1>
+  <form class="flex h-full w-full flex-col py-5" @submit.prevent="submitAssessment()">
     <div class="ml-5 h-96 overflow-y-scroll pr-5">
       <!-- PSYCHLOPS QUESTIONS -->
       <section>
@@ -40,6 +40,7 @@ const submitAssessment = async () => {
           <article v-if="question.type === 'text'">
             <h1 class="font-bold">{{ question.question }}</h1>
             <textarea
+              required
               placeholder="Answer"
               v-model="question.answer"
               class="textarea textarea-bordered w-full resize-none"
@@ -55,6 +56,7 @@ const submitAssessment = async () => {
               >
                 <label for="">{{ option.option }}</label
                 ><input
+                  required
                   v-model="question.answer"
                   type="radio"
                   :name="question.id"
@@ -69,7 +71,7 @@ const submitAssessment = async () => {
       </section>
     </div>
     <section class="mr-5 place-self-end">
-      <button class="btn" @click="submitAssessment()">Submit</button>
+      <button class="btn">Submit</button>
     </section>
-  </div>
+  </form>
 </template>
