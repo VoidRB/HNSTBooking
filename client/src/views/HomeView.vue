@@ -19,7 +19,7 @@ const formState = ref(true)
       <label class="swap swap-flip mb-5">
         <input type="checkbox" @click="formState = !formState" />
 
-        <h1 class="swap-off text-3xl font-bold">&nbsp;&nbsp;login</h1>
+        <h1 class="swap-off text-3xl font-bold">&nbsp;&nbsp;Login</h1>
         <h1 class="swap-on text-3xl font-bold">Register</h1>
       </label>
 

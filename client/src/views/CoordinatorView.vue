@@ -2,7 +2,7 @@
 import AllBeneficiaries from '@/components/StaffTables/AllBeneficiaries.vue'
 import AllPeerSupporters from '@/components/StaffTables/AllPeerSupporters.vue'
 import AllSessions from '@/components/StaffTables/AllSessions.vue'
-import CoordinatorStats from './CoordinatorStats.vue'
+import CoordinatorStats from '../components/CoordinatorStats.vue'
 </script>
 <template>
   <div class="flex h-full w-full flex-col">

@@ -1,3 +1,4 @@
+<!-- TODO add a drop down for the state and a location for the user to pick from -->
 <script setup lang="ts">
 import { reactive } from 'vue'
 import axios from 'axios'
@@ -9,11 +10,12 @@ const toast = useToast()
 const session = reactive({
   beneficiaryEmail: '',
   beneficiaryName: '',
-  beneficiaryPhoneCode: '',
-  employnmentStatus: '',
+  beneficiaryPhoneCode: '249',
+  employnmentStatus: 'Employed',
   SessionDate: '',
-  SessionCommOption: '',
+  SessionCommOption: 'Telephone',
   SessionCommOptionData: '',
+  locationState: 'Diaspora',
   location: '',
   SessionDuration: 60,
 })
@@ -69,7 +71,7 @@ const bookSession = () => {
         </div>
         <!-- Employment Status -->
         <div class="flex w-full flex-col items-center">
-          <label for="Date">Employment Status</label>
+          <label>Employment Status</label>
           <select
             required
             placeholder="Pick One"
@@ -86,7 +88,7 @@ const bookSession = () => {
         </div>
         <!-- Session Date -->
         <div class="flex w-full flex-col items-center">
-          <label for="Date">Session Date</label>
+          <label>Session Date</label>
           <input
             required
             :min="todaysDate"
@@ -100,7 +102,7 @@ const bookSession = () => {
       <section class="flex w-1/2 flex-col gap-5">
         <!-- Perferred Communication -->
         <div class="flex w-full flex-col items-center">
-          <label for="Date">Perferred Platform</label>
+          <label>Perferred Platform</label>
           <select
             required
             placeholder="Pick One"
@@ -119,7 +121,7 @@ const bookSession = () => {
         >
           <div>
             <label class="mr-9">Country</label>
-            <label for="Date">Telephone Number</label>
+            <label>Telephone Number</label>
           </div>
           <div class="join">
             <select
@@ -149,7 +151,7 @@ const bookSession = () => {
           class="flex w-full flex-col items-center"
           v-else-if="session.SessionCommOption === 'Web Conferencing'"
         >
-          <label for="Date">Perferred Platform</label>
+          <label>Perferred Platform</label>
           <select
             required
             placeholder="Pick One"
@@ -169,14 +171,25 @@ const bookSession = () => {
         </div>
         <!-- Location -->
         <div class="flex w-full flex-col items-center">
-          <label for="Beneficiary">Location</label>
-          <input
-            required
-            type="text"
-            v-model="session.location"
-            placeholder="Location"
-            class="input input-bordered w-full max-w-xs"
-          />
+          <div>
+            <label class="">Location</label>
+          </div>
+          <div class="join select-none">
+            <select
+              v-model="session.locationState"
+              class="join-item select select-bordered select-multiple w-20 overflow-hidden text-ellipsis"
+            >
+              <option>Internally displaced</option>
+              <option>Externally displaced</option>
+              <option>Diaspora</option>
+            </select>
+            <input
+              required
+              type="text"
+              v-model="session.location"
+              class="input join-item input-bordered w-full text-center"
+            />
+          </div>
         </div>
         <!-- Duration -->
         <div class="flex w-full flex-col items-center">

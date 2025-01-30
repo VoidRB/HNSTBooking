@@ -190,8 +190,6 @@ const submitAssessment = async () => {
       </section>
     </div>
     <!-- Button -->
-    <section class="mr-5 place-self-end">
-      <button class="btn">Submit</button>
-    </section>
+    <button class="btn mr-5 place-self-end">Submit</button>
   </form>
 </template>

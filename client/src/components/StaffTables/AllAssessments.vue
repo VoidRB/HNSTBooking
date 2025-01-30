@@ -91,8 +91,8 @@ const refreshTable = async () => {
       </button>
     </section>
 
-    <div class="h-60 overflow-y-scroll scroll-smooth">
-      <table class="table table-pin-rows">
+    <div class="overflow-y-scroll scroll-smooth">
+      <table class="table table-pin-rows h-1/2">
         <thead>
           <tr>
             <th></th>
