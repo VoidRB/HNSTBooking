@@ -9,7 +9,7 @@ const user = reactive({
   username: '',
   gender: 'Gender',
   age: '',
-  languagePreference: 'Language',
+  languagePreference: 'Arabic',
   password: '',
   passwordRepeated: '',
 })
@@ -75,7 +75,6 @@ const register = async () => {
     <input
       required
       v-model="user.age"
-      min="0"
       max="100"
       maxlength="3"
       type="number"

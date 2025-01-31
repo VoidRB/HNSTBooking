@@ -10,12 +10,12 @@ const toast = useToast()
 const session = reactive({
   beneficiaryEmail: '',
   beneficiaryName: '',
-  beneficiaryPhoneCode: '249',
+  beneficiaryPhoneCode: '+249',
   employnmentStatus: 'Employed',
   SessionDate: '',
-  SessionCommOption: 'Telephone',
+  SessionCommOption: '',
   SessionCommOptionData: '',
-  locationState: 'Diaspora',
+  locationState: '',
   location: '',
   SessionDuration: 60,
 })
@@ -45,6 +45,7 @@ const bookSession = () => {
     class="mt-32 flex w-full flex-col items-center justify-center gap-5"
     @submit.prevent="bookSession"
   >
+    <h1 class="font-bold">Fill in the form below to start your therapy!</h1>
     <div class="flex gap-5">
       <section class="flex w-1/2 flex-col gap-5">
         <!-- Beneficiary Email -->
@@ -88,7 +89,7 @@ const bookSession = () => {
         </div>
         <!-- Session Date -->
         <div class="flex w-full flex-col items-center">
-          <label>Session Date</label>
+          <label>Preferred Date</label>
           <input
             required
             :min="todaysDate"
@@ -130,17 +131,18 @@ const bookSession = () => {
             >
               <option
                 v-for="country in countries"
-                :value="country.phone_code"
-                :key="country.phone_code"
+                :value="country.dial_code"
+                :key="country.dial_code"
               >
-                {{ country.country_en }}
+                {{ country.name }}
               </option>
             </select>
             <input
               required
-              type="number"
+              type="tel"
+              pattern="[0-9]{10}"
+              minlength="9"
               maxlength="10"
-              minlength="10"
               v-model="session.SessionCommOptionData"
               class="input join-item input-bordered w-full text-center [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
             />
@@ -172,7 +174,7 @@ const bookSession = () => {
         <!-- Location -->
         <div class="flex w-full flex-col items-center">
           <div>
-            <label class="">Location</label>
+            <label class="">Your Location</label>
           </div>
           <div class="join select-none">
             <select

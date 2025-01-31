@@ -13,28 +13,13 @@ const beneficiary = ref({
   Sessions: '3',
   assignedPeerSupporter: 'John Doe',
   communicationOption: 'Google Meet',
+  staffNotes: '',
 })
-
-const beneficiaryStatusBackground = (status: string) => {
-  switch (status) {
-    case 'Approved':
-      return 'badge bg-green-500'
-    case 'Flagged':
-      return 'badge bg-yellow-500'
-    case 'Finished':
-      return 'badge bg-slate-100'
-    case 'Denied':
-      return 'badge bg-red-500'
-
-    default:
-      break
-  }
-}
 
 const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
   toast.info('Notifiying Beneficiary...')
   try {
-    const response = await axios.post('/api/notifyBeneficiary', {
+    const response = await axios.post('/api/notify-beneficiary', {
       beneficiaryId: chosenBeneficiaryId,
     })
     toast.success('Notified Beneficiary')
@@ -44,37 +29,24 @@ const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
 }
 </script>
 <template>
-  <div class="flex flex-col">
-    <h1 class="text-2xl">Assigned Beneficiary</h1>
-    <table class="table flex h-full w-full place-items-center items-center justify-center">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Status</th>
-
-          <th>Session</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ beneficiary.name }}</td>
-          <td>{{ beneficiary.email }}</td>
-          <td>
-            <p :class="[beneficiaryStatusBackground(beneficiary.status), '']">
-              {{ beneficiary.status }}
-            </p>
-          </td>
-          <td>{{ beneficiary.Sessions }}</td>
-          <td>
-            <button class="btn mr-5" @click="notifyBeneficiary(beneficiary.id)">Notify</button>
-            <button class="btn btn-error" onclick="my_modal_3.showModal()">Flag</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="mt-16 flex h-full w-full flex-col items-center px-10">
+    <h1 class="w-full text-2xl">Assigned Beneficiary</h1>
+    <div class="m-5 flex w-full flex-col rounded-lg p-5 ring-1 ring-base-200">
+      <h1 class="mb-5 text-lg underline">Personal Info</h1>
+      <h1 class="text-">Name: {{ beneficiary.name }}</h1>
+      <h1>Email: {{ beneficiary.email }}</h1>
+      <h1>Status: {{ beneficiary.status }}</h1>
+      <h1>Gender: {{ beneficiary.gender }}</h1>
+      <hr class="divider" />
+      <h1 class="text-lg underline">Therapy Information</h1>
+      <h1>Sessions: {{ beneficiary.Sessions }}</h1>
+      <h1>Preferred communication option: {{ beneficiary.communicationOption }}</h1>
+      <h1>Notes: {{ beneficiary.staffNotes }}</h1>
+      <section class="mt-10 flex gap-2 self-end">
+        <button class="pi pi-bell btn" @click="notifyBeneficiary(beneficiary.id)"></button>
+        <button class="btn btn-error" onclick="my_modal_3.showModal()">Flag</button>
+      </section>
+    </div>
     <FlagModal :beneficiary="beneficiary" />
   </div>
 </template>

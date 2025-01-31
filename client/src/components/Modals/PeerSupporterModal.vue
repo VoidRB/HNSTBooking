@@ -33,7 +33,10 @@ const updatePeerSupporter = () => {
         <p class="col-start-2 row-start-2">{{ props.peerSupporter?.email }}</p>
         <p class="col-start-1 row-start-3 select-none font-bold">Status :</p>
         <p class="col-start-2 row-start-3">
-          <select class="select select-bordered select-sm max-w-xs" v-model="peerSupporterStatus">
+          <select
+            class="select select-bordered select-sm w-32 max-w-xs"
+            v-model="peerSupporterStatus"
+          >
             <option disabled selected>Status</option>
             <option>Active</option>
             <option>Inactive</option>
@@ -43,7 +46,10 @@ const updatePeerSupporter = () => {
         <p class="col-start-2 row-start-4">{{ props.peerSupporter?.Sessions }}</p>
         <p class="col-start-1 row-start-5 select-none font-bold">Assigned Beneficiary :</p>
         <p class="col-start-2 row-start-5">
-          <select class="select select-bordered select-sm max-w-xs" v-model="assignedBeneficiary">
+          <select
+            class="select select-bordered select-sm w-32 max-w-xs"
+            v-model="assignedBeneficiary"
+          >
             <option disabled selected>Beneficiary</option>
             <!-- need the list of the Beneficiary -->
             <option>B 1</option>

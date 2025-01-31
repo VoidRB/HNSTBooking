@@ -23,7 +23,7 @@ const updatePeerSupporter = () => {
   <dialog id="my_modal_3" class="modal">
     <div class="modal-box">
       <h3 class="text-xl font-bold underline">Flag Beneficiary</h3>
-      <div class="mt-4 grid grid-cols-2 grid-rows-4 gap-2">
+      <div class="mt-4 grid grid-cols-2 grid-rows-3 gap-2">
         <p class="col-start-1 row-start-1 select-none font-bold">Name:</p>
         <p class="col-start-2 row-start-1">{{ props.beneficiary.name }}</p>
         <p class="col-start-1 row-start-2 select-none font-bold">Email:</p>
