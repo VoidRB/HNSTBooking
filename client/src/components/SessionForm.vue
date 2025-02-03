@@ -20,12 +20,13 @@ const session = reactive({
   SessionDuration: 60,
 })
 
-const bookSession = () => {
+const bookSession = async () => {
   try {
-    const response = axios.postForm('/api/bookSession', {
+    await axios.postForm('/api/bookSession', {
       beneficiaryEmail: session.beneficiaryEmail,
       beneficiaryName: session.beneficiaryName,
       beneficiaryLocation: session.location,
+      beneficiaryLocationState: session.locationState,
       beneficiaryEmploymentStatus: session.employnmentStatus,
       beneficiaryPhoneCode: session.beneficiaryPhoneCode,
       SessionDate: session.SessionDate,
@@ -35,8 +36,8 @@ const bookSession = () => {
     })
     toast.success('Successfully booked')
   } catch (error) {
-    toast.error('failed')
-    console.log(error)
+    toast.error('Failed to book session')
+    console.error(error)
   }
 }
 </script>
@@ -46,8 +47,8 @@ const bookSession = () => {
     @submit.prevent="bookSession"
   >
     <h1 class="font-bold">Fill in the form below to start your therapy!</h1>
-    <div class="flex gap-5">
-      <section class="flex w-1/2 flex-col gap-5">
+    <div class="flex flex-col gap-5 md:flex-row">
+      <section class="flex w-full flex-col gap-5 md:w-1/2">
         <!-- Beneficiary Email -->
         <div class="flex w-full flex-col items-center">
           <label for="Beneficiary">Beneficiary Email</label>
@@ -75,7 +76,6 @@ const bookSession = () => {
           <label>Employment Status</label>
           <select
             required
-            placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
             v-model="session.employnmentStatus"
           >
@@ -100,13 +100,12 @@ const bookSession = () => {
           />
         </div>
       </section>
-      <section class="flex w-1/2 flex-col gap-5">
-        <!-- Perferred Communication -->
+      <section class="flex w-full flex-col gap-5 md:w-1/2">
+        <!-- Preferred Communication -->
         <div class="flex w-full flex-col items-center">
-          <label>Perferred Platform</label>
+          <label>Preferred Platform</label>
           <select
             required
-            placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
             v-model="session.SessionCommOption"
           >
@@ -153,10 +152,9 @@ const bookSession = () => {
           class="flex w-full flex-col items-center"
           v-else-if="session.SessionCommOption === 'Web Conferencing'"
         >
-          <label>Perferred Platform</label>
+          <label>Preferred Platform</label>
           <select
             required
-            placeholder="Pick One"
             class="select select-bordered w-full max-w-xs"
             v-model="session.SessionCommOptionData"
           >
@@ -207,6 +205,6 @@ const bookSession = () => {
         </div>
       </section>
     </div>
-    <button class="btn">Book</button>
+    <button class="btn mb-5">Book</button>
   </form>
 </template>

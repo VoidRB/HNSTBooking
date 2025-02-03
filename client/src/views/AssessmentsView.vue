@@ -57,12 +57,12 @@ const chosenSessionNumber = ref('1')
         </select>
       </div>
 
-      <div class="join flex w-1/3 flex-col">
-        <label class="join-item label-text">Assessment Type</label>
+      <div class="flex w-1/3 flex-col">
+        <label class="label-text">Assessment Type</label>
         <div class="join">
           <select
             v-model="chosenAssessmentType"
-            class="join-item select select-bordered join-horizontal w-full max-w-xs text-ellipsis text-nowrap"
+            class="join-item select select-bordered w-full max-w-xs text-ellipsis text-nowrap"
           >
             <option disabled selected>Assessment Type</option>
             <option>Screening</option>

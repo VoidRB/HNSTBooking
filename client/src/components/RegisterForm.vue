@@ -20,6 +20,7 @@ const register = async () => {
   if (user.password != user.passwordRepeated) {
     passwordBorderColor.value = 'input-error'
     toast.warning('Passwords Dont Match')
+    return
   }
 
   try {

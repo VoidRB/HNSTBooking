@@ -33,16 +33,31 @@ const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
     <h1 class="w-full text-2xl">Assigned Beneficiary</h1>
     <div class="m-5 flex w-full flex-col rounded-lg p-5 ring-1 ring-base-200">
       <h1 class="mb-5 text-lg underline">Personal Info</h1>
-      <h1 class="text-">Name: {{ beneficiary.name }}</h1>
-      <h1>Email: {{ beneficiary.email }}</h1>
-      <h1>Status: {{ beneficiary.status }}</h1>
-      <h1>Gender: {{ beneficiary.gender }}</h1>
+      <p class="text-">Name: {{ beneficiary.name }}</p>
+      <p>Email: {{ beneficiary.email }}</p>
+      <p>Status: {{ beneficiary.status }}</p>
+      <p>Gender: {{ beneficiary.gender }}</p>
       <hr class="divider" />
       <h1 class="text-lg underline">Therapy Information</h1>
-      <h1>Sessions: {{ beneficiary.Sessions }}</h1>
-      <h1>Preferred communication option: {{ beneficiary.communicationOption }}</h1>
-      <h1>Notes: {{ beneficiary.staffNotes }}</h1>
-      <section class="mt-10 flex gap-2 self-end">
+      <p>Preferred communication option: {{ beneficiary.communicationOption }}</p>
+      <p>Notes: {{ beneficiary.staffNotes }}</p>
+      <section class="mt-10 flex items-center justify-center gap-2 self-end">
+        <div class="flex justify-center gap-2 text-2xl">
+          <p class="self-center bg-none">Session Number</p>
+          <p class="flex items-center justify-center rounded-lg bg-base-200 p-2">
+            {{ beneficiary.Sessions }}
+          </p>
+        </div>
+        <div class="flex items-center justify-center rounded-lg bg-base-200">
+          <span class="countdown h-full select-none gap-1 p-3 font-mono text-2xl">
+            <span style="--value: 1"></span>
+            h
+            <span style="--value: 00"></span>
+            m
+            <span style="--value: ${counter}"></span>
+            s
+          </span>
+        </div>
         <button class="pi pi-bell btn" @click="notifyBeneficiary(beneficiary.id)"></button>
         <button class="btn btn-error" onclick="my_modal_3.showModal()">Flag</button>
       </section>

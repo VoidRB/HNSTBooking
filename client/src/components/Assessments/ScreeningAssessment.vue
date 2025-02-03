@@ -48,6 +48,7 @@ const submitAssessment = async () => {
       MHCAnswers: MHCAnswers,
       psychlopsAnswers: psychlopsAnswers,
       GRiSTAnswers: GRiSTAnswers,
+      assessmentDate: props.chosenAssessmentDate,
     })
     toast.success('Successfully submitted the Assessment')
   } catch (error) {}

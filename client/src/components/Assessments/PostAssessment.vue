@@ -23,6 +23,7 @@ const submitAssessment = async () => {
       beneficiaryId: props.beneficiary?.id,
       // peerSupporterId: payload.id,
       psychlopsAnswers: psychlopsAnswers,
+      assessmentDate: props.chosenAssessmentDate,
     })
     toast.success('Successfully submitted the Assessment')
   } catch (error) {}
