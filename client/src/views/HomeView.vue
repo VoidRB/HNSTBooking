@@ -7,7 +7,9 @@ const formState = ref(true)
 </script>
 
 <template>
-  <div class="flex h-full w-full items-center justify-center">
+  <div
+    class="flex h-full w-full items-center justify-center bg-[url(@/assets/waves.svg)] bg-cover bg-bottom bg-no-repeat lg:bg-none"
+  >
     <section class="hidden h-full w-2/3 items-start justify-start bg-base-200 p-10 lg:flex">
       <h1 class="mx-4 select-none text-9xl font-bold text-neutral shadow-black drop-shadow-xl">
         Welcome to B'Sarahas <span class="text-secondary">peer</span

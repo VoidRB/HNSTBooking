@@ -41,10 +41,14 @@ const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
       <h1 class="text-lg underline">Therapy Information</h1>
       <p>Preferred communication option: {{ beneficiary.communicationOption }}</p>
       <p>Notes: {{ beneficiary.staffNotes }}</p>
-      <section class="mt-10 flex items-center justify-center gap-2 self-end">
+      <section
+        class="mt-10 flex flex-col items-center justify-center gap-2 md:flex-row md:self-end"
+      >
         <div class="flex justify-center gap-2 text-2xl">
-          <p class="self-center bg-none">Session Number</p>
-          <p class="flex items-center justify-center rounded-lg bg-base-200 p-2">
+          <p
+            class="tooltip flex items-center justify-center rounded-lg bg-base-200 p-2 px-4 hover:tooltip-top"
+            data-tip="Session Number"
+          >
             {{ beneficiary.Sessions }}
           </p>
         </div>
@@ -58,7 +62,13 @@ const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
             s
           </span>
         </div>
-        <button class="pi pi-bell btn" @click="notifyBeneficiary(beneficiary.id)"></button>
+        <button
+          class="btn tooltip text-lg hover:tooltip-top"
+          data-tip="Notify"
+          @click="notifyBeneficiary(beneficiary.id)"
+        >
+          <i class="pi pi-bell"></i>
+        </button>
         <button class="btn btn-error" onclick="my_modal_3.showModal()">Flag</button>
       </section>
     </div>

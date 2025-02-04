@@ -1,9 +1,9 @@
-<!-- TODO add a drop down for the state and a location for the user to pick from -->
 <script setup lang="ts">
 import { reactive } from 'vue'
 import axios from 'axios'
 import { useToast } from 'vue-toastification'
 import { countries } from '../../../shared/countryCodes.ts'
+
 const [todaysDate] = new Date().toISOString().split('T')
 
 const toast = useToast()
