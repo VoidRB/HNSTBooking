@@ -3,6 +3,12 @@ import axios from 'axios'
 import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
 import FlagModal from './Modals/FlagModal.vue'
+import SessionFeedbackPeerSupporter from './Modals/SessionFeedbackPeerSupporter.vue'
+
+const hour = ref(3600)
+const minute = ref(59)
+const seconds = ref(60)
+const modalState = ref(false)
 const toast = useToast()
 const beneficiary = ref({
   id: 1,
@@ -10,7 +16,7 @@ const beneficiary = ref({
   email: 'alice.johnson@example.com',
   status: 'Approved',
   gender: 'Female',
-  Sessions: '3',
+  sessionNumber: 3,
   assignedPeerSupporter: 'John Doe',
   communicationOption: 'Google Meet',
   staffNotes: '',
@@ -27,11 +33,36 @@ const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
     toast.error('Couldnt notify the beneficiary')
   }
 }
+
+const startTimer = () => {
+  setInterval(() => {
+    if (hour.value >= 0) {
+      hour.value -= 1
+      if (seconds.value === 0) {
+        seconds.value = 59
+      }
+      seconds.value -= 1
+      console.log(`hour ${hour.value}`)
+      console.log(`seconds ${seconds.value}`)
+    } else {
+      // modal.showModal()
+      modalState.value = true
+    }
+  }, 1000)
+
+  setInterval(() => {
+    if (hour.value >= 0) {
+      minute.value -= 1
+      console.log(`minute ${minute.value}`)
+    } else {
+    }
+  }, 60000)
+}
 </script>
 <template>
   <div class="mt-16 flex h-full w-full flex-col items-center px-10">
     <h1 class="w-full text-2xl">Assigned Beneficiary</h1>
-    <div class="m-5 flex w-full flex-col rounded-lg p-5 ring-1 ring-base-200">
+    <div class="m-5 flex w-full flex-col rounded-lg p-5 shadow-lg ring-1 ring-base-200">
       <h1 class="mb-5 text-lg underline">Personal Info</h1>
       <p class="text-">Name: {{ beneficiary.name }}</p>
       <p>Email: {{ beneficiary.email }}</p>
@@ -49,16 +80,15 @@ const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
             class="tooltip flex items-center justify-center rounded-lg bg-base-200 p-2 px-4 hover:tooltip-top"
             data-tip="Session Number"
           >
-            {{ beneficiary.Sessions }}
+            {{ beneficiary.sessionNumber }}
           </p>
         </div>
         <div class="flex items-center justify-center rounded-lg bg-base-200">
-          <span class="countdown h-full select-none gap-1 p-3 font-mono text-2xl">
-            <span style="--value: 1"></span>
-            h
-            <span style="--value: 00"></span>
+          <button class="btn" v-if="hour === 3600" @click="startTimer()">Start Timer</button>
+          <span class="countdown h-full select-none gap-1 p-3 font-mono text-2xl" v-else>
+            <span :style="'--value:' + minute + ';'"></span>
             m
-            <span style="--value: ${counter}"></span>
+            <span :style="'--value:' + seconds + ';'"></span>
             s
           </span>
         </div>
@@ -73,5 +103,6 @@ const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
       </section>
     </div>
     <FlagModal :beneficiary="beneficiary" />
+    <SessionFeedbackPeerSupporter :beneficiary="beneficiary" :modalOpened="modalState" />
   </div>
 </template>

@@ -23,7 +23,7 @@ const updatePeerSupporter = () => {
 }
 </script>
 <template>
-  <dialog id="my_modal_2" class="modal">
+  <dialog id="my_modal_5" class="modal">
     <div class="modal-box">
       <h3 class="text-xl font-bold underline">Peer Supporter</h3>
       <div class="mt-4 grid grid-cols-2 grid-rows-5 gap-2">

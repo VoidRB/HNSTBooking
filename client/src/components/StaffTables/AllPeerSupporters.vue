@@ -151,7 +151,7 @@ const refreshTable = async () => {
           </tr>
         </tbody>
       </table>
-      <PeerSupporterModal id="my_modal_1" :peerSupporter="peerSupporterToModal" />
+      <PeerSupporterModal id="my_modal_5" :peerSupporter="peerSupporterToModal" />
     </div>
   </section>
 </template>
