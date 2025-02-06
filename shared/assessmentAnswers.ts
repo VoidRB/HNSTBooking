@@ -1,10 +1,10 @@
 const mentalHealthContinuumAnswerOptions = [
-	{ id: 0, option: "NEVER" },
-	{ id: 1, option: "ONCE OR TWICE" },
-	{ id: 2, option: "ABOUT ONCE A WEEK" },
-	{ id: 3, option: "2 OR 3 TIMES A WEEK" },
-	{ id: 4, option: "ALMOST EVERY DAY" },
-	{ id: 5, option: "EVERY DAY" },
+	{ id: 0, option: "Never" },
+	{ id: 1, option: "Once or Twice" },
+	{ id: 2, option: "About once a week" },
+	{ id: 3, option: "2 or 3 times a week" },
+	{ id: 4, option: "Almost every day" },
+	{ id: 5, option: "Every day" },
 ];
 const psychlopsAnswerOptions = [
 	{ id: 0, option: 0 },

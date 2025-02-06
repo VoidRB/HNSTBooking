@@ -23,7 +23,7 @@ import SessionForm from '@/components/SessionForm.vue'
 // })
 </script>
 <template>
-  <div class="flex h-full w-full flex-col justify-between">
+  <div class="mt-16 flex h-full w-full flex-col justify-between">
     <!-- <SessionForm v-if="userData.status === 'active'" />
     <SessionFeedbackForm v-else /> -->
     <SessionForm />

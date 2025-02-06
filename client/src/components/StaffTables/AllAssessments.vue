@@ -108,7 +108,7 @@ const refreshTable = async () => {
             v-for="assessment in assessments"
             :key="assessment.id"
             class="hover cursor-pointer"
-            onclick="my_modal_4.showModal()"
+            onclick="my_modal_1.showModal()"
             @click="setAssessment(assessment)"
           >
             <th class="w-0">{{ assessment.id }}</th>

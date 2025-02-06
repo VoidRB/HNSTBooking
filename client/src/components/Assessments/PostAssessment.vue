@@ -32,7 +32,7 @@ const submitAssessment = async () => {
 <template>
   <h1 class="ml-2 font-bold underline">Beneficiary : {{ props.beneficiary?.name }}</h1>
   <form class="flex h-full w-full flex-col py-5" @submit.prevent="submitAssessment()">
-    <div class="ml-5 h-96 overflow-y-scroll pr-5">
+    <div class="ml-5 h-96 overflow-y-scroll scroll-smooth pr-5">
       <!-- PSYCHLOPS QUESTIONS -->
       <section>
         <div v-for="question in postTherapyPsychlopsQuestions" :key="question.id">

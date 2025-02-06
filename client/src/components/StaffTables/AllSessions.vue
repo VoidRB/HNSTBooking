@@ -120,7 +120,7 @@ const refreshTable = async () => {
             v-for="session in sessions"
             :key="session.id"
             class="hover cursor-pointer"
-            onclick="my_modal_3.showModal()"
+            onclick="my_modal_6.showModal()"
             @click="setSession(session)"
           >
             <th class="w-0">{{ session.id }}</th>

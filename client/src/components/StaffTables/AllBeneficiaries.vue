@@ -11,9 +11,10 @@ const beneficiaries = ref([
     email: 'alice.johnson@example.com',
     status: 'Approved',
     gender: 'Female',
-    Sessions: '3',
+    sessionNumber: 0,
     assignedPeerSupporter: 'John Doe',
     communicationOption: 'Google Meet',
+    staffNotes: '',
   },
   {
     id: 2,
@@ -21,9 +22,10 @@ const beneficiaries = ref([
     email: 'bob.smith@example.com',
     status: 'Flagged',
     gender: 'Male',
-    Sessions: '1',
+    sessionNumber: 3,
     assignedPeerSupporter: 'Jane Roe',
     communicationOption: 'Skype',
+    staffNotes: '',
   },
   {
     id: 3,
@@ -31,9 +33,10 @@ const beneficiaries = ref([
     email: 'charlie.brown@example.com',
     status: 'Finished',
     gender: 'Other',
-    Sessions: '0',
+    sessionNumber: 7,
     assignedPeerSupporter: 'Chris Martin',
     communicationOption: '+249 91 230 0026',
+    staffNotes: '',
   },
   {
     id: 4,
@@ -41,9 +44,10 @@ const beneficiaries = ref([
     email: 'diana.prince@example.com',
     status: 'Denied',
     gender: 'Female',
-    Sessions: '5',
+    sessionNumber: 0,
     assignedPeerSupporter: 'None',
     communicationOption: 'Zoom',
+    staffNotes: '',
   },
 ])
 const beneficiaryToModal = ref<beneficiaryType>()
@@ -127,7 +131,7 @@ const refreshTable = async () => {
                 {{ beneficiary.status }}
               </p>
             </td>
-            <td>{{ beneficiary.Sessions }}</td>
+            <td>{{ beneficiary.sessionNumber }}</td>
             <td>{{ beneficiary.assignedPeerSupporter }}</td>
           </tr>
         </tbody>

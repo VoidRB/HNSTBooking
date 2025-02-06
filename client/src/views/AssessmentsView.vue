@@ -48,7 +48,9 @@ const chosenSessionNumber = ref('1')
   <div class="mt-16 flex h-full w-full flex-col gap-10">
     <section class="flex w-full gap-10 px-10">
       <div class="flex w-1/3 flex-col">
-        <label class="label-text">Choose a Beneficiary</label>
+        <label class="label-text overflow-hidden text-ellipsis text-nowrap"
+          >Choose a Beneficiary</label
+        >
         <select v-model="chosenBeneficiary" class="select select-bordered w-full max-w-xs">
           <option disabled selected>Choose the beneficiary</option>
           <option :value="beneficiary" v-for="beneficiary in beneficiaries" :key="beneficiary.id">
@@ -58,7 +60,7 @@ const chosenSessionNumber = ref('1')
       </div>
 
       <div class="flex w-1/3 flex-col">
-        <label class="label-text">Assessment Type</label>
+        <label class="label-text text-nowrap">Assessment Type</label>
         <div class="join">
           <select
             v-model="chosenAssessmentType"
@@ -91,7 +93,7 @@ const chosenSessionNumber = ref('1')
         </button>
       </div>
     </section>
-    <section>
+    <section class="flex h-full w-full flex-col">
       <article v-if="chosenAssessmentType === 'During-Session'">
         <DuringAssessment
           :beneficiary="chosenBeneficiary"

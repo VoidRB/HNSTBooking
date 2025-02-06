@@ -18,7 +18,7 @@ const updateSession = () => {
 }
 </script>
 <template>
-  <dialog id="my_modal_3" class="modal">
+  <dialog id="my_modal_6" class="modal">
     <div class="modal-box">
       <h3 class="text-lg font-bold">Session</h3>
       <p class="pt-4">{{ props.session?.id }}</p>

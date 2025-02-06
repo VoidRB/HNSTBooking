@@ -17,7 +17,7 @@ const updateAssessment = () => {
 }
 </script>
 <template>
-  <dialog id="my_modal_4" class="modal">
+  <dialog id="my_modal_1" class="modal">
     <div class="modal-box">
       <h3 class="text-lg font-bold">Assessment</h3>
       <p class="pt-4">{{ props.assessment?.id }}</p>

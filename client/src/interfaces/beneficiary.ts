@@ -4,8 +4,8 @@ export default interface beneficiaryType {
   email: string
   status: string
   gender: string
-  sessionNumber: Number
+  sessionNumber: number
   assignedPeerSupporter: string
   communicationOption: string
-  staffNotes: String
+  staffNotes: string
 }

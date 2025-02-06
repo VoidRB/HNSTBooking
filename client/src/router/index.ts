@@ -74,6 +74,16 @@ const router = createRouter({
       },
     },
     {
+      path: '/admin',
+      name: 'AdminView',
+
+      component: () => import('@/views/AdminView.vue'),
+      meta: {
+        title: 'Admin',
+        requireAuth: true,
+      },
+    },
+    {
       path: '/:catchall(.*)',
       name: 'notFound',
       meta: {

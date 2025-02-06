@@ -42,10 +42,7 @@ const startTimer = () => {
         seconds.value = 59
       }
       seconds.value -= 1
-      console.log(`hour ${hour.value}`)
-      console.log(`seconds ${seconds.value}`)
     } else {
-      // modal.showModal()
       modalState.value = true
     }
   }, 1000)
@@ -53,16 +50,15 @@ const startTimer = () => {
   setInterval(() => {
     if (hour.value >= 0) {
       minute.value -= 1
-      console.log(`minute ${minute.value}`)
     } else {
     }
   }, 60000)
 }
 </script>
 <template>
-  <div class="mt-16 flex h-full w-full flex-col items-center px-10">
+  <div class="flex h-full w-full flex-col items-center px-10">
     <h1 class="w-full text-2xl">Assigned Beneficiary</h1>
-    <div class="m-5 flex w-full flex-col rounded-lg p-5 shadow-lg ring-1 ring-base-200">
+    <div class="m-5 flex h-full w-full flex-col rounded-lg p-5 shadow-lg ring-1 ring-base-200">
       <h1 class="mb-5 text-lg underline">Personal Info</h1>
       <p class="text-">Name: {{ beneficiary.name }}</p>
       <p>Email: {{ beneficiary.email }}</p>
@@ -73,7 +69,7 @@ const startTimer = () => {
       <p>Preferred communication option: {{ beneficiary.communicationOption }}</p>
       <p>Notes: {{ beneficiary.staffNotes }}</p>
       <section
-        class="mt-10 flex flex-col items-center justify-center gap-2 md:flex-row md:self-end"
+        class="mt-10 flex flex-row items-center justify-center gap-2 md:flex-row md:self-end"
       >
         <div class="flex justify-center gap-2 text-2xl">
           <p
@@ -99,7 +95,7 @@ const startTimer = () => {
         >
           <i class="pi pi-bell"></i>
         </button>
-        <button class="btn btn-error" onclick="my_modal_3.showModal()">Flag</button>
+        <button class="btn btn-error" onclick="my_modal_5.showModal()">Flag</button>
       </section>
     </div>
     <FlagModal :beneficiary="beneficiary" />

@@ -14,6 +14,7 @@ const menuData = [
       { name: 'Coordinator Page', routeName: 'CoordinatorView' },
       { name: 'Auditor Page', routeName: 'AuditorView' },
       { name: "FAQ's", routeName: 'FAQView' },
+      { name: 'Admin Page', routeName: 'AdminView' },
     ],
   },
   {
