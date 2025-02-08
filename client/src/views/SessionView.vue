@@ -2,7 +2,7 @@
 import SessionFeedbackForm from '@/components/SessionFeedbackForm.vue'
 import SessionForm from '@/components/SessionForm.vue'
 // import axios from 'axios'
-// import { decode } from 'hono/jwt'
+// import  decode  from 'jwt-decode'
 // import { onMounted, ref } from 'vue'
 
 // const { payload } = decode(document.cookie)

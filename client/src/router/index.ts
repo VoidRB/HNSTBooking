@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { decode } from 'hono/jwt'
+import decode from 'jwt-decode'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({

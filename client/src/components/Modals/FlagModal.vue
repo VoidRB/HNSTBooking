@@ -2,7 +2,7 @@
 import axios from 'axios'
 import type beneficiaryType from '@/interfaces/beneficiary'
 import { ref } from 'vue'
-import { decode } from 'hono/jwt'
+import decode from 'jwt-decode'
 
 const props = defineProps<{ beneficiary: beneficiaryType }>()
 const reasonForFlagging = ref('')
