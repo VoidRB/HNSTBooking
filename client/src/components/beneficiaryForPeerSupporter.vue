@@ -64,7 +64,7 @@ const startTimer = () => {
       <p>Email: {{ beneficiary.email }}</p>
       <p>Status: {{ beneficiary.status }}</p>
       <p>Gender: {{ beneficiary.gender }}</p>
-      <hr class="divider" />
+      <hr class="divider border-0" />
       <h1 class="text-lg underline">Therapy Information</h1>
       <p>Preferred communication option: {{ beneficiary.communicationOption }}</p>
       <p>Notes: {{ beneficiary.staffNotes }}</p>
@@ -95,7 +95,7 @@ const startTimer = () => {
         >
           <i class="pi pi-bell"></i>
         </button>
-        <button class="btn btn-error" onclick="my_modal_5.showModal()">Flag</button>
+        <button class="btn btn-error" onclick="my_modal_3.showModal()">Flag</button>
       </section>
     </div>
     <FlagModal :beneficiary="beneficiary" />

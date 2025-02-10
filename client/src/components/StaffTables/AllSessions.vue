@@ -132,7 +132,7 @@ const refreshTable = async () => {
           </tr>
         </tbody>
       </table>
-      <SessionModal id="my_modal_3" :session="sessionToModal" />
+      <SessionModal id="my_modal_6" :session="sessionToModal" />
     </div>
   </section>
 </template>

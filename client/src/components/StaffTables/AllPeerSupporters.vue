@@ -135,7 +135,7 @@ const refreshTable = async () => {
             v-for="peerSupporter in peerSupporters"
             :key="peerSupporter.id"
             class="hover cursor-pointer"
-            onclick="my_modal_1.showModal()"
+            onclick="my_modal_4.showModal()"
             @click="setPeerSupporter(peerSupporter)"
           >
             <th>{{ peerSupporter.id }}</th>
