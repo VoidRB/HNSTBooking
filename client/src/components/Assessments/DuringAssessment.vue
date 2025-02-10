@@ -2,10 +2,10 @@
 import { duringTherapyPsychlopsQuestions } from '../../../../shared/assessmentQuestions'
 import { psychlopsAnswerOptions } from '../../../../shared/assessmentAnswers'
 import axios from 'axios'
-// import { decode } from 'hono/jwt'
+import { jwtDecode } from 'jwt-decode'
 import { useToast } from 'vue-toastification'
 const toast = useToast()
-// const { payload } = decode(document.cookie)
+// const { payload } = jwtDecode(document.cookie)
 const props = defineProps({
   beneficiary: Object,
   chosenAssessmentDate: String,

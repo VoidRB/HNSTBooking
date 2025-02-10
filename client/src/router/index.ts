@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { decode } from 'hono/jwt'
+import { jwtDecode } from 'jwt-decode'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -102,7 +102,7 @@ router.beforeEach((to, _from, next) => {
 
 // router.beforeEach(async (to, _from, next) => {
 //   if (to.meta.requireAuth === true) {
-//     const { payload } = decode(document.cookie)
+//     const { payload } = jwtdecode(document.cookie)
 //     if (payload.roleId > 1) {
 //       return next()
 //     }

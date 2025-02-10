@@ -1,29 +1,14 @@
 <script setup lang="ts">
 import SessionFeedbackForm from '@/components/SessionFeedbackForm.vue'
 import SessionForm from '@/components/SessionForm.vue'
-// import axios from 'axios'
-// import { decode } from 'hono/jwt'
-// import { onMounted, ref } from 'vue'
+import { jwtDecode } from 'jwt-decode'
+import { ref } from 'vue'
 
-// const { payload } = decode(document.cookie)
-// const userData = ref({})
-
-// onMounted(async () => {
-//   try {
-//     const response = await axios.get('/api/user', {
-//       params: {
-//         userId: payload.id,
-//       },
-//     })
-
-//     userData.value = response.data
-//   } catch (error) {
-//     console.log(error)
-//   }
-// })
+const { payload } = jwtDecode(document.cookie)
+const userData = ref({})
 </script>
 <template>
-  <div class="mt-16 flex h-full w-full flex-col justify-between">
+  <div class="mt-16 flex h-full w-full flex-col items-center justify-center">
     <!-- <SessionForm v-if="userData.status === 'active'" />
     <SessionFeedbackForm v-else /> -->
     <SessionForm />

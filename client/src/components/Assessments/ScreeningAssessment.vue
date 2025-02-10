@@ -13,12 +13,12 @@ import {
 } from '../../../../shared/assessmentAnswers'
 
 import axios from 'axios'
-// import { decode } from 'hono/jwt'
+// import { jwtDecode } from 'jwt-decode'
 import { useToast } from 'vue-toastification'
 import { ref } from 'vue'
 
 const toast = useToast()
-// const { payload } = decode(document.cookie)
+// const { payload } = jwtDecode(document.cookie)
 const mcqAnswers = ref<Array<string>>([])
 const props = defineProps({
   beneficiary: Object,
