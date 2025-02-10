@@ -55,7 +55,7 @@ const bookSession = async () => {
 </script>
 <template>
   <form
-    class="flex w-full flex-col items-center justify-center gap-5"
+    class="mt-16 flex w-full flex-col items-center justify-center gap-5 md:mt-0"
     @submit.prevent="bookSession"
   >
     <h1 class="font-bold">Fill in the form below to start your therapy!</h1>
@@ -132,8 +132,8 @@ const bookSession = async () => {
           v-if="session.SessionCommOption === 'Telephone'"
         >
           <div>
-            <label class="mr-9">Country</label>
-            <label>Telephone Number</label>
+            <label>Country</label>
+            <label class="ml-9">Telephone Number</label>
           </div>
           <div class="join">
             <select
@@ -189,7 +189,7 @@ const bookSession = async () => {
           <div class="join select-none">
             <select
               v-model="session.locationState"
-              class="join-item select select-bordered select-multiple w-20 overflow-hidden text-ellipsis"
+              class="join-item select select-bordered select-multiple w-20 overflow-hidden text-ellipsis pr-0"
             >
               <option>Internally displaced</option>
               <option>Externally displaced</option>

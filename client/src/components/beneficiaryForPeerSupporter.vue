@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import axios from 'axios'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useToast } from 'vue-toastification'
 import FlagModal from './Modals/FlagModal.vue'
 import SessionFeedbackPeerSupporter from './Modals/SessionFeedbackPeerSupporter.vue'
@@ -20,6 +20,16 @@ const beneficiary = ref({
   assignedPeerSupporter: 'John Doe',
   communicationOption: 'Google Meet',
   staffNotes: '',
+})
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('/beneficiary/:beneficiaryId')
+    // beneficiary.value = response.data
+  } catch (error) {
+    toast.error('Oops, An Error Occurred')
+    console.log(error)
+  }
 })
 
 const notifyBeneficiary = async (chosenBeneficiaryId: number) => {
@@ -69,7 +79,7 @@ const startTimer = () => {
       <p>Preferred communication option: {{ beneficiary.communicationOption }}</p>
       <p>Notes: {{ beneficiary.staffNotes }}</p>
       <section
-        class="mt-10 flex flex-row items-center justify-center gap-2 md:flex-row md:self-end"
+        class="mt-10 flex h-full w-full flex-row items-end justify-end gap-2 md:flex-row md:self-end"
       >
         <div class="flex justify-center gap-2 text-2xl">
           <p
@@ -95,10 +105,10 @@ const startTimer = () => {
         >
           <i class="pi pi-bell"></i>
         </button>
-        <button class="btn btn-error" onclick="my_modal_5.showModal()">Flag</button>
+        <button class="btn btn-error" onclick="my_modal_3.showModal()">Flag</button>
       </section>
     </div>
-    <FlagModal :beneficiary="beneficiary" />
+    <FlagModal id="my_modal_3" :beneficiary="beneficiary" />
     <SessionFeedbackPeerSupporter :beneficiary="beneficiary" :modalOpened="modalState" />
   </div>
 </template>
