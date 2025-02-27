@@ -74,7 +74,7 @@ const peerSupporterToModal = ref<peerSupporterType>()
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/user/all/role/2')
+    const response = await axios.get('/api/user/all/role')
     peerSupporters.value = response.data
   } catch (error) {
     //will fix the error handling hehe
@@ -122,12 +122,12 @@ const refreshTable = async () => {
       <table class="table table-pin-rows">
         <thead>
           <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Status</th>
-            <th>Sessions</th>
-            <th>Assigned beneficiaries</th>
+            <th class="text-center"></th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Sessions</th>
+            <th class="text-center">Assigned beneficiaries</th>
           </tr>
         </thead>
         <tbody>
@@ -142,11 +142,16 @@ const refreshTable = async () => {
             <td>{{ peerSupporter.name }}</td>
             <td>{{ peerSupporter.email }}</td>
             <td>
-              <p :class="peerSupporterStatusBackground(peerSupporter.status)">
+              <p
+                :class="[
+                  peerSupporterStatusBackground(peerSupporter.status),
+                  'w-full text-base-content',
+                ]"
+              >
                 {{ peerSupporter.status }}
               </p>
             </td>
-            <td>{{ peerSupporter.Sessions }}</td>
+            <td class="text-center">{{ peerSupporter.Sessions }}</td>
             <td>{{ peerSupporter.assignedBeneficiary }}</td>
           </tr>
         </tbody>

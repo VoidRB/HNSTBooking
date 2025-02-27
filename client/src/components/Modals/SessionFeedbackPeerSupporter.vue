@@ -23,15 +23,16 @@ const sumbitFeedback = async () => {
 }
 </script>
 <template>
-  <!-- Put this part before </body> tag -->
   <input type="checkbox" id="my_modal_5" :checked="props.modalOpened" class="modal-toggle" />
   <div class="modal" role="dialog">
-    <div class="modal-box">
-      <h3 class="text-lg font-bold">Hello!</h3>
-      <p class="py-4">This modal works with a hidden checkbox!</p>
-      <div class="modal-action">
-        <label for="my_modal_6" class="btn" @click="sumbitFeedback()">Close!</label>
-      </div>
+    <div class="modal-box flex flex-col">
+      <h1 class="text-lg font-bold">Session Feedback Form</h1>
+      <p class="py-4">test</p>
+      <section class="flex w-full items-end justify-between">
+        <p class="text-base-200">Click outside the modal to close it</p>
+        <button class="btn place-self-end" @click="sumbitFeedback()">Submit</button>
+      </section>
     </div>
+    <label class="modal-backdrop" for="my_modal_5">Close</label>
   </div>
 </template>

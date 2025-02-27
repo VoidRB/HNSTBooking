@@ -4,20 +4,6 @@ import { RouterLink } from 'vue-router'
 const userRole = ref('Admin')
 const menuData = [
   {
-    id: 0,
-    role: 'Admin',
-    routes: [
-      { name: 'Homepage', routeName: 'home' },
-      { name: 'Session', routeName: 'SessionView' },
-      { name: 'Assessments', routeName: 'AssessmentsView' },
-      { name: 'Peer Supporter Page', routeName: 'PeerSupporterView' },
-      { name: 'Coordinator Page', routeName: 'CoordinatorView' },
-      { name: 'Auditor Page', routeName: 'AuditorView' },
-      { name: "FAQ's", routeName: 'FAQView' },
-      { name: 'Admin Page', routeName: 'AdminView' },
-    ],
-  },
-  {
     id: 1,
     role: 'beneficiary',
     routes: [
@@ -51,6 +37,20 @@ const menuData = [
       { name: 'Homepage', routeName: 'home' },
       { name: 'Assessments', routeName: 'AssessmentsView' },
       { name: 'Auditor Page', routeName: 'AuditorView' },
+    ],
+  },
+  {
+    id: 5,
+    role: 'Admin',
+    routes: [
+      { name: 'Homepage', routeName: 'home' },
+      { name: 'Session', routeName: 'SessionView' },
+      { name: 'Assessments', routeName: 'AssessmentsView' },
+      { name: 'Peer Supporter Page', routeName: 'PeerSupporterView' },
+      { name: 'Coordinator Page', routeName: 'CoordinatorView' },
+      { name: 'Auditor Page', routeName: 'AuditorView' },
+      { name: "FAQ's", routeName: 'FAQView' },
+      { name: 'Admin Page', routeName: 'AdminView' },
     ],
   },
 ]

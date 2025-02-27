@@ -101,7 +101,7 @@ const register = async () => {
       placeholder="password"
       minlength="6"
       autocomplete="current-password"
-      :class="[passwordBorderColor, 'input', 'input-bordered', 'w-full', 'max-w-xs']"
+      :class="[passwordBorderColor, 'input', 'input-bordered', 'w-full', 'max-w-xs', '']"
     />
     <!-- Repeated Password -->
     <input
@@ -112,7 +112,7 @@ const register = async () => {
       placeholder="repeat password"
       minlength="6"
       autocomplete="current-password"
-      :class="[passwordBorderColor, 'input', 'input-bordered', 'w-full', 'max-w-xs']"
+      :class="[passwordBorderColor, 'input', 'input-bordered', 'w-full', 'max-w-xs', '']"
     />
     <button class="btn" @click="passwordBorderColor = 'ring-0'">Register</button>
   </form>

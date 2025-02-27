@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import SessionFeedbackForm from '@/components/SessionFeedbackForm.vue'
 import SessionForm from '@/components/SessionForm.vue'
-import { jwtDecode } from 'jwt-decode'
+// import { jwtDecode } from 'jwt-decode'
 import { ref } from 'vue'
 
-const { payload } = jwtDecode(document.cookie)
+// const { payload } = jwtDecode(document.cookie)
 const userData = ref({})
 </script>
 <template>

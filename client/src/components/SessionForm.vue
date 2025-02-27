@@ -21,18 +21,6 @@ const session = reactive({
 })
 
 const bookSession = async () => {
-  console.log(
-    session.beneficiaryEmail,
-    session.beneficiaryName,
-    session.location,
-    session.locationState,
-    session.employnmentStatus,
-    session.beneficiaryPhoneCode,
-    session.SessionDate,
-    session.SessionDuration,
-    session.SessionCommOption,
-    session.SessionCommOptionData,
-  )
   try {
     await axios.postForm('/api/bookSession', {
       beneficiaryEmail: session.beneficiaryEmail,
@@ -55,7 +43,7 @@ const bookSession = async () => {
 </script>
 <template>
   <form
-    class="mt-16 flex w-full flex-col items-center justify-center gap-5 md:mt-0"
+    class="mt-16 flex w-full flex-col items-center justify-center gap-5 drop-shadow-md md:mt-0"
     @submit.prevent="bookSession"
   >
     <h1 class="font-bold">Fill in the form below to start your therapy!</h1>
@@ -137,6 +125,7 @@ const bookSession = async () => {
           </div>
           <div class="join">
             <select
+              required
               v-model="session.beneficiaryPhoneCode"
               class="join-item select select-bordered select-multiple w-20 overflow-hidden text-ellipsis pr-0"
             >
@@ -188,6 +177,7 @@ const bookSession = async () => {
           </div>
           <div class="join select-none">
             <select
+              required
               v-model="session.locationState"
               class="join-item select select-bordered select-multiple w-20 overflow-hidden text-ellipsis pr-0"
             >

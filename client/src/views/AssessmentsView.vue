@@ -46,7 +46,7 @@ const chosenSessionNumber = ref('1')
 </script>
 <template>
   <div class="mt-16 flex h-full w-full flex-col gap-10">
-    <section class="flex w-full gap-10 px-10">
+    <section class="flex h-fit w-full justify-evenly gap-10 px-10 drop-shadow-md">
       <div class="flex w-1/3 flex-col">
         <label class="label-text overflow-hidden text-ellipsis text-nowrap"
           >Choose a Beneficiary</label
@@ -94,17 +94,20 @@ const chosenSessionNumber = ref('1')
       </div>
     </section>
     <section class="flex h-full w-full flex-col">
-      <article v-if="chosenAssessmentType === 'During-Session'">
+      <article v-if="chosenAssessmentType === 'During-Session'" class="flex h-full w-full flex-col">
         <DuringAssessment
           :beneficiary="chosenBeneficiary"
           :chosenAssessmentDate="todaysDate"
           :sessionNumber="chosenSessionNumber"
         />
       </article>
-      <article v-else-if="chosenAssessmentType === 'Post-Session'">
+      <article
+        v-else-if="chosenAssessmentType === 'Post-Session'"
+        class="flex h-full w-full flex-col"
+      >
         <PostAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
-      <article v-else-if="chosenAssessmentType === 'Screening'">
+      <article v-else-if="chosenAssessmentType === 'Screening'" class="flex h-full w-full flex-col">
         <ScreeningAssessment :beneficiary="chosenBeneficiary" :chosenAssessmentDate="todaysDate" />
       </article>
       <article v-else class="ml-2">

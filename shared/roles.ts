@@ -23,11 +23,18 @@ const AuditorRole = {
 	roleName: "Auditor",
 } as const;
 
+const AdminRole = {
+	roleID: 5,
+	roleName: "Admin",
+} as const;
+
 export const systemRoles = {
 	guest: guestRole,
 	beneficiary: beneficiaryRole,
 	peerSupporter: peerSupporterRole,
 	coordinator: coordinatorRole,
+	auditor: AuditorRole,
+	admin: AdminRole,
 } as const;
 
 export type SystemRoles = typeof systemRoles;

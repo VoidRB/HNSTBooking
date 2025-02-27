@@ -34,9 +34,9 @@ const submitAssessment = async () => {
 <template>
   <h1 class="ml-2 font-bold underline">Beneficiary : {{ props.beneficiary?.name }}</h1>
   <form class="flex h-full w-full flex-col py-5" @submit.prevent="submitAssessment()">
-    <div class="ml-5 h-96 overflow-y-scroll pr-5">
+    <div class="h-96 w-full overflow-y-scroll scroll-smooth px-5 lg:h-4/6">
       <!-- PSYCHLOPS QUESTIONS -->
-      <section>
+      <section class="">
         <div v-for="question in duringTherapyPsychlopsQuestions" :key="question.id">
           <article v-if="question.type === 'text'">
             <h1 class="font-bold">{{ question.question }}</h1>
@@ -61,7 +61,7 @@ const submitAssessment = async () => {
                   v-model="question.answer"
                   type="radio"
                   :name="question.id"
-                  class="radio"
+                  class="radio bg-white"
                   :value="option.option"
                 />
               </div>

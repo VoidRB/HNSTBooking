@@ -1,10 +1,15 @@
 <script setup lang="ts">
 import axios from 'axios'
+import { useToast } from 'vue-toastification'
+const toast = useToast()
 
 const submitFeedbackForm = async () => {
   try {
     const response = await axios.postForm('')
-  } catch (error) {}
+    toast.success('Successfully submitted your feedback!')
+  } catch (error) {
+    toast.error(`${error}`)
+  }
 }
 </script>
 <template>

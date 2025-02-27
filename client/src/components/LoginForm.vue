@@ -20,7 +20,7 @@ const login = async () => {
 }
 </script>
 <template>
-  <form class="flex flex-col items-center gap-2" @submit.prevent="login">
+  <form class="flex h-full w-full flex-col items-center gap-2" @submit.prevent="login">
     <div class="input bg-transparent"></div>
     <div class="input bg-transparent"></div>
     <input
@@ -29,7 +29,7 @@ const login = async () => {
       placeholder="Email"
       autocomplete="email"
       required
-      class="input input-bordered w-full max-w-xs"
+      class="input input-bordered max-w-xs"
     />
     <input
       v-model="user.password"
@@ -37,7 +37,7 @@ const login = async () => {
       type="password"
       placeholder="password"
       autocomplete="current-password"
-      class="input input-bordered w-full max-w-xs"
+      class="input input-bordered max-w-xs"
     />
     <div class="input bg-transparent"></div>
     <div class="input bg-transparent"></div>

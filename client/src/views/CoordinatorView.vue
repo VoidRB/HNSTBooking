@@ -10,7 +10,7 @@ import CoordinatorStats from '../components/CoordinatorStats.vue'
       <AllBeneficiaries class="col-start-1" />
       <AllPeerSupporters class="col-start-2" />
       <AllSessions class="col-start-1 row-start-2" />
-      <CoordinatorStats class="col-start-2 row-start-2" />
+      <!-- <CoordinatorStats class="col-start-2 row-start-2" /> -->
     </section>
   </div>
 </template>

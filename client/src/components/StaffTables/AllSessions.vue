@@ -58,7 +58,7 @@ const sessionToModal = ref<sessionType>()
 
 onMounted(async () => {
   try {
-    const response = await axios.get('/api/sessions/all')
+    const response = await axios.get('/api/sessions/all', { withCredentials: true })
     sessions.value = response.data
   } catch (error) {
     //will fix the error handling
@@ -111,8 +111,8 @@ const refreshTable = async () => {
           <tr>
             <th></th>
             <th>Name</th>
-            <th>Stage</th>
-            <th>Assigned Peer Supporter</th>
+            <th class="text-center">Stage</th>
+            <th>Peer Supporter</th>
           </tr>
         </thead>
         <tbody>
@@ -126,7 +126,9 @@ const refreshTable = async () => {
             <th class="w-0">{{ session.id }}</th>
             <td>{{ session.name }}</td>
             <td>
-              <p :class="sessionStatusBackground(session.stage)">{{ session.stage }}</p>
+              <p :class="[sessionStatusBackground(session.stage), 'w-full text-base-content']">
+                {{ session.stage }}
+              </p>
             </td>
             <td>{{ session.assignedPeerSupporter }}</td>
           </tr>

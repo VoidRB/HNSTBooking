@@ -120,7 +120,7 @@ const refreshTable = async () => {
           </tr>
         </tbody>
       </table>
-      <AssessmentModal id="my_modal_4" :assessment="assessmentToModal" />
+      <AssessmentModal id="my_modal_1" :assessment="assessmentToModal" />
     </div>
   </section>
 </template>

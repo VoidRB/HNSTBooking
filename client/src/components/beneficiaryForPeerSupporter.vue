@@ -54,6 +54,7 @@ const startTimer = () => {
       seconds.value -= 1
     } else {
       modalState.value = true
+      return
     }
   }, 1000)
 
@@ -61,6 +62,7 @@ const startTimer = () => {
     if (hour.value >= 0) {
       minute.value -= 1
     } else {
+      return
     }
   }, 60000)
 }
@@ -69,7 +71,7 @@ const startTimer = () => {
   <div class="flex h-full w-full flex-col items-center px-10">
     <h1 class="w-full text-2xl">Assigned Beneficiary</h1>
     <div class="m-5 flex h-full w-full flex-col rounded-lg p-5 shadow-lg ring-1 ring-base-200">
-      <h1 class="mb-5 text-lg underline">Personal Info</h1>
+      <h1 class="mb-5 text-lg underline">Personal Information</h1>
       <p class="text-">Name: {{ beneficiary.name }}</p>
       <p>Email: {{ beneficiary.email }}</p>
       <p>Status: {{ beneficiary.status }}</p>
@@ -109,6 +111,10 @@ const startTimer = () => {
       </section>
     </div>
     <FlagModal id="my_modal_3" :beneficiary="beneficiary" />
-    <SessionFeedbackPeerSupporter :beneficiary="beneficiary" :modalOpened="modalState" />
+    <SessionFeedbackPeerSupporter
+      id="my_modal_5"
+      :beneficiary="beneficiary"
+      :modalOpened="modalState"
+    />
   </div>
 </template>

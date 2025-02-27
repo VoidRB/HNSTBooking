@@ -56,8 +56,8 @@ const submitAssessment = async () => {
 </script>
 <template>
   <h1 class="ml-2 font-bold underline">Beneficiary : {{ props.beneficiary?.name }}</h1>
-  <form class="flex h-full w-full flex-col py-10" @submit.prevent="submitAssessment()">
-    <div class="ml-5 h-96 overflow-y-scroll scroll-smooth pr-5">
+  <form class="flex h-full w-full flex-col py-5" @submit.prevent="submitAssessment()">
+    <div class="h-96 w-full overflow-y-scroll scroll-smooth px-5 lg:h-4/6">
       <h1 class="mb-10 text-3xl font-bold underline">MHC-SF Questions</h1>
 
       <!-- MHC-SF Questions -->
