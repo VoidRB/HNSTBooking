@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import axios from 'axios'
 import type beneficiaryObject from '../../interfaces/beneficiary'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useToast } from 'vue-toastification'
+import type peerSupporterType from '@/interfaces/peerSupporter'
 const props = defineProps<{ beneficiary: beneficiaryObject | undefined }>()
 const assignedPeerSupporter = ref('')
 const beneficiaryStatus = ref('')
 const toast = useToast()
+const allPeerSupporters = ref<Array<peerSupporterType>>()
 
 const updateBeneficiary = () => {
   try {
@@ -21,6 +23,15 @@ const updateBeneficiary = () => {
     console.log(error)
   }
 }
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('api/peerSupporter/all')
+    allPeerSupporters.value = response.data
+  } catch (error) {
+    toast.error('There was an error fetching the peer supporters, please try again later')
+  }
+})
 </script>
 <template>
   <dialog id="my_modal_2" class="modal">
@@ -53,10 +64,9 @@ const updateBeneficiary = () => {
             v-model="assignedPeerSupporter"
           >
             <option disabled selected>Peer Supporter</option>
-            <!-- need the list of the peer supporters -->
-            <option>PS 1</option>
-            <option>PS 2</option>
-            <option>PS 3</option>
+            <option v-for="peerSupporter in allPeerSupporters" :key="peerSupporter.id">
+              {{ peerSupporter.name }}
+            </option>
           </select>
         </p>
         <p class="col-start-1 row-start-6 select-none font-bold">

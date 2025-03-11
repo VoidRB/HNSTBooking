@@ -25,7 +25,7 @@ const updateUser = () => {
       <div class="mt-4 grid grid-cols-2 grid-rows-3">
         <p class="col-start-1 row-start-1">User ID :</p>
         <p class="col-start-2 row-start-1">{{ props.user?.id }}</p>
-        <p class="col-start-1 row-start-2">User Name :</p>
+        <p class="col-start-1 row-start-2">Username :</p>
         <p class="col-start-2 row-start-2">{{ props.user?.name }}</p>
         <p class="col-start-1 row-start-3">User Role :</p>
         <select

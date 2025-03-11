@@ -7,7 +7,7 @@ import AssessmentModal from '../Modals/AssessmentModal.vue'
 const assessments = ref([
   {
     id: 1,
-    type: 'Pre-Session',
+    type: 'Screening',
     assignedPeerSupporter: 'Sarah Al-Rawi',
     beneficiary: 'Ahmed Bin Suleiman',
     date: '2025-01-15',
@@ -39,7 +39,7 @@ const assessments = ref([
   },
   {
     id: 5,
-    type: 'Pre-Session',
+    type: 'Screening',
     assignedPeerSupporter: 'Omar Al-Shehri',
     beneficiary: 'Noura Al-Mutairi',
     date: '2025-01-19',

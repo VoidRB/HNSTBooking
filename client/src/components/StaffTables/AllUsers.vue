@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import type UserType from '@/interfaces/user'
 import AdminUserModal from '../Modals/AdminUserModal.vue'
+import axios from 'axios'
+import { useToast } from 'vue-toastification'
 const userToModal = ref<UserType>()
+const toast = useToast()
 const allUsers = ref([
   {
     id: 0,
@@ -35,6 +38,15 @@ const allUsers = ref([
     role: 'Guest',
   },
 ])
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('api/users/all')
+    allUsers.value = response.data
+  } catch (error) {
+    toast.error('There was an error fetching the users, please try again later.')
+  }
+})
 
 const setUser = (user: UserType) => {
   userToModal.value = user
