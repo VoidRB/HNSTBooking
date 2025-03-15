@@ -11,7 +11,7 @@ const userData = ref({})
   <div class="mt-16 flex h-full w-full flex-col items-center justify-center">
     <!-- <SessionForm v-if="userData.status === 'active'" />
     <SessionFeedbackForm v-else /> -->
-    <SessionForm />
-    <!-- <SessionFeedbackForm /> -->
+    <!-- <SessionForm /> -->
+    <SessionFeedbackForm />
   </div>
 </template>
